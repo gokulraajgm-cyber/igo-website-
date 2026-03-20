@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    
+    --radius: 0.5rem;
+    
+    --font-display: 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-medium tracking-tight text-foreground;
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+  h1 { font-size: clamp(3rem, 7vw, 6rem); line-height: 1; letter-spacing: -0.05em; font-weight: 600; }
+  h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -0.03em; font-weight: 500; }
+  h3 { font-size: clamp(1.5rem, 2.5vw, 2rem); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500; }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .font-body { font-family: var(--font-body); }
+  
+  .glass {
+    @apply bg-white/50 backdrop-blur-2xl border border-white/20 shadow-sm transition-all duration-500;
+  }
+
+  .premium-card {
+    @apply rounded-[32px] bg-secondary border border-border/40 hover:bg-white 
+           transition-all duration-700 hover:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] 
+           hover:-translate-y-1;
+  }
+
+  .premium-btn {
+    @apply rounded-full px-10 py-5 font-medium tracking-tight text-sm 
+           transition-all duration-500 hover:scale-[1.02] active:scale-95 
+           bg-primary text-white hover:opacity-90
+           flex items-center justify-center gap-2;
+  }
+
+  .text-luxury {
+    @apply tracking-widest uppercase text-[10px] font-semibold text-muted-foreground opacity-60;
+  }
+}
+
+/* Custom Scrollbar for Dropdowns */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 10px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: hsl(var(--muted)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--primary)); border-radius: 4px; }
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
