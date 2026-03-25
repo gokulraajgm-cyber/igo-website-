@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { lazy, Suspense, useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,32 +9,32 @@ import { AuthProvider } from "@/hooks/useAuth";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
-import FloatingBackground from "@/components/FloatingBackground";
 import LoadingScreen from "@/components/LoadingScreen";
-import Index from "./pages/Index";
-import About from "./pages/About";
-import Projects from "./pages/Projects";
-import ProjectRouter from "./pages/ProjectRouter";
-import ServiceRouter from "./pages/ServiceRouter";
-import ProductRouter from "./pages/ProductRouter";
-import Services from "./pages/Services";
-import Products from "./pages/Products";
-import Courses from "./pages/Courses";
-import FAQ from "./pages/FAQ";
-import Contact from "./pages/Contact";
-import StartupPlatform from "./pages/StartupPlatform";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import Careers from "./pages/Careers";
-import AgriStartupPlatform from "./pages/AgriStartupPlatform";
-import AgriStartupEnquiry from "./pages/AgriStartupEnquiry";
-import IgoGroupBrands from "./pages/IgoGroupBrands";
-import AdminLogin from "./pages/AdminLogin";
-import AdminDashboard from "./pages/AdminDashboard";
-import AdsLogin from "./pages/AdsLogin";
-import AdsDashboard from "./pages/AdsDashboard";
-import OffersPage from "./pages/OffersPage";
-import NotFound from "./pages/NotFound";
+
+// Lazy-loaded pages for better code splitting
+const Index = lazy(() => import("./pages/Index"));
+const About = lazy(() => import("./pages/About"));
+const Projects = lazy(() => import("./pages/Projects"));
+const ProjectRouter = lazy(() => import("./pages/ProjectRouter"));
+const ServiceRouter = lazy(() => import("./pages/ServiceRouter"));
+const ProductRouter = lazy(() => import("./pages/ProductRouter"));
+const Services = lazy(() => import("./pages/Services"));
+const Products = lazy(() => import("./pages/Products"));
+const Courses = lazy(() => import("./pages/Courses"));
+const FAQ = lazy(() => import("./pages/FAQ"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const Careers = lazy(() => import("./pages/Careers"));
+const AgriStartupPlatform = lazy(() => import("./pages/AgriStartupPlatform"));
+const AgriStartupEnquiry = lazy(() => import("./pages/AgriStartupEnquiry"));
+const IgoGroupBrands = lazy(() => import("./pages/IgoGroupBrands"));
+const AdminLogin = lazy(() => import("./pages/AdminLogin"));
+const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
+const AdsLogin = lazy(() => import("./pages/AdsLogin"));
+const AdsDashboard = lazy(() => import("./pages/AdsDashboard"));
+const OffersPage = lazy(() => import("./pages/OffersPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
@@ -103,6 +103,7 @@ const AppRoutes = () => {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.25, ease: "easeInOut" }}
       >
+        <Suspense fallback={<div className="min-h-screen" />}>
         <Routes location={location}>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
@@ -135,6 +136,7 @@ const AppRoutes = () => {
           {/* /startup-platform is an alias handled by /agri-startup-platform above */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </Suspense>
       </motion.div>
     </AnimatePresence>
   );
