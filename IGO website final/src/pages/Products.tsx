@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 import { ArrowRight, ShieldCheck, Zap } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 import { navLinks } from "@/data/siteData";
@@ -19,6 +20,12 @@ const Products = () => {
 
   return (
     <div className="bg-white min-h-screen selection:bg-[#E8F5E9] selection:text-[#1A4231]">
+      <SEO
+        title="Agri Products | Buy Farming Equipment & Supplies — IGO Agritech Farms"
+        description="Shop agri products from IGO Agritech Farms — polyhouse materials, hydroponic systems, drip irrigation, grow lights, pond liners, agri nets, bio-inputs, and more. Quality assured."
+        keywords="buy polyhouse material India, hydroponic system buy, drip irrigation products, agri net India, pond liner buy, grow lights farming, bio inputs agriculture"
+        url="/products"
+      />
       {/* Hero Section */}
       <section className="relative pt-40 pb-32 overflow-hidden bg-black">
         <motion.div

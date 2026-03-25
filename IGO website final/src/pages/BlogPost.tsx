@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { ArrowLeft, Share2, Facebook, Twitter, Linkedin, User, Calendar, ArrowRight } from 'lucide-react';
 import { blogPosts } from '@/data/siteData';
+import SEO from '@/components/SEO';
 
 const BlogPost = () => {
   const { id } = useParams();
@@ -25,6 +26,16 @@ const BlogPost = () => {
 
   return (
     <div className="pt-20 bg-white">
+      <SEO
+        title={post.title}
+        description={post.excerpt}
+        image={post.image}
+        url={`/blog/${post.id}`}
+        type="article"
+        publishedTime={post.date}
+        author={post.author}
+        keywords={`${post.category}, agriculture blog, IGO Agritech, farming insights India`}
+      />
       {/* Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1.5 bg-primary z-50 origin-[0%] shadow-[0_2px_10px_rgba(26,66,49,0.2)]"

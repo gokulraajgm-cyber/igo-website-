@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 import { supabase } from "@/integrations/supabase/client";
 import { sendFormEmail } from "@/lib/sendFormEmail";
 import { courses } from "@/data/siteData";
@@ -101,6 +102,12 @@ const Academy = () => {
 
   return (
     <div className="bg-white min-h-screen">
+      <SEO
+        title="Agri Training & Academy | Farming Courses — IGO Agritech Farms"
+        description="Enroll in IGO Agritech Farms' agriculture training programs. Hands-on courses in polyhouse farming, hydroponics, vertical farming, mushroom cultivation, biofloc, and agri entrepreneurship."
+        keywords="agri training India, farming course, polyhouse training, hydroponics course, agri academy Chennai, mushroom farming course, vertical farming training"
+        url="/courses"
+      />
 
       {/* ── HERO ──────────────────────────────────────────────────────── */}
       <section className="relative pt-20 overflow-hidden bg-[#0C1A14]">

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+import SEO from "@/components/SEO";
 import { supabase } from "@/integrations/supabase/client";
 import { sendFormEmail } from "@/lib/sendFormEmail";
 import { companyInfo } from "@/data/siteData";
@@ -135,6 +136,12 @@ const Contact = () => {
 
   return (
     <div className="bg-white min-h-screen selection:bg-[#E8F5E9] selection:text-[#1A4231]">
+      <SEO
+        title="Contact Us | Get in Touch — IGO Agritech Farms"
+        description="Contact IGO Agritech Farms for project enquiries, agri consulting, product purchases, or partnership opportunities. Call +91 73977 89803 or email us. Based in Chennai, India."
+        keywords="contact IGO Agritech, agri consulting enquiry, polyhouse project enquiry, Chennai agriculture company, agri engineering contact India"
+        url="/contact"
+      />
 
       {/* ═══════════════════════════════════════════════════
           SECTION 1 — Cinematic Hero

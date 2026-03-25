@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowRight, Mail, TrendingUp, Zap, Heart, CheckCircle, Users, MapPin, ChevronDown, Send } from "lucide-react";
+import SEO from "@/components/SEO";
 import { motion, AnimatePresence } from "framer-motion";
 import { sendFormEmail } from "@/lib/sendFormEmail";
 import { toast } from "sonner";
@@ -177,6 +178,12 @@ const Careers = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Careers | Join Our Team — IGO Agritech Farms"
+        description="Join IGO Agritech Farms — India's leading agri engineering company. Explore career opportunities in agri engineering, consulting, sales, marketing, R&D, and more. Apply now."
+        keywords="agri jobs India, agriculture career, farm engineering jobs, agri consulting jobs Chennai, IGO Agritech careers, agriculture company jobs"
+        url="/careers"
+      />
 
       {/* ── HERO ── */}
       <section className="relative bg-[#0C1A14] overflow-hidden pt-20">

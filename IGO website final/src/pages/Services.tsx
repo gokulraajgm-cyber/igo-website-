@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 import { ArrowRight } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 import { navLinks } from "@/data/siteData";
@@ -18,6 +19,12 @@ const Services = () => {
   
   return (
     <div className="bg-[#F9FAFB] min-h-screen selection:bg-[#E8F5E9] selection:text-[#1A4231]">
+      <SEO
+        title="Our Services | Agri Engineering & Consulting — IGO Agritech Farms"
+        description="Explore IGO Agritech Farms' full range of services — polyhouse construction, hydroponics, vertical farming, mushroom cultivation, biofloc, agri consulting, training & academy, and more across India."
+        keywords="polyhouse construction India, hydroponics setup, vertical farming service, mushroom farming setup, biofloc system, agri consulting service, farm engineering India"
+        url="/services"
+      />
       {/* Hero Section */}
       <section className="relative pt-40 pb-32 overflow-hidden bg-[#1A4231] text-white">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "url('/assets/polyhouse_wireframe.png')", backgroundSize: 'cover', backgroundPosition: 'center' }} />

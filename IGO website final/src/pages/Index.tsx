@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import SEO from "@/components/SEO";
 import { ArrowRight, Wheat, Fish, Tractor, Droplets, Leaf, Shield, Hammer } from "lucide-react";
 import { stats, projects, services, navLinks } from "@/data/siteData";
 import { motion, AnimatePresence, Variants } from "framer-motion";
@@ -853,6 +854,12 @@ const Index = () => {
 
   return (
     <div className="bg-white min-h-screen selection:bg-[#E8F5E9] selection:text-[#1A4231] overflow-x-hidden">
+      <SEO
+        title="IGO Agritech Farms | India's Leading Agri Engineering & Consulting"
+        description="IGO Agritech Farms — India's leading Agri Engineering & Agri Consulting brand. 10+ years, 1000+ projects in precision farming, polyhouse, hydroponics, vertical farming & agri infrastructure across India."
+        keywords="agri engineering, agri consulting, precision farming, polyhouse farming, hydroponics, vertical farming, mushroom farming, biofloc, agri startup India, IGO Agritech, farm infrastructure Chennai"
+        url="/"
+      />
       {hasOffers ? <OffersBanner heroMode /> : <HeroSection />}
       <WhyChooseSection />
       <VisionSection />

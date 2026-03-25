@@ -1,4 +1,5 @@
 import { stats, companyInfo } from "@/data/siteData";
+import SEO from "@/components/SEO";
 import { motion, Variants } from "framer-motion";
 import { Award, Leaf, Lightbulb, Handshake, Star, ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -34,6 +35,12 @@ const VALUES = [
 
 const About = () => (
   <div className="bg-white min-h-screen selection:bg-[#E8F5E9] selection:text-[#1A4231]">
+    <SEO
+      title="About Us | IGO Agritech Farms"
+      description="Learn about IGO Agritech Farms — 10+ years of excellence in agri engineering & consulting, 75+ awards, 2000+ team members, and a mission to transform Indian agriculture with precision farming."
+      keywords="about IGO Agritech, agri consulting company India, agri engineering Chennai, MSME award agri, precision farming company"
+      url="/about"
+    />
 
     {/* ── Cinematic Hero ── */}
     <section className="relative pt-40 pb-44 overflow-hidden bg-black">

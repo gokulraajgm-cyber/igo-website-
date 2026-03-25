@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { navLinks } from "@/data/siteData";
+import SEO from "@/components/SEO";
 import { Link } from "react-router-dom";
 import { motion, Variants } from "framer-motion";
 
@@ -20,6 +21,12 @@ const Projects = () => {
 
   return (
     <div className="bg-white min-h-screen selection:bg-[#E8F5E9] selection:text-[#1A4231]">
+      <SEO
+        title="Our Projects | Agri Engineering Projects — IGO Agritech Farms"
+        description="Explore 1000+ completed agri engineering projects by IGO Agritech Farms — polyhouse, hydroponics, vertical farming, biofloc, rooftop farming, solar agriculture, and more across India."
+        keywords="agri engineering projects India, polyhouse project, hydroponic project, vertical farming project, mushroom farming project, biofloc project, solar agriculture, rooftop farming"
+        url="/projects"
+      />
 
       {/* ── Hero ── */}
       <section className="relative pt-40 pb-40 overflow-hidden bg-black">

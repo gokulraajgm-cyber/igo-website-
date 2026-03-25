@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search, ChevronDown, MessageCircle, Phone, Linkedin, Twitter } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { faqs } from '@/data/siteData';
+import SEO from '@/components/SEO';
 
 const FAQ = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -16,6 +17,12 @@ const FAQ = () => {
 
   return (
     <div className="pt-20 bg-[#FDFDFB]">
+      <SEO
+        title="FAQ | Frequently Asked Questions — IGO Agritech Farms"
+        description="Find answers to common questions about IGO Agritech Farms' services, polyhouse construction, hydroponics setup, agri consulting, pricing, and project timelines."
+        keywords="agri FAQ, polyhouse FAQ, hydroponics questions, agri consulting FAQ, IGO Agritech questions, farming setup cost India"
+        url="/faq"
+      />
       {/* Hero Section */}
       <section className="py-32 relative overflow-hidden border-b border-black/[0.03]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(26,66,49,0.05),transparent_60%)]" />

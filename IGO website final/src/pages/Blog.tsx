@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, User, Search, BookOpen } from "lucide-react";
 import { blogPosts } from "@/data/siteData";
+import SEO from "@/components/SEO";
 
 const Blog = () => (
   <div className="pt-20">
+    <SEO
+      title="Blog | Agriculture Insights & News — IGO Agritech Farms"
+      description="Read the latest agriculture insights, company news, awards, and farming tips from IGO Agritech Farms. Articles on polyhouse, hydroponics, vertical farming, agri careers, and more."
+      keywords="agriculture blog India, farming tips, polyhouse blog, hydroponics news, agri startup articles, IGO Agritech blog"
+      url="/blog"
+    />
     {/* Blog Hero — Horizontal Layout */}
     <section className="py-16 md:py-20 bg-[#FDFDFB] border-b border-black/[0.05] relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(26,66,49,0.04),transparent_55%)]" />
