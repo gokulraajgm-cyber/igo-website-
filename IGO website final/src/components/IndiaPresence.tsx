@@ -40,7 +40,6 @@ const PINS = [
   { name: "Kerala",            lon: 76.5, lat: 10.4, isHub: false },
 ].map((p) => ({ ...p, ...geo(p.lon, p.lat) }));
 
-// ─── SVG Pin ──────────────────────────────────────────────────────────────────
 const HUB  = "#b87333";
 const BASE = "#1e4d35";
 
@@ -129,39 +128,37 @@ const MapPin = ({ cx, cy, isHub, name, isActive, onEnter, onLeave }: PinProps) =
   );
 };
 
-// ─── Component ────────────────────────────────────────────────────────────────
 const IndiaPresence = () => {
   const [activePin, setActivePin] = useState<string | null>(null);
 
   return (
-    <section className="py-20 md:py-32 bg-white relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-full h-full bg-primary/[0.02] pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-agri-green-900/5 rounded-full blur-[10rem] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+    <section className="py-24 md:py-32 lg:py-40 bg-white relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-full h-full bg-primary/[0.01] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[50rem] h-[50rem] bg-agri-green-900/[0.03] rounded-full blur-[12rem] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+      <div className="container mx-auto px-4 md:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 items-start">
 
-          {/* ── LEFT: Map Section — REDESIGNED FOR PERFECTION ───────────── */}
+          {/* ──────── LEFT: Map Visualization ──────── */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="relative group/map lg:sticky lg:top-32"
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="relative group/map lg:sticky lg:top-40"
           >
-            {/* Card shell - Premium Ivory Aesthetic */}
+            {/* Map Frame — Premium Aesthetic */}
             <div
-              className="relative w-full rounded-[4rem] border-[12px] border-white shadow-[0_50px_100px_-20px_rgba(0,0,0,0.12)] overflow-hidden transition-all duration-700 group-hover/map:shadow-[0_80px_150px_-30px_rgba(25,60,30,0.2)]"
+              className="relative w-full rounded-[4.5rem] border-[14px] border-white shadow-[0_60px_120px_-30px_rgba(0,0,0,0.15)] overflow-hidden transition-all duration-1000 group-hover/map:shadow-[0_90px_180px_-40px_rgba(25,60,30,0.22)]"
               style={{ background: "#fdfaf5" }}
             >
-              {/* Subtle map depth gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-agri-earth-900/10 via-transparent to-white/60 pointer-events-none z-10" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-agri-earth-900/10 via-transparent to-white/40 pointer-events-none z-10" />
 
               <div className="relative w-full overflow-hidden bg-[#faf7f2]" style={{ paddingBottom: "54.49%" }}>
                 <img
                   src="/assets/home%20page%20map%20.png"
                   alt="IGO India Presence Map"
-                  className="absolute inset-0 w-full h-full object-fill opacity-90 transition-transform duration-1000 group-hover/map:scale-[1.04]"
+                  className="absolute inset-0 w-full h-full object-fill opacity-95 transition-transform duration-[2s] group-hover/map:scale-[1.05]"
                 />
 
                 <svg
@@ -183,106 +180,104 @@ const IndiaPresence = () => {
                 </svg>
               </div>
 
-              {/* Active state badge — Glass-X */}
+              {/* Float Glass UI */}
               <AnimatePresence mode="wait">
                 {activePin && (
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 15 }}
-                    className="absolute top-12 left-1/2 -translate-x-1/2 px-10 py-4 rounded-3xl text-[11px] font-black tracking-[0.3em] text-white shadow-2xl z-[60] whitespace-nowrap backdrop-blur-3xl border border-white/20 uppercase"
-                    style={{ 
-                      background: "rgba(25, 60, 30, 0.85)", 
-                      boxShadow: `0 25px 50px -12px rgba(0,0,0,0.5), 0 0 40px ${HUB}30` 
-                    }}
+                    initial={{ opacity: 0, y: 30, backdropFilter: "blur(0px)" }}
+                    animate={{ opacity: 1, y: 0, backdropFilter: "blur(24px)" }}
+                    exit={{ opacity: 0, y: 20, backdropFilter: "blur(0px)" }}
+                    className="absolute top-16 left-1/2 -translate-x-1/2 px-12 py-5 rounded-[2.5rem] text-[12px] font-black tracking-[0.4em] text-white shadow-2xl z-[60] border border-white/30 uppercase text-center"
+                    style={{ background: "rgba(25, 60, 30, 0.82)" }}
                   >
-                    SELECTING <span className="text-agri-gold-400 ml-3">{activePin}</span>
+                    SELECTING <span className="text-agri-gold-400 ml-4 font-black">{activePin}</span>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            {/* Redesigned Pan-India Reach Badge — Luxury Badge Style */}
+            {/* Premium Badge System */}
             <motion.div 
-              initial={{ opacity: 0, x: 50, scale: 0.9 }}
+              initial={{ opacity: 0, x: 60, scale: 0.9 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.5, type: "spring", stiffness: 100 }}
-              className="absolute -bottom-10 -right-4 md:-bottom-14 md:-right-12 bg-agri-earth-900/98 backdrop-blur-3xl p-10 rounded-[3.5rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.7)] border border-white/10 max-w-[340px] z-[70] group/callout transition-transform duration-500 hover:-translate-y-2 hover:rotate-1"
+              transition={{ delay: 0.6, type: "spring", stiffness: 90 }}
+              className="absolute -bottom-12 -right-6 md:-bottom-20 md:-right-16 bg-agri-earth-900/98 backdrop-blur-3xl p-12 rounded-[4rem] shadow-[0_60px_120px_-25px_rgba(0,0,0,0.8)] border border-white/15 max-w-[360px] z-[70] group/badge transition-all duration-700 hover:-translate-y-4 hover:rotate-1"
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-agri-gold-500/60 to-transparent" />
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-transparent via-agri-gold-500/80 to-transparent" />
               
-              <div className="flex items-center gap-6 mb-6">
-                <div className="w-16 h-16 rounded-[1.5rem] bg-agri-gold-500/20 border border-agri-gold-500/30 flex items-center justify-center relative overflow-hidden transition-all duration-700 group-hover/callout:rotate-[15deg] group-hover/callout:scale-110">
-                  <div className="absolute inset-0 bg-agri-gold-500/10 scale-0 group-hover/callout:scale-150 transition-transform duration-1000 rounded-full" />
-                  <Globe className="w-8 h-8 text-agri-gold-500 relative z-10" />
+              <div className="flex items-center gap-8 mb-8">
+                <div className="w-20 h-20 rounded-[2rem] bg-agri-gold-500/15 border border-agri-gold-500/40 flex items-center justify-center relative overflow-hidden transition-all duration-1000 group-hover/badge:rotate-[20deg] group-hover/badge:scale-110">
+                  <div className="absolute inset-0 bg-agri-gold-500/20 scale-0 group-hover/badge:scale-150 transition-transform duration-1000 rounded-full" />
+                  <Globe className="w-10 h-10 text-agri-gold-500 relative z-10" />
                 </div>
                 <div>
-                  <h4 className="text-2xl font-black text-white leading-none tracking-tighter">Pan-India</h4>
-                  <span className="text-[11px] font-bold text-agri-gold-500 uppercase tracking-[0.25em] mt-2 block">Network Reach</span>
+                  <h4 className="text-3xl font-black text-white leading-none tracking-tighter">Pan-India</h4>
+                  <span className="text-[11px] font-bold text-agri-gold-500 uppercase tracking-[0.3em] mt-3 block">Network Reach</span>
                 </div>
               </div>
-              <p className="text-[14px] text-white/60 leading-relaxed font-medium">
-                Spearheading high-yield projects across <span className="text-agri-gold-400 font-bold underline decoration-agri-gold-500/30 underline-offset-4">28+ States</span> with a verified force of <span className="text-white font-bold italic">2,000+ engineers</span>.
+              <p className="text-[15px] text-white/70 leading-relaxed font-semibold">
+                Spearheading high-yield projects across <span className="text-agri-gold-400 font-black underline decoration-agri-gold-500/40 underline-offset-8">28+ States</span> with a verified force of <span className="text-white font-black italic">2,000+ engineers</span>.
               </p>
             </motion.div>
           </motion.div>
 
-          {/* ── RIGHT: Content & Stats ────────── */}
-          <div className="pl-0 xl:pl-12">
+          {/* ──────── RIGHT: Content & Stats ──────── */}
+          <div className="pl-0 xl:pl-16">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="mb-16"
+              transition={{ duration: 1 }}
+              className="mb-20"
             >
-              <div className="flex items-center gap-4 text-agri-gold-600 font-black text-[11px] uppercase tracking-[0.6em] mb-10">
-                <div className="w-16 h-px bg-agri-gold-500/40" />
+              <div className="flex items-center gap-6 text-agri-gold-600 font-black text-[12px] uppercase tracking-[0.6em] mb-12">
+                <div className="w-20 h-px bg-agri-gold-500/50" />
                 GLOBAL FOOTPRINT
               </div>
-              <h2 className="text-6xl md:text-8xl font-serif text-agri-earth-900 leading-[0.95] mb-10 tracking-tighter">
+              <h2 className="text-7xl md:text-9xl font-serif text-agri-earth-900 leading-[0.9] mb-12 tracking-tighter">
                 Cultivating <br />
-                <span className="italic text-agri-green-800 font-light">Bharat's Vision.</span>
+                <span className="italic text-agri-green-800 font-light drop-shadow-sm">Bharat's Vision.</span>
               </h2>
-              <p className="text-2xl text-agri-earth-900/60 font-medium max-w-2xl leading-[1.6]">
+              <p className="text-2xl text-agri-earth-900/65 font-medium max-w-2xl leading-[1.6]">
                 From climate-controlled engineering in the North to precision aquaculture in the South,
-                IGO is driving India's agricultural sovereignty with <span className="text-agri-green-800 underline decoration-agri-gold-500/30 underline-offset-8 font-bold">industrial-grade engineering</span>.
+                IGO is driving India's agricultural sovereignty with <span className="text-agri-green-800 underline decoration-agri-gold-500/40 underline-offset-[12px] font-black">industrial-grade engineering</span>.
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {/* Grid Redesign */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
               {indiaPresence.stats.slice(0, 4).map((stat, idx) => (
                 <motion.div
                   key={stat.label}
-                  initial={{ opacity: 0, y: 40 }}
+                  initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ 
-                    duration: 0.8, 
+                    duration: 1, 
                     delay: idx * 0.15,
                     type: "spring",
-                    stiffness: 80
+                    stiffness: 70
                   }}
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  className="p-10 md:p-12 rounded-[3.5rem] bg-white border border-agri-earth-100 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] hover:shadow-[0_50px_100px_-20px_rgba(25,60,30,0.15)] transition-all duration-500 group overflow-hidden relative"
+                  whileHover={{ y: -15, scale: 1.03 }}
+                  className="p-12 md:p-14 rounded-[4rem] bg-white border border-agri-earth-100 shadow-[0_25px_60px_-20px_rgba(0,0,0,0.06)] hover:shadow-[0_70px_120px_-30px_rgba(25,60,30,0.18)] transition-all duration-700 group overflow-hidden relative"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-transparent to-agri-earth-50/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent to-agri-earth-50/60 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   
-                  <div className="absolute -right-8 -bottom-8 opacity-[0.04] group-hover:opacity-[0.12] transition-all duration-700 group-hover:-rotate-12 group-hover:scale-125">
-                    <CheckCircle2 className="w-48 h-48 text-agri-green-800" />
+                  <div className="absolute -right-12 -bottom-12 opacity-[0.03] group-hover:opacity-[0.14] transition-all duration-1000 group-hover:-rotate-12 group-hover:scale-150">
+                    <CheckCircle2 className="w-56 h-56 text-agri-green-800" />
                   </div>
                   
-                  <div className="absolute top-8 right-8 flex items-center gap-2 px-4 py-1.5 rounded-full bg-agri-gold-50 border border-agri-gold-200/50 scale-90 origin-right transition-transform group-hover:scale-105">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-agri-gold-600" />
-                    <span className="text-[10px] font-black text-agri-gold-700 uppercase tracking-widest italic">VERIFIED</span>
+                  <div className="absolute top-10 right-10 flex items-center gap-3 px-6 py-2 rounded-full bg-agri-gold-50 border border-agri-gold-200/60 scale-90 origin-right transition-transform group-hover:scale-110">
+                    <CheckCircle2 className="w-4 h-4 text-agri-gold-600" />
+                    <span className="text-[11px] font-black text-agri-gold-700 uppercase tracking-[0.2em] italic">VERIFIED</span>
                   </div>
 
                   <div className="relative z-10">
-                    <div className="text-6xl md:text-7xl font-black text-agri-earth-900 mb-4 group-hover:text-agri-green-800 transition-colors tracking-tighter leading-none">
+                    <div className="text-7xl md:text-8xl font-black text-agri-earth-900 mb-6 group-hover:text-agri-green-800 transition-all duration-500 tracking-tighter leading-none">
                       {stat.value}
                     </div>
-                    <div className="text-[11px] md:text-sm font-black uppercase tracking-[0.25em] text-agri-earth-900/40 group-hover:text-agri-earth-900/70 transition-colors">
+                    <div className="text-[12px] md:text-base font-black uppercase tracking-[0.3em] text-agri-earth-900/35 group-hover:text-agri-earth-900/80 transition-colors">
                       {stat.label}
                     </div>
                   </div>
@@ -290,31 +285,37 @@ const IndiaPresence = () => {
               ))}
             </div>
 
+            {/* Indian Partner Cluster Redesign */}
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 1.2 }}
-              className="mt-16 flex flex-col md:flex-row items-center gap-10 p-10 bg-agri-earth-900/5 backdrop-blur-xl rounded-[3rem] border border-black/[0.03]"
+              transition={{ delay: 1.4 }}
+              className="mt-20 flex flex-col md:flex-row items-center gap-12 p-12 bg-agri-earth-900/5 backdrop-blur-3xl rounded-[4rem] border border-black/[0.04] shadow-inner"
             >
-              <div className="flex -space-x-5">
-                {[1, 2, 3, 4, 5].map((i) => (
+              <div className="flex -space-x-7">
+                {[52, 53, 54, 55, 56].map((i) => (
                   <motion.div 
                     key={i} 
-                    whileHover={{ y: -8, zIndex: 100 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                    className="w-16 h-16 rounded-full border-[5px] border-white bg-agri-earth-100 overflow-hidden shadow-2xl cursor-pointer"
+                    whileHover={{ y: -10, zIndex: 100, scale: 1.15 }}
+                    transition={{ type: "spring", stiffness: 400 }}
+                    className="w-20 h-20 rounded-full border-[6px] border-white bg-agri-earth-100 overflow-hidden shadow-2xl cursor-pointer relative"
                   >
-                    <img src={`https://i.pravatar.cc/150?u=${i + 60}`} alt="Partner" className="w-full h-full object-cover" />
+                    {/* Using high-quality avatars that fit the Indian context better */}
+                    <img 
+                      src={`https://i.pravatar.cc/150?u=indian-${i}`} 
+                      alt="Partner" 
+                      className="w-full h-full object-cover filter contrast-[1.05]" 
+                    />
                   </motion.div>
                 ))}
-                <div className="w-16 h-16 rounded-full border-[5px] border-white bg-agri-green-900 flex items-center justify-center text-[13px] text-white font-black shadow-2xl">
+                <div className="w-20 h-20 rounded-full border-[6px] border-white bg-agri-green-900 flex items-center justify-center text-[15px] text-white font-black shadow-2xl relative z-20">
                   +15K
                 </div>
               </div>
-              <div className="text-base font-bold text-agri-earth-900/70 leading-relaxed text-center md:text-left">
-                Join <span className="text-agri-green-800 font-black px-3 py-1 bg-agri-green-900/10 rounded-lg text-lg">15,000+</span> global stakeholders
-                <br className="hidden md:block" /> who trust IGO's high-performance <span className="text-agri-earth-900 font-black decoration-agri-gold-500/50 underline underline-offset-4">scientific engineering</span>.
+              <div className="text-lg md:text-xl font-bold text-agri-earth-900/75 leading-relaxed text-center md:text-left">
+                Join <span className="text-agri-green-800 font-black px-4 py-1.5 bg-agri-green-900/10 rounded-xl text-3xl mx-1 shadow-sm">15,000+</span> global stakeholders
+                <br className="hidden md:block" /> who trust IGO's high-performance <span className="text-agri-earth-900 font-black decoration-agri-gold-500/60 underline underline-offset-8">scientific engineering</span>.
               </div>
             </motion.div>
           </div>
