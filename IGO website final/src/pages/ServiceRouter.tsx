@@ -4,6 +4,7 @@ import { motion, Variants } from "framer-motion";
 import { ArrowLeft, ArrowRight, CheckCircle2, Shield, TrendingUp } from "lucide-react";
 import { navLinks } from "@/data/siteData";
 import SEO from "@/components/SEO";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const fader: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -39,7 +40,7 @@ const CategoryView: React.FC<{ categorySlug: string }> = ({ categorySlug }) => {
   };
 
   return (
-    <div className="bg-[#FDFDFD] min-h-screen selection:bg-[#E8F5E9] selection:text-[#1A4231]">
+    <div className="bg-agri-earth-15 min-h-screen selection:bg-agri-green-50 selection:text-agri-green-800">
       <SEO
         title={`${cat.label} Services`}
         description={`Professional ${cat.label} services by IGO Agritech Farms. Expert agricultural engineering and consulting with ${cat.children?.length || 0} specialised services across India.`}
@@ -56,18 +57,20 @@ const CategoryView: React.FC<{ categorySlug: string }> = ({ categorySlug }) => {
           transition={{ duration: 1.8, ease: "easeOut" }}
           className="absolute inset-0"
         >
-          <img
+          <OptimizedImage
             src={cat.cardImage || LOCAL_FALLBACK}
             alt={cat.label}
+            loading="eager"
+            decoding="async"
             className="w-full h-full object-cover"
-            onError={e => { (e.currentTarget as HTMLImageElement).src = LOCAL_FALLBACK; }}
+            fallbackSrc={LOCAL_FALLBACK}
           />
         </motion.div>
 
         <div className="container mx-auto px-6 relative z-10">
           <Link
             to="/services"
-            className="inline-flex items-center gap-2 text-[#C5A03F] font-bold text-xs uppercase tracking-widest mb-14 hover:opacity-60 transition-opacity"
+            className="inline-flex items-center gap-2 text-agri-gold-500 font-bold text-xs uppercase tracking-widest mb-14 hover:opacity-60 transition-opacity"
           >
             <ArrowLeft className="w-4 h-4" /> All Services
           </Link>
@@ -79,8 +82,8 @@ const CategoryView: React.FC<{ categorySlug: string }> = ({ categorySlug }) => {
             className="max-w-4xl"
           >
             <motion.div variants={fader} className="flex items-center gap-4 mb-8">
-              <div className="h-px w-8 bg-[#C5A03F]/60" />
-              <span className="text-[#C5A03F] font-bold text-xs uppercase tracking-[0.3em]">
+              <div className="h-px w-8 bg-agri-gold-500/60" />
+              <span className="text-agri-gold-500 font-bold text-xs uppercase tracking-[0.3em]">
                 {cat.children?.length || 0} Services Available
               </span>
             </motion.div>
@@ -98,7 +101,7 @@ const CategoryView: React.FC<{ categorySlug: string }> = ({ categorySlug }) => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-24 container mx-auto px-6">
+      <section className="py-24 container mx-auto px-6 content-defer">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {cat.children?.map((service: any, i: number) => (
             <motion.div
@@ -110,23 +113,25 @@ const CategoryView: React.FC<{ categorySlug: string }> = ({ categorySlug }) => {
             >
               <Link to={service.href} className="group block h-full">
                 <div className="aspect-[4/3] rounded-3xl overflow-hidden relative mb-8 shadow-lg shadow-black/5 border border-black/5">
-                  <img
+                  <OptimizedImage
                     src={service.image || LOCAL_FALLBACK}
                     alt={service.label}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-                    onError={e => { (e.currentTarget as HTMLImageElement).src = LOCAL_FALLBACK; }}
+                    fallbackSrc={LOCAL_FALLBACK}
                   />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
                   <div className="absolute top-6 right-6 w-12 h-12 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 shadow-xl">
-                    <ArrowRight className="w-5 h-5 text-[#1A4231]" />
+                    <ArrowRight className="w-5 h-5 text-agri-green-800" />
                   </div>
                 </div>
                 <div className="px-2">
                   <div className="flex items-center gap-3 mb-4 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-500">
-                    <div className="w-6 h-[1px] bg-[#C5A03F]" />
-                    <span className="text-[10px] text-[#C5A03F] font-bold uppercase tracking-widest">Explore Service</span>
+                    <div className="w-6 h-[1px] bg-agri-gold-500" />
+                    <span className="text-[10px] text-agri-gold-500 font-bold uppercase tracking-widest">Explore Service</span>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-serif text-[#1A1A1A] group-hover:text-[#1A4231] transition-colors leading-[1.1]">
+                  <h3 className="text-2xl md:text-3xl font-serif text-agri-earth-900 group-hover:text-agri-green-800 transition-colors leading-[1.1]">
                     {service.label}
                   </h3>
                 </div>
@@ -137,7 +142,7 @@ const CategoryView: React.FC<{ categorySlug: string }> = ({ categorySlug }) => {
       </section>
 
       {/* CTA Strip */}
-      <section className="py-24 bg-[#1A4231] text-white text-center">
+      <section className="py-24 bg-agri-green-800 text-white text-center">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-serif mb-6">Need a Custom Solution?</h2>
           <p className="text-white/60 text-lg font-light mb-10 max-w-xl mx-auto">
@@ -145,7 +150,7 @@ const CategoryView: React.FC<{ categorySlug: string }> = ({ categorySlug }) => {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-3 px-12 py-5 bg-[#C5A03F] text-white text-xs font-bold rounded-full hover:bg-white hover:text-[#1A4231] transition-all uppercase tracking-widest shadow-xl shadow-black/20"
+            className="inline-flex items-center gap-3 px-12 py-5 bg-agri-gold-500 text-white text-xs font-bold rounded-full hover:bg-white hover:text-agri-green-800 transition-all uppercase tracking-widest shadow-xl shadow-black/20"
           >
             Book a Consultation <ArrowRight className="w-4 h-4" />
           </Link>
@@ -198,7 +203,7 @@ const DetailView: React.FC<{ categorySlug: string; serviceSlug: string }> = ({ c
   ];
 
   return (
-    <div className="bg-white min-h-screen selection:bg-[#E8F5E9] selection:text-[#1A4231] pt-32">
+    <div className="bg-white min-h-screen selection:bg-agri-green-50 selection:text-agri-green-800 pt-32">
       <SEO
         title={service.label}
         description={`IGO Agritech Farms delivers professional ${service.label} with industrial-grade expertise. Turnkey implementation, site survey, training, and AMC support across India.`}
@@ -210,7 +215,7 @@ const DetailView: React.FC<{ categorySlug: string; serviceSlug: string }> = ({ c
       <section className="pb-32 container mx-auto px-6">
         <Link
           to={`/services/${categorySlug}`}
-          className="inline-flex items-center gap-2 text-[#C5A03F] font-bold text-xs uppercase tracking-widest mb-12 hover:opacity-60 transition-opacity"
+          className="inline-flex items-center gap-2 text-agri-gold-500 font-bold text-xs uppercase tracking-widest mb-12 hover:opacity-60 transition-opacity"
         >
           <ArrowLeft className="w-4 h-4" /> Back to {cat.label}
         </Link>
@@ -224,10 +229,10 @@ const DetailView: React.FC<{ categorySlug: string; serviceSlug: string }> = ({ c
           >
             <div className="space-y-4">
               <motion.div variants={fader} className="flex items-center gap-3">
-                <div className="w-8 h-[1px] bg-[#C5A03F]" />
-                <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.4em]">Expert Service Execution</p>
+                <div className="w-8 h-[1px] bg-agri-gold-500" />
+                <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.4em]">Expert Service Execution</p>
               </motion.div>
-              <motion.h1 variants={fader} className="text-5xl md:text-8xl leading-[0.9] font-serif tracking-tight text-[#1A1A1A]">
+              <motion.h1 variants={fader} className="text-5xl md:text-8xl leading-[0.9] font-serif tracking-tight text-agri-earth-900">
                 {service.label}
               </motion.h1>
             </div>
@@ -239,7 +244,7 @@ const DetailView: React.FC<{ categorySlug: string; serviceSlug: string }> = ({ c
             <motion.div variants={fader} className="flex flex-col sm:flex-row gap-6">
               <Link
                 to="/contact"
-                className="px-10 py-5 bg-[#1A4231] text-white text-[10px] font-bold rounded-full hover:bg-black transition-all uppercase tracking-[0.2em] inline-flex items-center gap-3 shadow-lg shadow-[#1A4231]/20"
+                className="px-10 py-5 bg-agri-green-800 text-white text-[10px] font-bold rounded-full hover:bg-black transition-all uppercase tracking-[0.2em] inline-flex items-center gap-3 shadow-lg shadow-agri-green-800/20"
               >
                 Enquire Service <ArrowRight className="w-4 h-4" />
               </Link>
@@ -258,13 +263,15 @@ const DetailView: React.FC<{ categorySlug: string; serviceSlug: string }> = ({ c
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="group relative"
           >
-            <div className="absolute -inset-4 bg-[#C5A03F]/5 rounded-[40px] blur-2xl group-hover:bg-[#C5A03F]/10 transition-colors" />
+            <div className="absolute -inset-4 bg-agri-gold-500/5 rounded-[40px] blur-2xl group-hover:bg-agri-gold-500/10 transition-colors" />
             <div className="rounded-[32px] overflow-hidden aspect-[4/5] shadow-2xl relative border border-black/5">
-              <img
+              <OptimizedImage
                 src={serviceImage}
                 alt={service.label}
+                loading="eager"
+                decoding="async"
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                onError={e => { (e.currentTarget as HTMLImageElement).src = LOCAL_FALLBACK; }}
+                fallbackSrc={LOCAL_FALLBACK}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
             </div>
@@ -276,19 +283,19 @@ const DetailView: React.FC<{ categorySlug: string; serviceSlug: string }> = ({ c
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-40 border-t border-black/5 pt-32"
+          className="mt-40 border-t border-black/5 pt-32 content-defer"
         >
-          <div className="flex items-center gap-4 text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.4em] mb-16">
-            <div className="w-12 h-[1px] bg-[#C5A03F]" />
+          <div className="flex items-center gap-4 text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.4em] mb-16">
+            <div className="w-12 h-[1px] bg-agri-gold-500" />
             SERVICE DELIVERABLES
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {deliverables.map((item, i) => (
               <div
                 key={i}
-                className="p-10 bg-[#FDFDFD] rounded-[2.5rem] border border-black/[0.03] hover:bg-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
+                className="p-10 bg-agri-earth-15 rounded-[2.5rem] border border-black/[0.03] hover:bg-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
               >
-                <div className="w-10 h-10 rounded-full bg-[#C5A03F]/10 flex items-center justify-center text-[#C5A03F] mb-8">
+                <div className="w-10 h-10 rounded-full bg-agri-gold-500/10 flex items-center justify-center text-agri-gold-500 mb-8">
                   <CheckCircle2 className="w-5 h-5" />
                 </div>
                 <h5 className="text-2xl font-serif text-black mb-3">{item.title}</h5>
@@ -300,12 +307,12 @@ const DetailView: React.FC<{ categorySlug: string; serviceSlug: string }> = ({ c
       </section>
 
       {/* Process Section */}
-      <section className="py-40 bg-[#0A0A0A] text-white overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-[50%] h-full bg-[#1A4231]/10 blur-[120px] rounded-full translate-x-1/2" />
+      <section className="py-40 bg-agri-earth-950 text-white overflow-hidden relative content-defer">
+        <div className="absolute top-0 right-0 w-[50%] h-full bg-agri-green-800/10 blur-[120px] rounded-full translate-x-1/2" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-24 items-center">
             <div>
-              <p className="text-[#C5A03F] font-bold text-xs uppercase tracking-[0.4em] mb-8">Standard of Excellence</p>
+              <p className="text-agri-gold-500 font-bold text-xs uppercase tracking-[0.4em] mb-8">Standard of Excellence</p>
               <h2 className="text-5xl md:text-6xl font-serif mb-12 leading-tight">
                 Professional <br />Turnkey Implementation
               </h2>
@@ -316,7 +323,7 @@ const DetailView: React.FC<{ categorySlug: string; serviceSlug: string }> = ({ c
                   { title: "Operational Excellence", desc: "Comprehensive handover with expert training and long-term maintenance support." }
                 ].map((step, i) => (
                   <div key={i} className="flex gap-8 group">
-                    <div className="text-6xl font-serif text-white/5 group-hover:text-[#C5A03F]/20 transition-colors">{i + 1}</div>
+                    <div className="text-6xl font-serif text-white/5 group-hover:text-agri-gold-500/20 transition-colors">{i + 1}</div>
                     <div className="pt-2">
                       <h4 className="text-2xl font-serif text-white mb-3">{step.title}</h4>
                       <p className="text-white/40 leading-relaxed font-light">{step.desc}</p>
@@ -328,23 +335,23 @@ const DetailView: React.FC<{ categorySlug: string; serviceSlug: string }> = ({ c
             <div className="grid grid-cols-2 gap-6">
               <div className="space-y-6 pt-12">
                 <div className="aspect-square rounded-3xl bg-white/5 border border-white/10 p-8 flex flex-col justify-between">
-                  <div className="w-10 h-10 rounded-full bg-[#C5A03F]/20 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-[#C5A03F]" />
+                  <div className="w-10 h-10 rounded-full bg-agri-gold-500/20 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-agri-gold-500" />
                   </div>
                   <p className="text-sm font-light text-white/60 leading-relaxed">Institutional-grade safety & performance standards</p>
                 </div>
-                <div className="aspect-[3/4] rounded-3xl bg-gradient-to-br from-[#1A4231] to-[#0D2118] p-8 flex flex-col justify-end">
+                <div className="aspect-[3/4] rounded-3xl bg-gradient-to-br from-agri-green-800 to-agri-green-900 p-8 flex flex-col justify-end">
                   <p className="text-3xl font-serif text-white mb-2">Efficiency</p>
                   <p className="text-xs text-white/60 uppercase tracking-widest font-bold">Maximum Output Focus</p>
                 </div>
               </div>
               <div className="space-y-6">
                 <div className="aspect-[3/4] rounded-3xl overflow-hidden transition-all duration-700">
-                  <img src={serviceImage} loading="lazy" className="w-full h-full object-cover" alt={service.label} />
+                  <OptimizedImage src={serviceImage} loading="lazy" decoding="async" className="w-full h-full object-cover" alt={service.label} fallbackSrc={LOCAL_FALLBACK} />
                 </div>
                 <div className="aspect-square rounded-3xl bg-white/5 border border-white/10 p-8 flex flex-col justify-between">
-                  <div className="w-10 h-10 rounded-full bg-[#C5A03F]/20 flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 text-[#C5A03F]" />
+                  <div className="w-10 h-10 rounded-full bg-agri-gold-500/20 flex items-center justify-center">
+                    <TrendingUp className="w-5 h-5 text-agri-gold-500" />
                   </div>
                   <p className="text-sm font-light text-white/60 leading-relaxed">Scalable solutions for commercial growth</p>
                 </div>

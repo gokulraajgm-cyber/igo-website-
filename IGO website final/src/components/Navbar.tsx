@@ -253,6 +253,18 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
+  
+  const handleMouseEnter = (label: string) => {
+    if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
+    setOpenDropdown(label);
+  };
+
+  const handleMouseLeave = () => {
+    hoverTimeout.current = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 300); // 300ms delay forgiving hover UX
+  };
   
   const location = useLocation();
   const isHome = location.pathname === "/";
@@ -271,7 +283,7 @@ const Navbar = () => {
 
   if (isAdmin) return null;
 
-  const navClasses = "bg-white/95 backdrop-blur-md border-b border-black/[0.05] py-4 shadow-sm";
+  const navClasses = "bg-white py-0";
 
   const textColorClass = "text-black";
   const linkColorClass = "text-black/70";
@@ -281,14 +293,12 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${navClasses}`}>
       <div className="container mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-4 group z-50">
-          <img src={companyInfo.logo} alt="IGO Logo" loading="eager" className={`h-14 w-auto drop-shadow-md group-hover:scale-105 transition-transform ${logoInvertClass}`} />
-          <div className="flex flex-col leading-none drop-shadow-sm">
-            <span className={`text-2xl font-black tracking-tight uppercase font-display ${textColorClass}`}>IGO <span className="text-primary">Agritech</span></span>
-          </div>
+          <img src={companyInfo.logo} alt="IGO Logo" loading="eager" className={`h-24 w-auto group-hover:scale-105 transition-transform mix-blend-multiply contrast-125 brightness-105 ${logoInvertClass}`} />
+          <span className={`text-2xl font-black tracking-tight uppercase font-display whitespace-nowrap ${textColorClass}`}>IGO <span className="text-primary">Agritech</span></span>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8 ml-16">
           <LayoutGroup>
             {navLinks.map((link) => {
               const isMega = link.label === "Projects" || link.label === "Services" || link.label === "Products";
@@ -297,12 +307,12 @@ const Navbar = () => {
                 <div 
                   key={link.label}
                   className={isMega ? "static" : "relative"}
-                  onMouseEnter={() => setOpenDropdown(link.label)}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseEnter={() => handleMouseEnter(link.label)}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <Link
                     to={link.href}
-                    className={`text-sm font-semibold ${linkColorClass} hover:text-primary transition-all py-2 flex items-center gap-1 group`}
+                    className={`text-sm font-semibold whitespace-nowrap ${linkColorClass} hover:text-primary transition-all py-2 flex items-center gap-1 group`}
                   >
                     {link.label}
                     {link.children && <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${openDropdown === link.label ? "rotate-180 text-primary" : "opacity-30 group-hover:opacity-100"}`} />}
@@ -342,9 +352,9 @@ const Navbar = () => {
           
           <Link
             to="/agri-startup-platform"
-            className="px-6 py-2.5 text-xs font-semibold rounded-full transition-all uppercase tracking-widest bg-black text-white shadow-lg shadow-black/10"
+            className="px-5 py-2.5 text-xs font-semibold rounded-full transition-all uppercase tracking-widest bg-black text-white shadow-lg shadow-black/10 whitespace-nowrap"
           >
-            Agri Startup Platform
+            AgriStartup Gateway
           </Link>
         </div>
 

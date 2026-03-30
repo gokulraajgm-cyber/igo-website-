@@ -25,7 +25,7 @@ const socials = [
 ];
 
 const Footer = () => (
-  <footer className="bg-[#0A1510] text-white pt-20 pb-10 relative overflow-hidden">
+  <footer className="bg-agri-green-950 text-white pt-20 pb-10 relative overflow-hidden">
     {/* Subtle glow */}
     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[200px] bg-primary/8 blur-[120px] rounded-full pointer-events-none" />
 
@@ -41,13 +41,13 @@ const Footer = () => (
             <img
               src={companyInfo.logo}
               alt={companyInfo.name}
-              className="h-20 object-contain invert brightness-0 invert"
+              className="h-36 object-contain mix-blend-screen brightness-110 contrast-125"
             />
           </Link>
 
           {/* Vision */}
           <div>
-            <p className="text-[#6FD898] font-bold text-xs uppercase tracking-[0.25em] mb-2">Vision</p>
+            <p className="text-agri-mint-400 font-bold text-xs uppercase tracking-[0.25em] mb-2">Vision</p>
             <p className="text-white/80 text-sm leading-relaxed font-light">
               {companyInfo.vision}
             </p>
@@ -55,7 +55,7 @@ const Footer = () => (
 
           {/* Mission */}
           <div>
-            <p className="text-[#6FD898] font-bold text-xs uppercase tracking-[0.25em] mb-2">Mission</p>
+            <p className="text-agri-mint-400 font-bold text-xs uppercase tracking-[0.25em] mb-2">Mission</p>
             <p className="text-white/80 text-sm leading-relaxed font-light">
               {companyInfo.mission}
             </p>
@@ -70,9 +70,9 @@ const Footer = () => (
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="w-9 h-9 rounded-full bg-white/10 border border-white/15 flex items-center justify-center hover:bg-[#6FD898] hover:border-[#6FD898] transition-all group"
+                className="w-9 h-9 rounded-full bg-white/10 border border-white/15 flex items-center justify-center hover:bg-agri-mint-400 hover:border-agri-mint-400 transition-all group"
               >
-                <Icon className="w-4 h-4 text-white/70 group-hover:text-[#0A1510]" />
+                <Icon className="w-4 h-4 text-white/70 group-hover:text-agri-green-950" />
               </a>
             ))}
           </div>
@@ -88,9 +88,9 @@ const Footer = () => (
               <li key={link.href}>
                 <Link
                   to={link.href}
-                  className="flex items-center gap-2 text-white/70 hover:text-[#6FD898] transition-colors text-sm font-medium group"
+                  className="flex items-center gap-2 text-white/70 hover:text-agri-mint-400 transition-colors text-sm font-medium group"
                 >
-                  <ArrowRight className="w-3 h-3 text-[#6FD898]/60 group-hover:text-[#6FD898] group-hover:translate-x-0.5 transition-all" />
+                  <ArrowRight className="w-3 h-3 text-agri-mint-400/60 group-hover:text-agri-mint-400 group-hover:translate-x-0.5 transition-all" />
                   {link.label}
                 </Link>
               </li>
@@ -110,7 +110,7 @@ const Footer = () => (
               {/* Address */}
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-full bg-white/8 border border-white/12 flex items-center justify-center shrink-0 mt-0.5">
-                  <MapPin className="w-3.5 h-3.5 text-[#6FD898]" />
+                  <MapPin className="w-3.5 h-3.5 text-agri-mint-400" />
                 </div>
                 <p className="text-white/80 text-sm leading-relaxed">
                   No 17, Kovalan street, 2nd main road,<br />
@@ -121,14 +121,14 @@ const Footer = () => (
               {/* Phones */}
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-full bg-white/8 border border-white/12 flex items-center justify-center shrink-0 mt-0.5">
-                  <Phone className="w-3.5 h-3.5 text-[#6FD898]" />
+                  <Phone className="w-3.5 h-3.5 text-agri-mint-400" />
                 </div>
                 <div className="space-y-1">
                   {phones.map((p) => (
                     <a
                       key={p}
                       href={`tel:${p.replace(/\s/g, "")}`}
-                      className="block text-white/80 hover:text-[#6FD898] text-sm font-medium transition-colors"
+                      className="block text-white/80 hover:text-agri-mint-400 text-sm font-medium transition-colors"
                     >
                       {p}
                     </a>
@@ -141,14 +141,14 @@ const Footer = () => (
             <div className="space-y-5">
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-full bg-white/8 border border-white/12 flex items-center justify-center shrink-0 mt-0.5">
-                  <Mail className="w-3.5 h-3.5 text-[#6FD898]" />
+                  <Mail className="w-3.5 h-3.5 text-agri-mint-400" />
                 </div>
                 <div className="space-y-2">
                   {emails.map((e) => (
                     <a
                       key={e}
                       href={`mailto:${e}`}
-                      className="block text-white/80 hover:text-[#6FD898] text-sm font-medium transition-colors break-all"
+                      className="block text-white/80 hover:text-agri-mint-400 text-sm font-medium transition-colors break-all"
                     >
                       {e}
                     </a>
@@ -159,7 +159,7 @@ const Footer = () => (
               {/* Quick CTA */}
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 mt-3 px-5 py-2.5 rounded-full bg-[#6FD898] text-[#0A1510] text-xs font-black uppercase tracking-[0.2em] hover:bg-white transition-all"
+                className="inline-flex items-center gap-2 mt-3 px-5 py-2.5 rounded-full bg-agri-mint-400 text-agri-green-950 text-xs font-black uppercase tracking-[0.2em] hover:bg-white transition-all"
               >
                 Get in Touch <ArrowRight className="w-3.5 h-3.5" />
               </Link>

@@ -34,6 +34,7 @@ const AdsLogin = lazy(() => import("./pages/AdsLogin"));
 const AdsDashboard = lazy(() => import("./pages/AdsDashboard"));
 const OffersPage = lazy(() => import("./pages/OffersPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+import PageLoader from "@/components/ui/PageLoader";
 
 const queryClient = new QueryClient();
 
@@ -56,9 +57,9 @@ class ErrorBoundary extends React.Component<
     if (this.state.hasError) {
       return (
         <div className="min-h-screen flex flex-col items-center justify-center gap-4 p-8 text-center">
-          <h2 className="text-2xl font-bold text-[#1A4231]">Something went wrong</h2>
+          <h2 className="text-2xl font-bold text-agri-green-800">Something went wrong</h2>
           <p className="text-gray-500">Please refresh the page or go back home.</p>
-          <a href="/" className="px-6 py-2.5 bg-[#1A4231] text-white rounded-full text-sm font-semibold hover:opacity-80 transition-opacity">
+          <a href="/" className="px-6 py-2.5 bg-agri-green-800 text-white rounded-full text-sm font-semibold hover:opacity-80 transition-opacity">
             Go Home
           </a>
         </div>
@@ -96,7 +97,7 @@ const AppRoutes = () => {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.25, ease: "easeInOut" }}
       >
-        <Suspense fallback={<div className="min-h-screen" />}>
+        <Suspense fallback={<PageLoader />}>
         <Routes location={location}>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />

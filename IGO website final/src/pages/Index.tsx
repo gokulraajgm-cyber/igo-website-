@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo, useRef, useCallback } from "react";
+import { useImagePreloader } from "@/hooks/useImagePreloader";
 import { Link, useNavigate } from "react-router-dom";
 import SEO from "@/components/SEO";
-import { ArrowRight, Wheat, Fish, Tractor, Droplets, Leaf, Shield, Hammer } from "lucide-react";
-import { stats, projects, services, navLinks } from "@/data/siteData";
+import { ArrowRight, Wheat, Fish, Tractor, Droplets, Leaf, Shield, Hammer, Microscope, Cog, Database, Zap, Binary, PencilRuler, Box, ChevronLeft, ChevronRight } from "lucide-react";
+import { stats, projects, services, navLinks, igoBrands } from "@/data/siteData";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import OffersBanner from "@/components/OffersBanner";
+import IndiaPresence from "@/components/IndiaPresence";
 import { getActiveOffers, initDefaultOffers } from "@/data/offersData";
 
 const HERO_SLIDES = [
+  { src: "/assets/front 1st image .png",                                                              label: "IGO Agritech",        alt: "IGO Agritech Farms",       isPoster: true },
   { src: "/assets/demo poster/Copy of Website cover page.jpg.jpeg",                                   label: "Ramadan Sale",        alt: "Ramadan Sale Offer",       isPoster: true },
   { src: "/assets/demo poster/Copy of Website cover page (1).jpg.jpeg",                               label: "Special Offer",       alt: "Special Ramzan Offer",     isPoster: true },
   { src: "/assets/home page image .png",                                                              label: "Smart Farms",         alt: "Smart Farm" },
@@ -35,6 +38,10 @@ const HeroSection = () => {
   const [current, setCurrent] = useState(0);
   const slide = HERO_SLIDES[current];
   const isPoster = !!slide.isPoster;
+
+  // Prefetch next 2 hero slides for seamless transitions
+  const heroImageUrls = useMemo(() => HERO_SLIDES.map(s => s.src), []);
+  useImagePreloader(heroImageUrls, current, 2);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -73,6 +80,7 @@ const HeroSection = () => {
             <img
               src={slide.src}
               alt={slide.alt}
+              decoding="async"
               style={{
                 width: "100%",
                 height: "100%",
@@ -100,6 +108,7 @@ const HeroSection = () => {
               <img
                 src={slide.src}
                 alt={slide.alt}
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -230,7 +239,7 @@ const MiniStatCard = ({ value, label }: { value: string; label: string }) => {
   }, []);
 
   return (
-    <div ref={ref} className="bg-[#F4F8F4] border border-[#e0ede0] rounded-2xl p-6 flex flex-col gap-1 hover:shadow-md transition-shadow">
+    <div ref={ref} className="bg-agri-earth-50 border border-agri-earth-200 rounded-2xl p-6 flex flex-col gap-1 hover:shadow-md transition-shadow">
       <div className="text-4xl font-black tracking-tighter text-black leading-none">
         {count.toLocaleString()}<span className="text-primary">{suffix}</span>
       </div>
@@ -248,7 +257,7 @@ const WhyChooseSection = () => (
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.9 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col gap-8"
         >
           <div>
@@ -286,12 +295,14 @@ const WhyChooseSection = () => (
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl"
         >
           <img
             src="/assets/award_ceremony_ceo.png"
             alt="Agriculture Innovation Award"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover object-center"
           />
         </motion.div>
@@ -325,7 +336,7 @@ const visionPillars = [
 ];
 
 const VisionSection = () => (
-  <section className="py-24 bg-[#F4F8F4] overflow-hidden">
+  <section className="py-24 bg-agri-earth-50 overflow-hidden content-defer">
     <div className="container mx-auto px-6">
 
       {/* ── Section Header ── */}
@@ -335,17 +346,17 @@ const VisionSection = () => (
         viewport={{ once: true }}
         className="flex flex-col items-center gap-4 mb-20 text-center"
       >
-        <div className="flex items-center gap-4 text-[#C5A03F] font-bold text-xs uppercase tracking-[0.3em]">
-          <div className="w-10 h-[1px] bg-[#C5A03F]" />
+        <div className="flex items-center gap-4 text-agri-gold-500 font-bold text-xs uppercase tracking-[0.3em]">
+          <div className="w-10 h-[1px] bg-agri-gold-500" />
           Our Vision &amp; Mission
-          <div className="w-10 h-[1px] bg-[#C5A03F]" />
+          <div className="w-10 h-[1px] bg-agri-gold-500" />
         </div>
-        <h2 className="text-4xl md:text-5xl font-black text-[#1A1A1A] tracking-tight">
+        <h2 className="text-4xl md:text-5xl font-black text-agri-earth-900 tracking-tight">
           What Drives IGO Agritech Farms
         </h2>
         <div className="flex gap-1.5 mt-2">
-          <div className="w-12 h-1.5 bg-[#1F4529] rounded-full" />
-          <div className="w-4 h-1.5 bg-[#C5A03F] rounded-full" />
+          <div className="w-12 h-1.5 bg-agri-green-700 rounded-full" />
+          <div className="w-4 h-1.5 bg-agri-gold-500 rounded-full" />
         </div>
       </motion.div>
 
@@ -357,26 +368,26 @@ const VisionSection = () => (
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative bg-[#1F4529] rounded-[2rem] p-10 md:p-14 flex flex-col justify-between overflow-hidden min-h-[340px]"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="relative bg-agri-green-700 rounded-[2rem] p-10 md:p-14 flex flex-col justify-between overflow-hidden min-h-[340px]"
         >
           {/* decorative circles */}
           <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/5 pointer-events-none" />
-          <div className="absolute -bottom-10 -left-10 w-48 h-48 rounded-full bg-[#C5A03F]/10 pointer-events-none" />
+          <div className="absolute -bottom-10 -left-10 w-48 h-48 rounded-full bg-agri-gold-500/10 pointer-events-none" />
 
           <div className="relative z-10">
-            <span className="inline-block text-[10px] font-black uppercase tracking-[0.3em] text-[#C5A03F] bg-[#C5A03F]/10 border border-[#C5A03F]/30 px-4 py-1.5 rounded-full mb-8">
+            <span className="inline-block text-[10px] font-black uppercase tracking-[0.3em] text-agri-gold-500 bg-agri-gold-500/10 border border-agri-gold-500/30 px-4 py-1.5 rounded-full mb-8">
               Our Vision
             </span>
             {/* large quote mark */}
-            <div className="text-[#C5A03F]/20 text-[9rem] font-serif leading-none select-none -mb-8 -mt-4">&ldquo;</div>
+            <div className="text-agri-gold-500/20 text-[9rem] font-serif leading-none select-none -mb-8 -mt-4">&ldquo;</div>
             <p className="text-white text-2xl md:text-3xl font-black leading-snug tracking-tight">
               To be the leading pan-India brand in precision agriculture and Agri Engineering space.
             </p>
           </div>
 
           <div className="relative z-10 mt-10 flex items-center gap-3">
-            <div className="w-8 h-[2px] bg-[#C5A03F]" />
+            <div className="w-8 h-[2px] bg-agri-gold-500" />
             <span className="text-white/40 text-xs font-bold uppercase tracking-widest">IGO Agritech Farms</span>
           </div>
         </motion.div>
@@ -386,14 +397,14 @@ const VisionSection = () => (
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="bg-white rounded-[2rem] p-10 md:p-14 flex flex-col justify-between border border-[#e0ede0] min-h-[340px]"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+          className="bg-white rounded-[2rem] p-10 md:p-14 flex flex-col justify-between border border-agri-earth-200 min-h-[340px]"
         >
           <div>
-            <span className="inline-block text-[10px] font-black uppercase tracking-[0.3em] text-[#1F4529] bg-[#1F4529]/10 border border-[#1F4529]/20 px-4 py-1.5 rounded-full mb-8">
+            <span className="inline-block text-[10px] font-black uppercase tracking-[0.3em] text-agri-green-700 bg-agri-green-700/10 border border-agri-green-700/20 px-4 py-1.5 rounded-full mb-8">
               Our Mission
             </span>
-            <p className="text-[#1A1A1A] text-lg md:text-xl font-semibold leading-relaxed mb-6">
+            <p className="text-agri-earth-900 text-lg md:text-xl font-semibold leading-relaxed mb-6">
               To win lifetime loyal customers across pan-India by farming every square metre of fertile and non-fertile open land, indoor space, and rooftop space of buildings.
             </p>
             <p className="text-black/50 text-sm leading-relaxed">
@@ -403,7 +414,7 @@ const VisionSection = () => (
 
           <Link
             to="/about"
-            className="mt-10 inline-flex items-center gap-2 w-fit text-xs font-bold uppercase tracking-wider text-[#1F4529] border-b-2 border-[#C5A03F] pb-0.5 hover:text-[#C5A03F] transition-colors"
+            className="mt-10 inline-flex items-center gap-2 w-fit text-xs font-bold uppercase tracking-wider text-agri-green-700 border-b-2 border-agri-gold-500 pb-0.5 hover:text-agri-gold-500 transition-colors"
           >
             Discover Our Story <ArrowRight className="w-4 h-4" />
           </Link>
@@ -421,14 +432,14 @@ const VisionSection = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="group bg-white border border-[#e0ede0] rounded-[1.75rem] p-8 flex flex-col gap-5
-                hover:bg-[#1F4529] hover:border-[#1F4529] hover:shadow-2xl hover:shadow-[#1F4529]/15
+              className="group bg-white border border-agri-earth-200 rounded-[1.75rem] p-8 flex flex-col gap-5
+                hover:bg-agri-green-700 hover:border-agri-green-700 hover:shadow-2xl hover:shadow-agri-green-700/15
                 transition-all duration-500 hover:-translate-y-1"
             >
-              <div className="w-14 h-14 rounded-2xl bg-[#F4F8F4] group-hover:bg-[#C5A03F] flex items-center justify-center transition-colors duration-500">
-                <Icon className="w-6 h-6 text-[#1F4529] group-hover:text-white transition-colors duration-500" />
+              <div className="w-14 h-14 rounded-2xl bg-agri-earth-50 group-hover:bg-agri-gold-500 flex items-center justify-center transition-colors duration-500">
+                <Icon className="w-6 h-6 text-agri-green-700 group-hover:text-white transition-colors duration-500" />
               </div>
-              <h3 className="text-lg font-black text-[#1A1A1A] group-hover:text-white transition-colors duration-500 leading-tight">
+              <h3 className="text-lg font-black text-agri-earth-900 group-hover:text-white transition-colors duration-500 leading-tight">
                 {pillar.title}
               </h3>
               <p className="text-sm text-black/50 group-hover:text-white/70 leading-relaxed transition-colors duration-500">
@@ -450,39 +461,39 @@ const ProjectGallerySection = () => {
     {
       id: "01",
       title: "Agri farming projects",
-      bg: "bg-[#F5F5F7]",
-      hoverBg: "hover:bg-[#E8F5E9]",
+      bg: "bg-agri-earth-100",
+      hoverBg: "hover:bg-agri-green-50",
       image: "/assets/projects/main page/agri farming project .jpg",
       href: "/projects/agri"
     },
     {
       id: "02",
       title: "Aquaculture Farming project",
-      bg: "bg-[#F5F5F7]",
-      hoverBg: "hover:bg-[#E8F5E9]",
+      bg: "bg-agri-earth-100",
+      hoverBg: "hover:bg-agri-green-50",
       image: "/assets/projects/main page/aquaculture farming .jpg",
       href: "/projects/aquaculture"
     },
     {
       id: "03",
       title: "Livestock Farming project",
-      bg: "bg-[#F5F5F7]",
-      hoverBg: "hover:bg-[#E8F5E9]",
+      bg: "bg-agri-earth-100",
+      hoverBg: "hover:bg-agri-green-50",
       image: "/assets/projects/main page/livestock farming.jpg",
       href: "/projects/livestock"
     },
     {
       id: "04",
       title: "Farm engineering projects",
-      bg: "bg-[#F5F5F7]",
-      hoverBg: "hover:bg-[#E8F5E9]",
+      bg: "bg-agri-earth-100",
+      hoverBg: "hover:bg-agri-green-50",
       image: "/assets/projects/main page/farm engineering .jpg",
       href: "/projects/engineering"
     }
   ];
 
   return (
-    <section className="py-24 bg-[#FAFAFA] overflow-hidden relative">
+    <section className="py-24 bg-agri-earth-25 overflow-hidden relative content-defer">
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -490,17 +501,17 @@ const ProjectGallerySection = () => {
           viewport={{ once: true }}
           className="flex flex-col items-center gap-4 mb-20 text-center"
         >
-          <div className="flex items-center gap-4 text-[#C5A03F] font-bold text-[10px] sm:text-xs uppercase tracking-[0.3em]">
-            <div className="w-6 sm:w-10 h-[1px] bg-[#C5A03F]" />
+          <div className="flex items-center gap-4 text-agri-gold-500 font-bold text-[10px] sm:text-xs uppercase tracking-[0.3em]">
+            <div className="w-6 sm:w-10 h-[1px] bg-agri-gold-500" />
             Featured Projects
-            <div className="w-6 sm:w-10 h-[1px] bg-[#C5A03F]" />
+            <div className="w-6 sm:w-10 h-[1px] bg-agri-gold-500" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-[#1A1A1A] tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-black text-agri-earth-900 tracking-tight">
             Featured Projects
           </h2>
           <div className="flex gap-1.5 mt-2">
-            <div className="w-12 h-1.5 bg-[#1F4529] rounded-full" />
-            <div className="w-4 h-1.5 bg-[#C5A03F] rounded-full" />
+            <div className="w-12 h-1.5 bg-agri-green-700 rounded-full" />
+            <div className="w-4 h-1.5 bg-agri-gold-500 rounded-full" />
           </div>
         </motion.div>
 
@@ -535,6 +546,8 @@ const ProjectGallerySection = () => {
                 <motion.img
                   src={p.image}
                   alt={p.title}
+                  loading="lazy"
+                  decoding="async"
                   whileHover={{ scale: 1.08 }}
                   className="w-full h-full object-cover object-bottom transition-transform duration-1000 select-none"
                   style={{ filter: "drop-shadow(0 -5px 15px rgba(0,0,0,0.05))" }}
@@ -552,20 +565,20 @@ const FeatureSection = () => {
   const serviceLinks = navLinks.find(l => l.label === "Services")?.children || [];
   
   return (
-    <section className="py-32 bg-[#F5F5F7] overflow-hidden selection:bg-[#E8F5E9] selection:text-[#1A4231]">
+    <section className="py-32 bg-agri-earth-100 overflow-hidden selection:bg-agri-green-50 selection:text-agri-green-800 content-defer">
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center text-center mb-24">
-          <div className="flex items-center gap-4 text-[#C5A03F] font-bold text-[10px] sm:text-xs uppercase tracking-[0.3em] mb-6">
-            <div className="w-8 sm:w-12 h-[1px] bg-[#C5A03F]" />
+          <div className="flex items-center gap-4 text-agri-gold-500 font-bold text-[10px] sm:text-xs uppercase tracking-[0.3em] mb-6">
+            <div className="w-8 sm:w-12 h-[1px] bg-agri-gold-500" />
             OUR EXPERTISE
-            <div className="w-8 sm:w-12 h-[1px] bg-[#C5A03F]" />
+            <div className="w-8 sm:w-12 h-[1px] bg-agri-gold-500" />
           </div>
-          <h2 className="text-4xl md:text-6xl font-serif text-[#1A1A1A] mb-8 leading-tight">
-            Professional Agri <span className="italic text-[#1A4231]">Expertise.</span>
+          <h2 className="text-4xl md:text-6xl font-serif text-agri-earth-900 mb-8 leading-tight">
+            Professional Agri <span className="italic text-agri-green-800">Expertise.</span>
           </h2>
           <div className="flex gap-1.5 justify-center">
-            <div className="w-10 h-1 bg-[#1A4231]" />
-            <div className="w-2 h-1 bg-[#1A4231]/30" />
+            <div className="w-10 h-1 bg-agri-green-800" />
+            <div className="w-2 h-1 bg-agri-green-800/30" />
           </div>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
@@ -578,20 +591,20 @@ const FeatureSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
-                className="group relative bg-white rounded-[2rem] p-8 md:p-10 min-h-[460px] md:min-h-[550px] flex flex-col border border-black/5 hover:border-[#C5A03F]/20 transition-all hover:shadow-[0_40px_80px_rgba(0,0,0,0.06)] cursor-pointer overflow-hidden"
+                className="group relative bg-white rounded-[2rem] p-8 md:p-10 min-h-[460px] md:min-h-[550px] flex flex-col border border-black/5 hover:border-agri-gold-500/20 transition-all hover:shadow-[0_40px_80px_rgba(0,0,0,0.06)] cursor-pointer overflow-hidden"
               >
                 <Link to={s.href} className="absolute inset-0 z-20" />
                 
                 {/* Title & Index Header */}
                 <div className="flex justify-between items-start mb-8">
-                  <div className="w-12 h-12 rounded-2xl bg-[#1A4231]/5 flex items-center justify-center group-hover:bg-[#C5A03F]/10 transition-colors">
-                    <Icon className="w-5 h-5 text-[#1A4231] group-hover:text-[#C5A03F] transition-colors" />
+                  <div className="w-12 h-12 rounded-2xl bg-agri-green-800/5 flex items-center justify-center group-hover:bg-agri-gold-500/10 transition-colors">
+                    <Icon className="w-5 h-5 text-agri-green-800 group-hover:text-agri-gold-500 transition-colors" />
                   </div>
                   <div className="text-xl font-bold text-black/20 tracking-widest">0{i + 1}</div>
                 </div>
 
                 <div className="relative z-10 flex-1">
-                  <h2 className="text-2xl font-black text-[#C5A03F] mb-6 leading-tight group-hover:text-[#1A4231] transition-colors duration-300 min-h-[5rem]">
+                  <h2 className="text-2xl font-black text-agri-gold-500 mb-6 leading-tight group-hover:text-agri-green-800 transition-colors duration-300 min-h-[5rem]">
                     {s.label}
                   </h2>
                   
@@ -599,7 +612,7 @@ const FeatureSection = () => {
                   <div className="space-y-3 mb-8 min-h-[140px]">
                      {s.children?.slice(0, 4).map((child: any) => (
                        <div key={child.label} className="flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-                          <div className="w-1 h-1 rounded-full bg-[#1A4231]/40" />
+                          <div className="w-1 h-1 rounded-full bg-agri-green-800/40" />
                           <span className="text-[12px] font-bold text-black/50 group-hover:text-black/80 transition-colors uppercase tracking-[0.15em] line-clamp-1">
                             {child.label}
                           </span>
@@ -607,7 +620,7 @@ const FeatureSection = () => {
                      ))}
                   </div>
 
-                  <div className="w-10 h-10 rounded-full bg-slate-50 border border-black/5 flex items-center justify-center text-black/40 group-hover:bg-[#C5A03F] group-hover:text-white transition-all transform group-hover:translate-x-1 shadow-sm">
+                  <div className="w-10 h-10 rounded-full bg-slate-50 border border-black/5 flex items-center justify-center text-black/40 group-hover:bg-agri-gold-500 group-hover:text-white transition-all transform group-hover:translate-x-1 shadow-sm">
                     <ArrowRight className="w-5 h-5" />
                   </div>
                 </div>
@@ -617,6 +630,8 @@ const FeatureSection = () => {
                   <motion.img
                     src={s.icon && typeof s.icon === 'string' ? s.icon : "/assets/projects/agri_farming.jpg"}
                     alt={s.label}
+                    loading="lazy"
+                    decoding="async"
                     whileHover={{ scale: 1.05 }}
                     className="w-full h-full object-cover object-center transition-transform duration-1000 select-none opacity-100"
                   />
@@ -634,7 +649,7 @@ const ProductEcosystem = () => {
   const productLinks = navLinks.find(l => l.label === "Products")?.children || [];
   
   return (
-    <section className="py-40 bg-white overflow-hidden border-t border-black/5">
+    <section className="py-40 bg-white overflow-hidden border-t border-black/5 content-defer">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
           <div className="max-w-2xl">
@@ -642,7 +657,7 @@ const ProductEcosystem = () => {
               <div className="w-12 h-[1px] bg-primary/30" />
               PRODUCT INFRASTRUCTURE
             </div>
-            <h2 className="text-4xl md:text-7xl font-serif text-[#1A1A1A] leading-[1.05]">
+            <h2 className="text-4xl md:text-7xl font-serif text-agri-earth-900 leading-[1.05]">
               High-Performance <br /> <span className="italic text-primary">Agri Inputs.</span>
             </h2>
           </div>
@@ -674,7 +689,7 @@ const ProductEcosystem = () => {
               <div className="absolute inset-x-0 bottom-0 p-10 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10 transition-opacity duration-500 opacity-90 group-hover:opacity-100">
                  <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/50 mb-3 block">Product Sector {i+1}</span>
                  <h3 className="text-3xl font-black text-white mb-6 leading-tight group-hover:translate-x-2 transition-transform duration-500 drop-shadow-lg">{cat.label}</h3>
-                 <div className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest text-[#C5A03F] opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
+                 <div className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest text-agri-gold-500 opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
                     View Catalog <ArrowRight className="w-4 h-4" />
                  </div>
               </div>
@@ -690,117 +705,276 @@ const ProductEcosystem = () => {
   );
 };
 
-// ─── IGO Group Brands Section ─────────────────────────────────────────────────
-const brands: { name: string; logo: string; desc: string; tag: string }[] = [
-  // ── Active brands (with logos) ──
-  { name: "IGO Agritech Farms",                   logo: "/assets/brands/brand-1.jpg.jpeg",    tag: "Core Business",         desc: "India's leading Agri Engineering & Consulting brand — polyhouse, hydroponics, vertical farming, precision farming and livestock projects. Pan-India. MSME Award 2024." },
-  { name: "Farmers Factory",                       logo: "/assets/brands/brand-2.jpg.jpeg",    tag: "Processing & Mfg",      desc: "Farm to shop distribution brand. Bringing fresh farm produce directly to retail stores and consumers across India." },
-  { name: "Valluvam",                              logo: "/assets/brands/brand-3.jpg.jpeg",    tag: "Agri Consultancy",      desc: "Branded grocery staples celebrating Tamil farming heritage. Quality everyday essentials — As Pure As Nature." },
-  { name: "Protein Cuts",                          logo: "/assets/brands/brand-4.jpg.jpeg",    tag: "Farm-to-Table",         desc: "Premium meat, fish, and eggs retail brand. Fresh protein products straight from IGO's own livestock farms." },
-  { name: "IGO Agri Mart",                         logo: "/assets/brands/brand-5.jpg.jpeg",    tag: "Distribution",          desc: "Farm inputs and distribution network connecting quality agricultural inputs directly to farmers across India." },
-  { name: "IGO Nursery",                           logo: "/assets/brands/brand-6.jpg.jpeg",    tag: "Plant Propagation",     desc: "Premium nursery and landscaping solutions — supplying quality plants, seeds and horticultural products pan-India." },
-  { name: "Palm Cafe",                             logo: "/assets/brands/palm-cafe.jpeg",      tag: "F&B",                   desc: "The Healthy Food Joint — farm-to-table F&B brand creating 5,000 jobs for youth using IGO's own farm produce." },
-  { name: "IGO Exports & Imports",                 logo: "/assets/brands/igo-exports.jpeg",    tag: "Trade",                 desc: "International trade division connecting Indian agri products to global markets and bringing world-class inputs to India." },
-  { name: "IGO Tech Farming Scientist Foundation", logo: "/assets/brands/igo-foundation.jpeg", tag: "Foundation",            desc: "Research and education foundation advancing agri-science and technology for the next generation of tech farming scientists." },
-  // ── Upcoming brands (no logos) ──
-  { name: "IGO Mart",                   logo: "", tag: "Retail",      desc: "Supermarket chain offering quality products at accessible prices — part of IGO Group's consumer retail vision." },
-  { name: "IGO Fintech",                logo: "", tag: "Fintech",     desc: "Micro finance unit providing financial access and support to farmers and agricultural entrepreneurs across India." },
-  { name: "IGO Farmlands Estates",      logo: "", tag: "Real Estate", desc: "Agricultural land and property development — creating investment opportunities in farmland across India." },
-  { name: "IGO Wealth Management",      logo: "", tag: "Investment",  desc: "JV investment project providing wealth management and financial planning services to IGO Group stakeholders." },
-  { name: "IGO Group Franchise FICO",   logo: "", tag: "Franchise",   desc: "Franchise operations division expanding IGO Group brands across India through a structured franchise model." },
-  { name: "IGO Farm Gate Buy-Back",     logo: "", tag: "Programme",   desc: "Guaranteed buy-back programme for farmers — empowering agricultural entrepreneurs with assured market access." },
-  { name: "IGO Crop Care",              logo: "", tag: "Agri Input",  desc: "Quality crop care solutions for optimum yield and sustainable farming practices across all crop types." },
-  { name: "IGO Organic Pharma",         logo: "", tag: "Upcoming",    desc: "Future division developing organic pharmaceutical products from IGO's farm network — bridging agriculture and health." },
-  { name: "IGO Cosmetics",              logo: "", tag: "Upcoming",    desc: "Future personal care brand using natural farm-sourced ingredients. Farm to skin — the next frontier for IGO Group." },
-];
+// ─── Engineering DNA Section ──────────────────────────────────────────────────
+const EngineeringDNA = () => {
+  const pillars = [
+    { title: "Precision Engineering", icon: PencilRuler, desc: "State-of-the-art structural engineering for polyhouses and smart farms." },
+    { title: "Biotech Science", icon: Microscope, desc: "Tissue culture and organic science driven by IGO's Tech Farming Scientists." },
+    { title: "Automation & IoT", icon: Binary, desc: "Full-stack smart automation for irrigation, climate, and real-time monitoring." },
+    { title: "Energy Synthesis", icon: Zap, desc: "Renewable energy integration minimizing carbon footprint and maximizing ROI." },
+  ];
 
-const BrandsSection = () => (
-  <section className="py-28 bg-[#F4F8F4] border-t border-[#1A4231]/8">
-    <div className="container mx-auto px-6">
-      {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-center mb-16"
-      >
-        <div className="flex items-center justify-center gap-4 mb-5">
-          <div className="h-px w-12 bg-[#C5A03F]/60" />
-          <span className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em]">IGO Group of Companies</span>
-          <div className="h-px w-12 bg-[#C5A03F]/60" />
+  return (
+    <section className="py-32 bg-agri-earth-25 overflow-hidden relative border-t border-black/5">
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-agri-green-800/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-agri-gold-500/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-4xl mx-auto text-center mb-24">
+          <div className="flex items-center justify-center gap-4 text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.4em] mb-8">
+            <div className="w-12 h-px bg-agri-gold-500/30" />
+            THE IGO ADVANTAGE
+            <div className="w-12 h-px bg-agri-gold-500/30" />
+          </div>
+          <h2 className="text-5xl md:text-8xl font-serif leading-[1] mb-10 tracking-tight text-agri-earth-900">
+            Our <span className="text-agri-green-800 italic">Engineering</span> DNA.
+          </h2>
+          <p className="text-xl text-black/50 font-light max-w-2xl mx-auto leading-relaxed">
+            Beyond farming, we are an engineering powerhouse. Every project is a synthesis of structural integrity, biological precision, and digital intelligence.
+          </p>
         </div>
-        <h2 className="text-4xl md:text-6xl font-serif text-[#1A1A1A] mb-5">
-          Our Associated <span className="italic text-[#1A4231]">Brands</span>
-        </h2>
-        <p className="text-black/45 text-lg font-light max-w-xl mx-auto leading-relaxed">
-          A diversified group working together to transform Indian agriculture — from farm to table.
-        </p>
-      </motion.div>
 
-      {/* Brand Cards — horizontal scroll */}
-      <div className="relative">
-        <div
-          className="flex gap-5 overflow-x-auto pb-4 no-scrollbar snap-x snap-mandatory"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" } as React.CSSProperties}
-        >
-          {brands.map((b, i) => (
-            <div
-              key={b.name}
-              className="shrink-0 w-60 snap-start group bg-white border border-black/8 hover:border-[#1A4231]/30 rounded-[1.75rem] p-6 flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-[#1A4231]/10"
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {pillars.map((p, i) => (
+            <motion.div
+              key={p.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="p-10 rounded-[2.5rem] bg-white border border-black/5 hover:border-agri-gold-500/20 hover:shadow-2xl transition-all group backdrop-blur-sm"
             >
-              {/* Logo box */}
-              <div className="w-full h-32 rounded-2xl bg-[#F7FAF7] border border-[#1A4231]/8 group-hover:border-[#1A4231]/20 flex items-center justify-center mb-5 p-4 transition-all duration-500 group-hover:bg-[#EDF5EE]">
-                {b.logo ? (
-                  <img
-                    src={b.logo}
-                    alt={b.name}
-                    loading={i < 6 ? "eager" : "lazy"}
-                    className="max-w-full max-h-full w-auto h-auto object-contain"
-                  />
-                ) : (
-                  <span className="text-[9px] font-bold uppercase tracking-widest text-black/25">Coming Soon</span>
-                )}
+              <div className="w-16 h-16 rounded-2xl bg-agri-green-800/5 flex items-center justify-center mb-10 group-hover:bg-agri-gold-500/10 transition-colors">
+                <p.icon className="w-8 h-8 text-agri-green-800 group-hover:text-agri-gold-500 transition-colors" />
               </div>
-              {/* Tag */}
-              <div className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#C5A03F] mb-1.5">{b.tag}</div>
-              {/* Name */}
-              <h3 className="text-sm font-bold text-[#1A1A1A] mb-2 leading-snug">{b.name}</h3>
-              {/* Description */}
-              <p className="text-[11px] text-black/45 group-hover:text-black/65 leading-relaxed transition-colors duration-300 flex-1">{b.desc}</p>
-              {/* Coming soon badge */}
-              {!b.logo && (
-                <span className="mt-3 px-3 py-1 rounded-full bg-[#E8F5E9] text-[9px] font-bold uppercase tracking-widest text-[#1A4231]">
-                  Coming Soon
-                </span>
-              )}
-            </div>
+              <h3 className="text-2xl font-bold mb-4 text-agri-earth-900 group-hover:text-agri-green-800 transition-colors">{p.title}</h3>
+              <p className="text-sm text-black/45 leading-relaxed transition-colors group-hover:text-black/60">{p.desc}</p>
+            </motion.div>
           ))}
         </div>
-        {/* Right fade hint */}
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-[#F4F8F4] to-transparent" />
       </div>
+    </section>
+  );
+};
 
-      {/* Bottom strip */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.5 }}
-        className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-4 pt-10 border-t border-black/8"
-      >
-        <p className="text-black/35 text-sm font-medium">
-          18 brands &nbsp;·&nbsp; 1 mission — transforming Indian agriculture
-        </p>
-        <Link
-          to="/igo-groups"
-          className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.3em] text-[#1A4231] hover:gap-4 transition-all"
-        >
-          Explore Our Brands <ArrowRight className="w-3.5 h-3.5" />
-        </Link>
-      </motion.div>
-    </div>
-  </section>
-);
+// ─── Brands Marquee ──────────────────────────────────────────────────────────
+const B_CARD       = 320;
+const B_GAP        = 32;
+const B_STEP       = B_CARD + B_GAP;
+const B_HALF       = igoBrands.length * B_STEP;
+const B_AUTO_SPEED = 1.2;   // px/frame during auto-scroll
+const B_LERP_AUTO  = 0.07;  // easing for auto-scroll (buttery)
+const B_LERP_DRAG  = 0.45;  // easing during drag (nearly instant = glued to finger)
+
+const BrandsSection = () => {
+    const stripRef   = useRef<HTMLDivElement>(null);
+    const rafRef     = useRef<number>(0);
+    const pos        = useRef(0);   // rendered position
+    const target     = useRef(0);   // desired position — auto-scroll ALWAYS advances this
+    const isDragging = useRef(false);
+    const prevDragX  = useRef(0);   // last frame's drag X for incremental delta
+    const velX       = useRef(0);   // px/ms for momentum throw
+    const lastMoveX  = useRef(0);
+    const lastMoveT  = useRef(0);
+    const [grabbing, setGrabbing] = useState(false);
+
+    const displayBrands = [...igoBrands, ...igoBrands];
+
+    // ── RAF loop — auto-scroll NEVER stops; drag adds on top of it ───────────
+    useEffect(() => {
+        const strip = stripRef.current;
+        if (!strip) return;
+
+        const tick = () => {
+            // Always advance — no pause, no hover stop, rolls forever
+            target.current += B_AUTO_SPEED;
+
+            // Seamless wrap — shift both together to preserve lerp gap
+            if (target.current >= B_HALF) { target.current -= B_HALF; pos.current -= B_HALF; }
+            if (target.current <  0)      { target.current += B_HALF; pos.current += B_HALF; }
+
+            // High lerp while dragging so cards are glued to finger
+            const lerp = isDragging.current ? B_LERP_DRAG : B_LERP_AUTO;
+            pos.current += (target.current - pos.current) * lerp;
+            strip.style.transform = `translateX(${-pos.current}px)`;
+
+            rafRef.current = requestAnimationFrame(tick);
+        };
+
+        rafRef.current = requestAnimationFrame(tick);
+        return () => cancelAnimationFrame(rafRef.current);
+    }, []);
+
+    // ── Button nav — just nudges target; auto-scroll keeps going ─────────────
+    const scrollManual = useCallback((dir: 'prev' | 'next') => {
+        target.current += dir === 'next' ? B_STEP : -B_STEP;
+    }, []);
+
+    // ── Pointer drag — incremental delta added each move event ───────────────
+    const onPointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+        if (e.button !== 0) return;
+        e.currentTarget.setPointerCapture(e.pointerId);
+        isDragging.current = true;
+        prevDragX.current  = e.clientX;
+        velX.current       = 0;
+        lastMoveX.current  = e.clientX;
+        lastMoveT.current  = performance.now();
+        setGrabbing(true);
+    }, []);
+
+    const onPointerMove = useCallback((e: React.PointerEvent) => {
+        if (!isDragging.current) return;
+        // incremental: add how far the finger moved since last event
+        target.current += prevDragX.current - e.clientX;
+        prevDragX.current = e.clientX;
+        // track velocity for momentum
+        const now = performance.now();
+        const dt  = now - lastMoveT.current;
+        if (dt > 0) velX.current = (lastMoveX.current - e.clientX) / dt;
+        lastMoveX.current = e.clientX;
+        lastMoveT.current = now;
+    }, []);
+
+    const onPointerUp = useCallback(() => {
+        if (!isDragging.current) return;
+        isDragging.current = false;
+        setGrabbing(false);
+        // momentum throw — coasts to stop, auto-scroll keeps going underneath
+        target.current += velX.current * 100;
+    }, []);
+
+    // ── Touch swipe — same incremental approach ───────────────────────────────
+    const onTouchStart = useCallback((e: React.TouchEvent) => {
+        isDragging.current = true;
+        prevDragX.current  = e.touches[0].clientX;
+        velX.current       = 0;
+        lastMoveX.current  = e.touches[0].clientX;
+        lastMoveT.current  = performance.now();
+    }, []);
+
+    const onTouchMove = useCallback((e: React.TouchEvent) => {
+        if (!isDragging.current) return;
+        const x = e.touches[0].clientX;
+        target.current += prevDragX.current - x;
+        prevDragX.current = x;
+        const now = performance.now();
+        const dt  = now - lastMoveT.current;
+        if (dt > 0) velX.current = (lastMoveX.current - x) / dt;
+        lastMoveX.current = x;
+        lastMoveT.current = now;
+    }, []);
+
+    const onTouchEnd = useCallback(() => {
+        isDragging.current = false;
+        target.current += velX.current * 100;
+    }, []);
+
+    return (
+        <section className="py-40 bg-slate-100 overflow-hidden border-t border-black/5 content-defer relative">
+            <div className="absolute inset-0 opacity-[0.015] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+
+            <div className="container mx-auto px-6 text-center mb-16 relative z-10">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="max-w-3xl mx-auto"
+                >
+                    <div className="flex items-center justify-center gap-4 mb-6">
+                        <div className="h-px w-12 bg-agri-gold-500/40" />
+                        <span className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.4em]">The Sovereign Ecosystem</span>
+                        <div className="h-px w-12 bg-agri-gold-500/40" />
+                    </div>
+                    <h2 className="text-4xl md:text-7xl font-serif text-agri-earth-900 mb-8 leading-[1.1]">
+                        The <span className="italic text-agri-gold-500">26 Verticals</span> of IGO.
+                    </h2>
+                    <p className="text-black/50 text-lg font-light leading-relaxed max-w-xl mx-auto">
+                        A sovereign agricultural ecosystem covering Engineering, Production, Trade, and Consumer Lifestyle.
+                    </p>
+                </motion.div>
+
+                {/* Nav buttons */}
+                <div className="flex items-center justify-center gap-4 mt-10">
+                    <button
+                        onClick={() => scrollManual('prev')}
+                        aria-label="Previous brands"
+                        className="w-12 h-12 rounded-full border border-black/10 bg-white hover:bg-agri-gold-500 hover:border-agri-gold-500 flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md group"
+                    >
+                        <ChevronLeft className="w-5 h-5 text-black/40 group-hover:text-black transition-colors" />
+                    </button>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/30">Explore all 26 verticals</span>
+                    <button
+                        onClick={() => scrollManual('next')}
+                        aria-label="Next brands"
+                        className="w-12 h-12 rounded-full border border-black/10 bg-white hover:bg-agri-gold-500 hover:border-agri-gold-500 flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md group"
+                    >
+                        <ChevronRight className="w-5 h-5 text-black/40 group-hover:text-black transition-colors" />
+                    </button>
+                </div>
+            </div>
+
+            {/* Track — overflow:hidden so nothing is scrollable; transform moves the strip */}
+            <div className="relative py-10 overflow-hidden">
+                {/* Edge fades */}
+                <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-slate-100 to-transparent z-10 pointer-events-none" />
+                <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-slate-100 to-transparent z-10 pointer-events-none" />
+
+                {/* Strip */}
+                <div
+                    ref={stripRef}
+                    className="flex gap-8 pl-8 will-change-transform select-none"
+                    style={{ cursor: grabbing ? "grabbing" : "grab" }}
+                    onPointerDown={onPointerDown}
+                    onPointerMove={onPointerMove}
+                    onPointerUp={onPointerUp}
+                    onPointerCancel={onPointerUp}
+                    onTouchStart={onTouchStart}
+                    onTouchMove={onTouchMove}
+                    onTouchEnd={onTouchEnd}
+                >
+                    {displayBrands.map((b, i) => (
+                        <div
+                            key={`${b.id}-${i}`}
+                            className="shrink-0 w-80 group bg-white border border-black/8 hover:border-agri-gold-500/40 rounded-[2.5rem] p-8 transition-all duration-700 hover:-translate-y-4 hover:shadow-2xl hover:shadow-black/10 flex flex-col"
+                        >
+                            <div className="w-full h-40 rounded-3xl bg-slate-50 border border-black/5 flex items-center justify-center mb-8 p-6 transition-all duration-500 group-hover:bg-white group-hover:border-black/10 overflow-hidden relative">
+                                {b.logo ? (
+                                    <img
+                                        src={b.logo}
+                                        alt={b.name}
+                                        className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                ) : (
+                                    <div className="flex flex-col items-center gap-3">
+                                        <div className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center bg-slate-100">
+                                            <Box className="w-6 h-6 text-black/20" />
+                                        </div>
+                                        <span className="text-[10px] font-bold uppercase tracking-widest text-black/30 text-center">Development <br /> In Progress</span>
+                                    </div>
+                                )}
+                                {!b.logo && (
+                                    <div className="absolute inset-0 bg-agri-gold-500/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                        <span className="px-4 py-2 bg-agri-gold-500 text-black text-[9px] font-bold uppercase tracking-widest rounded-full">Coming Soon</span>
+                                    </div>
+                                )}
+                            </div>
+                            <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-agri-gold-500 mb-3">{b.tag}</div>
+                            <h3 className="text-lg font-bold text-agri-earth-900 mb-4 group-hover:text-agri-gold-500 transition-colors uppercase tracking-tight">{b.name}</h3>
+                            <p className="text-[12px] text-black/40 group-hover:text-black/60 leading-relaxed mb-6 flex-1 line-clamp-3 font-light">{b.desc}</p>
+                            <div className="pt-4 border-t border-black/5 flex items-center justify-between">
+                                <span className={`text-[9px] font-bold uppercase tracking-widest ${b.logo ? 'text-agri-gold-500' : 'text-black/20'}`}>
+                                    {b.logo ? 'Active Division' : 'Strategic Tier'}
+                                </span>
+                                <ArrowRight className="w-4 h-4 text-black/20 group-hover:text-agri-gold-500 transition-all group-hover:translate-x-1" />
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
+
 
 
 const BarleyBannerSection = () => (
@@ -816,6 +990,8 @@ const BarleyBannerSection = () => (
       <img
         src="/assets/barley_hero_clean.png"
         alt="IGO Agritech Farms — Innovating the Future of Farming"
+        loading="lazy"
+        decoding="async"
         className="w-full object-cover object-center"
         style={{ width: "100%" }}
       />
@@ -836,7 +1012,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="bg-white min-h-screen selection:bg-[#E8F5E9] selection:text-[#1A4231] overflow-x-hidden">
+    <div className="bg-white min-h-screen selection:bg-agri-green-50 selection:text-agri-green-800 overflow-x-hidden">
       <SEO
         title="IGO Agritech Farms | India's Leading Agri Engineering & Consulting"
         description="IGO Agritech Farms — India's leading Agri Engineering & Agri Consulting brand. 10+ years, 1000+ projects in precision farming, polyhouse, hydroponics, vertical farming & agri infrastructure across India."
@@ -850,7 +1026,11 @@ const Index = () => {
       <BarleyBannerSection />
       <FeatureSection />
       <ProductEcosystem />
+      <EngineeringDNA />
+
       <BrandsSection />
+
+      <IndiaPresence />
     </div>
   );
 };

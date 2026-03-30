@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { colors } from '../config/theme';
 
 interface Props {
   onComplete: () => void;
@@ -9,8 +10,8 @@ const LoadingScreen = ({ onComplete }: Props) => {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setDone(true), 2800);
-    const t2 = setTimeout(() => onComplete(),  3700);
+    const t1 = setTimeout(() => setDone(true), 1800);
+    const t2 = setTimeout(() => onComplete(),  2500);
     return () => { clearTimeout(t1); clearTimeout(t2); };
   }, [onComplete]);
 
@@ -64,7 +65,7 @@ const LoadingScreen = ({ onComplete }: Props) => {
                   <circle
                     cx="130" cy="130" r="114"
                     fill="none"
-                    stroke="#1A4231"
+                    stroke={colors.green[800]}
                     strokeWidth="3"
                     strokeLinecap="round"
                     strokeDasharray="175 541"
@@ -89,7 +90,7 @@ const LoadingScreen = ({ onComplete }: Props) => {
                   <circle
                     cx="130" cy="130" r="96"
                     fill="none"
-                    stroke="#C5A03F"
+                    stroke={colors.gold[500]}
                     strokeWidth="2.5"
                     strokeLinecap="round"
                     strokeDasharray="110 493"
@@ -144,7 +145,7 @@ const LoadingScreen = ({ onComplete }: Props) => {
                 style={{
                   fontSize: 26,
                   letterSpacing: "0.04em",
-                  color: "#1A1A1A",
+                  color: colors.earth[900],
                   fontWeight: 500,
                   lineHeight: 1,
                 }}
@@ -156,7 +157,7 @@ const LoadingScreen = ({ onComplete }: Props) => {
                 style={{
                   fontSize: 11,
                   letterSpacing: "0.48em",
-                  color: "#C5A03F",
+                  color: colors.gold[500],
                   fontWeight: 700,
                   marginTop: 6,
                   textTransform: "uppercase",
@@ -187,11 +188,11 @@ const LoadingScreen = ({ onComplete }: Props) => {
                 style={{
                   height: "100%",
                   borderRadius: 99,
-                  background: "linear-gradient(90deg, #1A4231 0%, #C5A03F 100%)",
+                  background: `linear-gradient(90deg, ${colors.green[800]} 0%, ${colors.gold[500]} 100%)`,
                 }}
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
-                transition={{ duration: 2.3, delay: 0.4, ease: "easeInOut" }}
+                transition={{ duration: 1.5, delay: 0.3, ease: "easeInOut" }}
               />
             </motion.div>
 

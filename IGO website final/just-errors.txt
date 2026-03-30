@@ -1,0 +1,57 @@
+D:\IGO WEBSITE\igo-website-\IGO website final\src\components\AnimatedCounter.tsx
+  Line 20: 'start' is never reassigned. Use 'const' instead.
+D:\IGO WEBSITE\igo-website-\IGO website final\src\components\Navbar.tsx
+  Line 23: Unexpected any. Specify a different type.
+  Line 25: Unexpected any. Specify a different type.
+  Line 39: Unexpected any. Specify a different type.
+  Line 109: Unexpected any. Specify a different type.
+  Line 136: Unexpected any. Specify a different type.
+  Line 187: Unexpected any. Specify a different type.
+  Line 241: Unexpected any. Specify a different type.
+  Line 323: Unexpected any. Specify a different type.
+D:\IGO WEBSITE\igo-website-\IGO website final\src\components\OffersBanner.tsx
+  Line 72: Expected an assignment or function call and instead saw an expression.
+D:\IGO WEBSITE\igo-website-\IGO website final\src\components\ui\command.tsx
+  Line 24: An interface declaring no members is equivalent to its supertype.
+D:\IGO WEBSITE\igo-website-\IGO website final\src\components\ui\textarea.tsx
+  Line 5: An interface declaring no members is equivalent to its supertype.
+D:\IGO WEBSITE\igo-website-\IGO website final\src\hooks\useAuth.tsx
+  Line 10: Unexpected any. Specify a different type.
+  Line 11: Unexpected any. Specify a different type.
+  Line 76: Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.
+D:\IGO WEBSITE\igo-website-\IGO website final\src\pages\AdminDashboard.tsx
+  Line 12: Unexpected any. Specify a different type.
+  Line 13: Unexpected any. Specify a different type.
+  Line 32: React Hook useEffect has missing dependencies: 'loading' and 'navigate'. Either include them or remove the dependency array.
+D:\IGO WEBSITE\igo-website-\IGO website final\src\pages\Courses.tsx
+  Line 218: Unexpected any. Specify a different type.
+D:\IGO WEBSITE\igo-website-\IGO website final\src\pages\Index.tsx
+  Line 572: Unexpected any. Specify a different type.
+  Line 600: Unexpected any. Specify a different type.
+  Line 669: Unexpected any. Specify a different type.
+D:\IGO WEBSITE\igo-website-\IGO website final\src\pages\Products.tsx
+  Line 80: Unexpected any. Specify a different type.
+D:\IGO WEBSITE\igo-website-\IGO website final\src\pages\ProjectRouter.tsx
+  Line 316: Unexpected any. Specify a different type.
+  Line 316: Unexpected any. Specify a different type.
+  Line 317: Unexpected any. Specify a different type.
+  Line 317: Unexpected any. Specify a different type.
+  Line 318: Unexpected any. Specify a different type.
+  Line 318: Unexpected any. Specify a different type.
+  Line 382: Unexpected any. Specify a different type.
+  Line 404: Unexpected any. Specify a different type.
+  Line 532: Unexpected any. Specify a different type.
+  Line 606: Unexpected any. Specify a different type.
+  Line 607: Unexpected any. Specify a different type.
+  Line 847: Unexpected any. Specify a different type.
+D:\IGO WEBSITE\igo-website-\IGO website final\src\pages\Projects.tsx
+  Line 106: Unexpected any. Specify a different type.
+D:\IGO WEBSITE\igo-website-\IGO website final\src\pages\ServiceRouter.tsx
+  Line 17: Unexpected any. Specify a different type.
+  Line 17: Unexpected any. Specify a different type.
+  Line 23: Unexpected any. Specify a different type.
+  Line 23: Unexpected any. Specify a different type.
+  Line 103: Unexpected any. Specify a different type.
+D:\IGO WEBSITE\igo-website-\IGO website final\src\pages\Services.tsx
+  Line 63: Unexpected any. Specify a different type.
+  Line 79: Unexpected any. Specify a different type.

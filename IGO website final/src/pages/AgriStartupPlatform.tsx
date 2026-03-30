@@ -6,6 +6,7 @@ import {
   CheckCircle, Star, Globe, BarChart3, Briefcase, Rocket,
   Phone, ChevronRight, MapPin, Award,
 } from "lucide-react";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const fader: Variants = {
   hidden: { opacity: 0, y: 28 },
@@ -95,7 +96,7 @@ const STORIES = [
 // ─── Component ────────────────────────────────────────────────────────────────
 
 const AgriStartupPlatform = () => (
-  <div className="bg-white min-h-screen selection:bg-[#E8F5E9] selection:text-[#1A4231]">
+  <div className="bg-white min-h-screen selection:bg-agri-green-50 selection:text-agri-green-800">
     <SEO
       title="Agri Startup Platform"
       description="Launch your agri-business with IGO Agritech Farms. Startup incubation, funding support, market access, and end-to-end mentorship for agriculture entrepreneurs across India."
@@ -104,7 +105,7 @@ const AgriStartupPlatform = () => (
     />
 
     {/* ── 1. HERO ── */}
-    <section className="relative pt-36 pb-0 overflow-hidden bg-[#0C1A14]">
+    <section className="relative pt-36 pb-0 overflow-hidden bg-agri-green-950">
       {/* Background image */}
       <motion.div
         initial={{ scale: 1.06, opacity: 0 }}
@@ -112,9 +113,15 @@ const AgriStartupPlatform = () => (
         transition={{ duration: 2, ease: "easeOut" }}
         className="absolute inset-0"
       >
-        <img src="/assets/background page for agri starup and about .png" alt="" loading="lazy" className="w-full h-full object-cover" />
+        <OptimizedImage
+          src="/assets/background page for agri starup and about .png"
+          alt="Agri Startup Platform"
+          loading="eager"
+          decoding="async"
+          className="w-full h-full object-cover"
+        />
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0C1A14]/60 via-[#0C1A14]/50 to-[#0C1A14]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-agri-green-950/60 via-agri-green-950/50 to-agri-green-950" />
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -125,15 +132,15 @@ const AgriStartupPlatform = () => (
         >
           {/* Badge */}
           <motion.div variants={fader} className="flex items-center justify-center gap-4 mb-8">
-            <div className="h-px w-10 bg-[#C5A03F]/60" />
-            <span className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em]">IGO Agri Startup Platform</span>
-            <div className="h-px w-10 bg-[#C5A03F]/60" />
+            <div className="h-px w-10 bg-agri-gold-500/60" />
+            <span className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em]">IGO Agri Startup Platform</span>
+            <div className="h-px w-10 bg-agri-gold-500/60" />
           </motion.div>
 
           {/* Headline */}
           <motion.h1 variants={fader} className="text-5xl md:text-7xl lg:text-8xl font-serif text-white leading-[0.95] tracking-tight mb-7">
             Grow Your Agri Startup<br />
-            <span className="italic text-[#C5A03F]">with India's Best.</span>
+            <span className="italic text-agri-gold-500">with India's Best.</span>
           </motion.h1>
 
           {/* Sub */}
@@ -145,7 +152,7 @@ const AgriStartupPlatform = () => (
           <motion.div variants={fader} className="flex flex-wrap justify-center gap-4 mb-20">
             <Link
               to="/startup-enquiry"
-              className="inline-flex items-center gap-3 px-10 py-4 bg-[#C5A03F] text-white text-[10px] font-bold rounded-full uppercase tracking-widest hover:bg-white hover:text-[#1A4231] transition-all shadow-2xl shadow-[#C5A03F]/30 group"
+              className="inline-flex items-center gap-3 px-10 py-4 bg-agri-gold-500 text-white text-[10px] font-bold rounded-full uppercase tracking-widest hover:bg-white hover:text-agri-green-800 transition-all shadow-2xl shadow-agri-gold-500/30 group"
             >
               Start Your Journey <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -167,7 +174,7 @@ const AgriStartupPlatform = () => (
         >
           {IMPACT.map((s) => (
             <div key={s.label} className="px-8 py-10 text-center">
-              <p className="text-4xl font-serif text-[#C5A03F] mb-1">{s.value}</p>
+              <p className="text-4xl font-serif text-agri-gold-500 mb-1">{s.value}</p>
               <p className="text-white font-bold text-xs mb-0.5">{s.label}</p>
               <p className="text-white/30 text-[10px] font-medium">{s.sub}</p>
             </div>
@@ -187,10 +194,10 @@ const AgriStartupPlatform = () => (
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em] mb-5">About the Platform</p>
-            <h2 className="text-4xl md:text-5xl font-serif text-[#1A1A1A] leading-tight mb-7">
+            <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em] mb-5">About the Platform</p>
+            <h2 className="text-4xl md:text-5xl font-serif text-agri-earth-900 leading-tight mb-7">
               Your Growth Partner,<br />
-              <span className="italic text-[#1A4231]">Not Just a Consultant.</span>
+              <span className="italic text-agri-green-800">Not Just a Consultant.</span>
             </h2>
             <p className="text-black/60 text-lg leading-relaxed mb-5 font-light">
               The IGO Agri Startup Platform exists for one reason — to help agri entrepreneurs, young farmers, and agri-tech innovators build real, profitable businesses without having to figure it all out alone.
@@ -207,7 +214,7 @@ const AgriStartupPlatform = () => (
                 "No complex jargon — just clear, honest guidance",
               ].map((pt) => (
                 <div key={pt} className="flex items-start gap-3">
-                  <CheckCircle className="w-4 h-4 text-[#1A4231] shrink-0 mt-0.5" />
+                  <CheckCircle className="w-4 h-4 text-agri-green-800 shrink-0 mt-0.5" />
                   <span className="text-sm text-black/70 font-medium">{pt}</span>
                 </div>
               ))}
@@ -233,13 +240,13 @@ const AgriStartupPlatform = () => (
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: i * 0.1 }}
-                className="flex gap-4 p-6 rounded-2xl bg-[#F4F8F4] border border-[#1A4231]/8 hover:border-[#1A4231]/25 hover:bg-[#EDF5EE] transition-all"
+                className="flex gap-4 p-6 rounded-2xl bg-agri-earth-50 border border-agri-green-800/8 hover:border-agri-green-800/25 hover:bg-agri-green-50 transition-all"
               >
-                <div className="w-10 h-10 rounded-xl bg-[#1A4231] text-white flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-agri-green-800 text-white flex items-center justify-center shrink-0">
                   {c.icon}
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#1A1A1A] text-sm mb-1.5">{c.title}</h4>
+                  <h4 className="font-bold text-agri-earth-900 text-sm mb-1.5">{c.title}</h4>
                   <p className="text-black/55 text-sm leading-relaxed">{c.desc}</p>
                 </div>
               </motion.div>
@@ -250,7 +257,7 @@ const AgriStartupPlatform = () => (
     </section>
 
     {/* ── 3. WHAT WE OFFER ── */}
-    <section id="what-we-offer" className="py-28 bg-[#F4F8F4] border-y border-[#1A4231]/8">
+    <section id="what-we-offer" className="py-28 bg-agri-earth-50 border-y border-agri-green-800/8 content-defer">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -258,8 +265,8 @@ const AgriStartupPlatform = () => (
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Core Services</p>
-          <h2 className="text-4xl md:text-5xl font-serif text-[#1A1A1A] mb-4">What We Offer</h2>
+          <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Core Services</p>
+          <h2 className="text-4xl md:text-5xl font-serif text-agri-earth-900 mb-4">What We Offer</h2>
           <p className="text-black/45 text-lg font-light max-w-xl mx-auto">
             Five ways IGO Agritech actively supports your startup's growth — from idea to income.
           </p>
@@ -286,12 +293,12 @@ const AgriStartupPlatform = () => (
               {/* Tagline */}
               <div>
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-black/35 mb-1.5">{o.tagline}</p>
-                <h3 className="text-xl font-bold text-[#1A1A1A] mb-3 leading-snug">{o.title}</h3>
+                <h3 className="text-xl font-bold text-agri-earth-900 mb-3 leading-snug">{o.title}</h3>
                 <p className="text-black/55 text-sm leading-relaxed">{o.desc}</p>
               </div>
 
               {/* Value */}
-              <div className="bg-[#F4F8F4] rounded-xl px-4 py-3 border-l-2" style={{ borderColor: o.color }}>
+              <div className="bg-agri-earth-50 rounded-xl px-4 py-3 border-l-2" style={{ borderColor: o.color }}>
                 <p className="text-xs text-black/60 leading-relaxed font-medium">{o.value}</p>
               </div>
 
@@ -320,7 +327,7 @@ const AgriStartupPlatform = () => (
     </section>
 
     {/* ── 4. HOW IT WORKS ── */}
-    <section className="py-28 bg-white">
+    <section className="py-28 bg-white content-defer">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -328,8 +335,8 @@ const AgriStartupPlatform = () => (
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em] mb-4">The Process</p>
-          <h2 className="text-4xl md:text-5xl font-serif text-[#1A1A1A] mb-4">How It Works</h2>
+          <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em] mb-4">The Process</p>
+          <h2 className="text-4xl md:text-5xl font-serif text-agri-earth-900 mb-4">How It Works</h2>
           <p className="text-black/45 text-lg font-light max-w-lg mx-auto">
             A simple, clear 5-step journey — from your first enquiry to a fully running agri business.
           </p>
@@ -337,7 +344,7 @@ const AgriStartupPlatform = () => (
 
         <div className="relative max-w-5xl mx-auto">
           {/* Connector line */}
-          <div className="hidden lg:block absolute top-10 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-[#1A4231]/20 via-[#C5A03F]/40 to-[#1A4231]/20 z-0" />
+          <div className="hidden lg:block absolute top-10 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-agri-green-800/20 via-agri-gold-500/40 to-agri-green-800/20 z-0" />
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 relative z-10">
             {STEPS.map((s, i) => (
@@ -350,11 +357,11 @@ const AgriStartupPlatform = () => (
                 className="flex flex-col items-center text-center gap-5"
               >
                 {/* Circle */}
-                <div className="w-20 h-20 rounded-full bg-[#1A4231] border-4 border-white shadow-lg shadow-[#1A4231]/20 flex flex-col items-center justify-center shrink-0">
-                  <span className="text-[#C5A03F] font-bold text-[9px] uppercase tracking-widest leading-none">{s.num}</span>
+                <div className="w-20 h-20 rounded-full bg-agri-green-800 border-4 border-white shadow-lg shadow-agri-green-800/20 flex flex-col items-center justify-center shrink-0">
+                  <span className="text-agri-gold-500 font-bold text-[9px] uppercase tracking-widest leading-none">{s.num}</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#1A1A1A] text-base mb-2">{s.title}</h4>
+                  <h4 className="font-bold text-agri-earth-900 text-base mb-2">{s.title}</h4>
                   <p className="text-black/50 text-xs leading-relaxed">{s.desc}</p>
                 </div>
               </motion.div>
@@ -372,7 +379,7 @@ const AgriStartupPlatform = () => (
         >
           <Link
             to="/startup-enquiry"
-            className="inline-flex items-center gap-3 px-10 py-4 bg-[#1A4231] text-white text-[10px] font-bold rounded-full uppercase tracking-widest hover:bg-black transition-all shadow-xl shadow-[#1A4231]/20"
+            className="inline-flex items-center gap-3 px-10 py-4 bg-agri-green-800 text-white text-[10px] font-bold rounded-full uppercase tracking-widest hover:bg-black transition-all shadow-xl shadow-agri-green-800/20"
           >
             Apply Now — Free Consultation <ArrowRight className="w-4 h-4" />
           </Link>
@@ -382,7 +389,7 @@ const AgriStartupPlatform = () => (
     </section>
 
     {/* ── 5. WHY CHOOSE IGO ── */}
-    <section className="py-28 bg-[#0D1F15] relative overflow-hidden">
+    <section className="py-28 bg-agri-green-900 relative overflow-hidden content-defer">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(197,160,63,0.08),transparent_60%)] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
@@ -392,9 +399,9 @@ const AgriStartupPlatform = () => (
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Why Partner With Us</p>
+          <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Why Partner With Us</p>
           <h2 className="text-4xl md:text-5xl font-serif text-white mb-4">
-            Why Startups Choose <span className="italic text-[#C5A03F]">IGO</span>
+            Why Startups Choose <span className="italic text-agri-gold-500">IGO</span>
           </h2>
           <p className="text-white/40 text-lg font-light max-w-xl mx-auto">
             We're not consultants who advise and leave. We're co-builders with real skin in the game.
@@ -409,9 +416,9 @@ const AgriStartupPlatform = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="group bg-white/5 border border-white/10 hover:bg-white/10 hover:border-[#C5A03F]/30 rounded-2xl p-6 flex gap-4 transition-all duration-400"
+              className="group bg-white/5 border border-white/10 hover:bg-white/10 hover:border-agri-gold-500/30 rounded-2xl p-6 flex gap-4 transition-all duration-400"
             >
-              <div className="w-10 h-10 rounded-xl bg-[#C5A03F]/15 text-[#C5A03F] flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-10 h-10 rounded-xl bg-agri-gold-500/15 text-agri-gold-500 flex items-center justify-center shrink-0 mt-0.5">
                 {w.icon}
               </div>
               <div>
@@ -433,8 +440,8 @@ const AgriStartupPlatform = () => (
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Our Impact</p>
-          <h2 className="text-4xl md:text-5xl font-serif text-[#1A1A1A] mb-4">Real Startups. Real Growth.</h2>
+          <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Our Impact</p>
+          <h2 className="text-4xl md:text-5xl font-serif text-agri-earth-900 mb-4">Real Startups. Real Growth.</h2>
           <p className="text-black/45 text-lg font-light max-w-xl mx-auto">
             IGO's startup partners are building profitable, sustainable agri businesses across India.
           </p>
@@ -453,11 +460,11 @@ const AgriStartupPlatform = () => (
             >
               {/* Coloured top bar */}
               <div className="h-1.5 w-full" style={{ background: i === 0 ? "#1A4231" : i === 1 ? "#C5A03F" : "#3B82F6" }} />
-              <div className="bg-[#F4F8F4] border border-[#1A4231]/8 border-t-0 rounded-b-[1.75rem] p-7">
-                <div className="w-10 h-10 rounded-xl bg-[#1A4231] text-white flex items-center justify-center mb-5">
+              <div className="bg-agri-earth-50 border border-agri-green-800/8 border-t-0 rounded-b-[1.75rem] p-7">
+                <div className="w-10 h-10 rounded-xl bg-agri-green-800 text-white flex items-center justify-center mb-5">
                   {s.icon}
                 </div>
-                <h3 className="font-bold text-[#1A1A1A] text-base mb-3 leading-snug">{s.title}</h3>
+                <h3 className="font-bold text-agri-earth-900 text-base mb-3 leading-snug">{s.title}</h3>
                 <p className="text-black/55 text-sm leading-relaxed">{s.desc}</p>
               </div>
             </motion.div>
@@ -470,11 +477,11 @@ const AgriStartupPlatform = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-0 divide-x divide-black/8 bg-[#F4F8F4] rounded-[1.75rem] border border-[#1A4231]/8 overflow-hidden"
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-0 divide-x divide-black/8 bg-agri-earth-50 rounded-[1.75rem] border border-agri-green-800/8 overflow-hidden"
         >
           {IMPACT.map((s) => (
             <div key={s.label} className="px-6 py-8 text-center">
-              <p className="text-3xl md:text-4xl font-serif text-[#1A4231] mb-1">{s.value}</p>
+              <p className="text-3xl md:text-4xl font-serif text-agri-green-800 mb-1">{s.value}</p>
               <p className="text-black/55 text-xs font-bold uppercase tracking-[0.2em]">{s.label}</p>
             </div>
           ))}
@@ -483,10 +490,10 @@ const AgriStartupPlatform = () => (
     </section>
 
     {/* ── 7. STRONG CTA ── */}
-    <section className="py-32 bg-[#0D1F15] relative overflow-hidden">
+    <section className="py-32 bg-agri-green-900 relative overflow-hidden content-defer">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#1A4231]/60 blur-[140px] rounded-full" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#C5A03F]/6 blur-[120px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-agri-green-800/60 blur-[140px] rounded-full" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-agri-gold-500/6 blur-[120px] rounded-full" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -498,14 +505,14 @@ const AgriStartupPlatform = () => (
           className="max-w-4xl mx-auto text-center"
         >
           <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="h-px w-12 bg-[#C5A03F]/50" />
-            <span className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.4em]">Ready to Begin?</span>
-            <div className="h-px w-12 bg-[#C5A03F]/50" />
+            <div className="h-px w-12 bg-agri-gold-500/50" />
+            <span className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.4em]">Ready to Begin?</span>
+            <div className="h-px w-12 bg-agri-gold-500/50" />
           </div>
 
           <h2 className="text-5xl md:text-7xl font-serif text-white mb-6 leading-[1.05] tracking-tight">
             Join the Agri<br />
-            <span className="italic text-[#C5A03F]">Startup Platform.</span>
+            <span className="italic text-agri-gold-500">Startup Platform.</span>
           </h2>
 
           <p className="text-white/60 text-xl font-light leading-relaxed mb-12 max-w-2xl mx-auto">
@@ -515,7 +522,7 @@ const AgriStartupPlatform = () => (
           <div className="flex flex-wrap justify-center gap-5 mb-14">
             <Link
               to="/startup-enquiry"
-              className="inline-flex items-center gap-3 px-12 py-5 bg-[#C5A03F] text-white text-[10px] font-bold rounded-full hover:bg-white hover:text-[#1A4231] transition-all uppercase tracking-widest shadow-2xl shadow-[#C5A03F]/25 group"
+              className="inline-flex items-center gap-3 px-12 py-5 bg-agri-gold-500 text-white text-[10px] font-bold rounded-full hover:bg-white hover:text-agri-green-800 transition-all uppercase tracking-widest shadow-2xl shadow-agri-gold-500/25 group"
             >
               Start Your Journey Today <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -536,7 +543,7 @@ const AgriStartupPlatform = () => (
               "Dedicated partnership manager",
             ].map((t) => (
               <div key={t} className="flex items-center gap-2 text-white/40 text-[11px] font-medium">
-                <CheckCircle className="w-3.5 h-3.5 text-[#C5A03F] shrink-0" />
+                <CheckCircle className="w-3.5 h-3.5 text-agri-gold-500 shrink-0" />
                 {t}
               </div>
             ))}

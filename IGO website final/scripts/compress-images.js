@@ -55,21 +55,17 @@ async function compressImage(filePath) {
   const relPath = relative(ASSETS_DIR, filePath);
 
   try {
-    // Read as buffer — bypasses all Windows path issues with spaces/special chars
     const inputBuffer = await readFile(filePath);
     const format = detectFormat(inputBuffer, ext);
 
     if (!format) {
       filesSkipped++;
-      console.log(`  - ${relPath}  unknown format, skipped`);
       return;
     }
 
     const metadata = await sharp(inputBuffer).metadata();
-
     let pipeline = sharp(inputBuffer, { failOn: 'none' });
 
-    // Resize only if larger than max dimensions
     if ((metadata.width && metadata.width > MAX_WIDTH) || (metadata.height && metadata.height > MAX_HEIGHT)) {
       pipeline = pipeline.resize(MAX_WIDTH, MAX_HEIGHT, {
         fit: 'inside',
@@ -77,31 +73,40 @@ async function compressImage(filePath) {
       });
     }
 
-    // Apply format-specific compression
+    // 1. Optimize the original file
+    let originalPipeline = pipeline.clone();
     if (format === 'jpeg') {
-      pipeline = pipeline.jpeg({ quality: JPEG_QUALITY, progressive: true, mozjpeg: true });
+      originalPipeline = originalPipeline.jpeg({ quality: JPEG_QUALITY, progressive: true, mozjpeg: true });
     } else if (format === 'png') {
-      pipeline = pipeline.png({ quality: PNG_QUALITY, compressionLevel: 9, progressive: true });
+      originalPipeline = originalPipeline.png({ quality: PNG_QUALITY, compressionLevel: 9, progressive: true });
     } else if (format === 'webp') {
-      pipeline = pipeline.webp({ quality: WEBP_QUALITY });
+      originalPipeline = originalPipeline.webp({ quality: WEBP_QUALITY });
     }
 
-    const buffer = await pipeline.toBuffer();
-
-    if (buffer.length < sizeBefore) {
-      await writeFile(filePath, buffer);
-      const sizeAfter = buffer.length;
+    const originalBuffer = await originalPipeline.toBuffer();
+    if (originalBuffer.length < sizeBefore) {
+      await writeFile(filePath, originalBuffer);
       totalBefore += sizeBefore;
-      totalAfter += sizeAfter;
+      totalAfter += originalBuffer.length;
       filesProcessed++;
-
-      const saving = (((sizeBefore - sizeAfter) / sizeBefore) * 100).toFixed(1);
-      const beforeKB = (sizeBefore / 1024).toFixed(0);
-      const afterKB = (sizeAfter / 1024).toFixed(0);
-      console.log(`  ✓ ${relPath}  ${beforeKB}KB → ${afterKB}KB  (-${saving}%)`);
+      console.log(`  ✓ ${relPath} optimized`);
     } else {
       filesSkipped++;
-      console.log(`  - ${relPath}  already optimized, skipped`);
+    }
+
+    // 2. Generate WebP version if it's not already a WebP
+    if (format !== 'webp') {
+      const webpPath = filePath.replace(/\.(png|jpg|jpeg|JPG)$/i, '.webp');
+      
+      // Check if WebP already exists to avoid redundant work
+      let webpExists = false;
+      try { await stat(webpPath); webpExists = true; } catch (e) {}
+
+      if (!webpExists) {
+        const webpBuffer = await pipeline.clone().webp({ quality: WEBP_QUALITY }).toBuffer();
+        await writeFile(webpPath, webpBuffer);
+        console.log(`  + Generated WebP: ${relative(ASSETS_DIR, webpPath)}`);
+      }
     }
   } catch (err) {
     filesFailed++;

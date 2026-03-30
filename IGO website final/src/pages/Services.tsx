@@ -18,7 +18,7 @@ const Services = () => {
   const serviceLinks = navLinks.find(l => l.label === "Services")?.children || [];
   
   return (
-    <div className="bg-[#F9FAFB] min-h-screen selection:bg-[#E8F5E9] selection:text-[#1A4231]">
+    <div className="bg-agri-earth-25 min-h-screen selection:bg-agri-green-50 selection:text-agri-green-800">
       <SEO
         title="Our Services | Agri Engineering & Consulting — IGO Agritech Farms"
         description="Explore IGO Agritech Farms' full range of services — polyhouse construction, hydroponics, vertical farming, mushroom cultivation, biofloc, agri consulting, training & academy, and more across India."
@@ -26,7 +26,7 @@ const Services = () => {
         url="/services"
       />
       {/* Hero Section */}
-      <section className="relative pt-40 pb-32 overflow-hidden bg-[#1A4231] text-white">
+      <section className="relative pt-40 pb-32 overflow-hidden bg-agri-green-800 text-white">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "url('/assets/polyhouse_wireframe.png')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
         
         <div className="container mx-auto px-6 relative z-10">
@@ -64,7 +64,7 @@ const Services = () => {
                   alt={s.label}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A4231]/90 via-[#1A4231]/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-agri-green-800/90 via-agri-green-800/30 to-transparent" />
                 <h2 className="absolute bottom-6 left-8 text-3xl md:text-4xl font-serif text-white leading-tight">
                   {s.label}
                 </h2>
@@ -77,7 +77,7 @@ const Services = () => {
                 
                 <div className="flex flex-wrap gap-3 mb-10">
                   {s.children?.map((child: any, idx: number) => (
-                    <span key={idx} className="bg-[#F0FDF4] text-[#1A4231] px-5 py-2.5 rounded-full text-sm font-medium border border-[#DCFCE7]">
+                    <span key={idx} className="bg-agri-green-25 text-agri-green-800 px-5 py-2.5 rounded-full text-sm font-medium border border-agri-green-100">
                       {child.label}
                     </span>
                   ))}
@@ -86,7 +86,7 @@ const Services = () => {
                 <div className="mt-auto pt-6 border-t border-black/5">
                   <Link 
                     to={s.href}
-                    className="inline-flex items-center gap-3 text-sm font-bold text-[#1A4231] hover:text-[#C5A03F] transition-colors uppercase tracking-widest group/link"
+                    className="inline-flex items-center gap-3 text-sm font-bold text-agri-green-800 hover:text-agri-gold-500 transition-colors uppercase tracking-widest group/link"
                   >
                     Explore Full Category <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
                   </Link>
@@ -100,10 +100,10 @@ const Services = () => {
       {/* CTA Banner */}
       <section className="py-24 bg-white border-t border-black/5 text-center">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-serif text-[#1A4231] mb-8">Ready to revolutionize your farm?</h2>
+          <h2 className="text-4xl font-serif text-agri-green-800 mb-8">Ready to revolutionize your farm?</h2>
           <Link 
             to="/contact" 
-            className="inline-block bg-gradient-to-r from-[#C5A03F] to-[#D4AF37] text-white px-12 py-4 rounded-full font-bold uppercase tracking-widest shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all"
+            className="inline-block bg-gradient-to-r from-agri-gold-500 to-agri-gold-400 text-white px-12 py-4 rounded-full font-bold uppercase tracking-widest shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all"
           >
             Book a Consultation
           </Link>

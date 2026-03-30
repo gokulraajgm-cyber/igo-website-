@@ -67,7 +67,7 @@ const OfferCard = ({ poster, delay }: { poster: OfferPoster; delay: number }) =>
 
       {/* Body */}
       <div className="p-5">
-        <h3 className="text-[#1A1A1A] font-black text-lg leading-snug mb-1.5">{poster.title}</h3>
+        <h3 className="text-agri-earth-900 font-black text-lg leading-snug mb-1.5">{poster.title}</h3>
         {poster.subtitle && (
           <p className="text-gray-500 text-sm leading-relaxed mb-3">{poster.subtitle}</p>
         )}
@@ -79,7 +79,7 @@ const OfferCard = ({ poster, delay }: { poster: OfferPoster; delay: number }) =>
         )}
         <Link
           to={poster.ctaLink || "/contact"}
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#1F4529] text-white text-xs font-black uppercase tracking-widest rounded-full hover:bg-primary transition-all duration-300"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-agri-green-700 text-white text-xs font-black uppercase tracking-widest rounded-full hover:bg-primary transition-all duration-300"
         >
           {poster.ctaLabel || "Enquire Now"}
         </Link>
@@ -124,12 +124,12 @@ const OffersPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="flex items-center justify-center gap-4 text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.3em] mb-4">
-            <div className="w-10 h-[1px] bg-[#C5A03F]" />
+          <div className="flex items-center justify-center gap-4 text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.3em] mb-4">
+            <div className="w-10 h-[1px] bg-agri-gold-500" />
             Current Promotions
-            <div className="w-10 h-[1px] bg-[#C5A03F]" />
+            <div className="w-10 h-[1px] bg-agri-gold-500" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-black text-[#1A1A1A] tracking-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-black text-agri-earth-900 tracking-tight mb-4">
             Current Offers &amp; Deals
           </h1>
           <p className="text-gray-500 max-w-xl mx-auto text-base leading-relaxed">
@@ -145,7 +145,7 @@ const OffersPage = () => {
           <div className="text-center py-20 text-gray-400">
             <p className="text-lg font-semibold mb-2">No active offers right now.</p>
             <p className="text-sm">Check back soon for exciting deals!</p>
-            <Link to="/contact" className="inline-block mt-6 px-8 py-3 bg-[#1F4529] text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-primary transition-all">
+            <Link to="/contact" className="inline-block mt-6 px-8 py-3 bg-agri-green-700 text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-primary transition-all">
               Contact Us for Custom Quotes
             </Link>
           </div>
@@ -159,9 +159,9 @@ const OffersPage = () => {
       </section>
 
       {/* ── Trust section ── */}
-      <section className="bg-[#F4F8F4] border-y border-[#e0ede0] py-12">
+      <section className="bg-agri-earth-50 border-y border-agri-earth-200 py-12">
         <div className="container mx-auto px-6">
-          <p className="text-center text-[#1F4529]/60 text-[10px] font-black uppercase tracking-[0.3em] mb-8">
+          <p className="text-center text-agri-green-700/60 text-[10px] font-black uppercase tracking-[0.3em] mb-8">
             Why Choose IGO Agritech Farms
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -175,9 +175,9 @@ const OffersPage = () => {
                 className="flex flex-col items-center gap-3 text-center"
               >
                 <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
-                  <Icon className="w-5 h-5 text-[#1F4529]" />
+                  <Icon className="w-5 h-5 text-agri-green-700" />
                 </div>
-                <p className="text-[#1A1A1A] font-bold text-sm">{label}</p>
+                <p className="text-agri-earth-900 font-bold text-sm">{label}</p>
               </motion.div>
             ))}
           </div>
@@ -185,7 +185,7 @@ const OffersPage = () => {
       </section>
 
       {/* ── CTA / Enquire section ── */}
-      <section className="bg-[#1F4529] py-20">
+      <section className="bg-agri-green-700 py-20">
         <div className="container mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -212,7 +212,7 @@ const OffersPage = () => {
               </a>
               <a
                 href="tel:+917397789803"
-                className="inline-flex items-center gap-2.5 px-8 py-4 bg-white text-[#1F4529] font-black uppercase tracking-widest text-xs rounded-full hover:bg-white/90 transition-all shadow-xl"
+                className="inline-flex items-center gap-2.5 px-8 py-4 bg-white text-agri-green-700 font-black uppercase tracking-widest text-xs rounded-full hover:bg-white/90 transition-all shadow-xl"
               >
                 <Phone className="w-4 h-4" />
                 +91 73977 89803

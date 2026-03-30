@@ -3,6 +3,7 @@ import SEO from "@/components/SEO";
 import { motion, Variants } from "framer-motion";
 import { Award, Leaf, Lightbulb, Handshake, Star, ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const fader: Variants = {
   hidden: { opacity: 0, y: 32 },
@@ -34,7 +35,7 @@ const VALUES = [
 ];
 
 const About = () => (
-  <div className="bg-white min-h-screen selection:bg-[#E8F5E9] selection:text-[#1A4231]">
+  <div className="bg-white min-h-screen selection:bg-agri-green-50 selection:text-agri-green-800">
     <SEO
       title="About Us | IGO Agritech Farms"
       description="Learn about IGO Agritech Farms — 10+ years of excellence in agri engineering & consulting, 75+ awards, 2000+ team members, and a mission to transform Indian agriculture with precision farming."
@@ -50,9 +51,10 @@ const About = () => (
         transition={{ duration: 2.2, ease: "easeOut" }}
         className="absolute inset-0"
       >
-        <img
+        <OptimizedImage
           src="/assets/background page for agri starup and about .png"
           alt="IGO Agritech Farms"
+          decoding="async"
           className="w-full h-full object-cover"
         />
       </motion.div>
@@ -66,14 +68,14 @@ const About = () => (
           className="max-w-5xl mx-auto"
         >
           <motion.div variants={fader} className="flex items-center justify-center gap-4 mb-8">
-            <div className="h-px w-12 bg-[#C5A03F]/70" />
-            <span className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em]">Established 2014 · Pan-India</span>
-            <div className="h-px w-12 bg-[#C5A03F]/70" />
+            <div className="h-px w-12 bg-agri-gold-500/70" />
+            <span className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em]">Established 2014 · Pan-India</span>
+            <div className="h-px w-12 bg-agri-gold-500/70" />
           </motion.div>
 
           <motion.h1 variants={fader} className="text-6xl md:text-9xl font-serif text-white mb-8 tracking-tight leading-[0.9]">
             Built on Land.<br />
-            <span className="italic text-[#C5A03F]">Driven by Purpose.</span>
+            <span className="italic text-agri-gold-500">Driven by Purpose.</span>
           </motion.h1>
 
           <motion.p variants={fader} className="text-white/60 text-xl md:text-2xl font-light leading-relaxed mb-14 max-w-3xl mx-auto">
@@ -83,7 +85,7 @@ const About = () => (
           <motion.div variants={fader} className="flex flex-wrap justify-center gap-4">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-3 px-10 py-4 bg-[#C5A03F] text-white text-[10px] font-bold rounded-full uppercase tracking-widest hover:bg-white hover:text-[#1A4231] transition-all shadow-2xl shadow-[#C5A03F]/30"
+              className="inline-flex items-center gap-3 px-10 py-4 bg-agri-gold-500 text-white text-[10px] font-bold rounded-full uppercase tracking-widest hover:bg-white hover:text-agri-green-800 transition-all shadow-2xl shadow-agri-gold-500/30"
             >
               Start Your Project <ArrowRight className="w-4 h-4" />
             </Link>
@@ -114,7 +116,7 @@ const About = () => (
     </section>
 
     {/* ── Stats Strip ── */}
-    <section className="bg-[#0D1F15]">
+    <section className="bg-agri-green-900">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
           {stats.map((s, i) => (
@@ -126,7 +128,7 @@ const About = () => (
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
             >
-              <p className="text-5xl md:text-6xl font-serif text-[#C5A03F] mb-2">{s.value}</p>
+              <p className="text-5xl md:text-6xl font-serif text-agri-gold-500 mb-2">{s.value}</p>
               <p className="text-white/60 text-xs font-bold uppercase tracking-[0.25em]">{s.label}</p>
             </motion.div>
           ))}
@@ -135,7 +137,7 @@ const About = () => (
     </section>
 
     {/* ── Our Story ── */}
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-24 bg-white overflow-hidden content-defer">
       <div className="container mx-auto px-6">
 
         {/* Heading row */}
@@ -145,10 +147,10 @@ const About = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em] mb-3">Our Story</p>
-            <h2 className="text-4xl md:text-5xl font-serif text-[#1A1A1A] leading-tight">
+            <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em] mb-3">Our Story</p>
+            <h2 className="text-4xl md:text-5xl font-serif text-agri-earth-900 leading-tight">
               A Decade of Turning Fields into{" "}
-              <span className="italic text-[#1A4231]">Futures.</span>
+              <span className="italic text-agri-green-800">Futures.</span>
             </h2>
           </motion.div>
           <motion.p
@@ -170,17 +172,19 @@ const About = () => (
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="relative w-full aspect-video rounded-[2rem] overflow-hidden shadow-2xl mb-14"
         >
-          <img
+          <OptimizedImage
             src="/assets/about page image .png"
             alt="Dr. John Yesudhas — IGO Agritech Farms"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover object-center"
           />
           {/* Gradient overlay at bottom */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
           {/* Floating badge — bottom left */}
-          <div className="absolute bottom-6 left-6 bg-[#1A4231]/90 backdrop-blur-sm text-white rounded-2xl px-6 py-4 shadow-2xl border border-white/10">
-            <p className="text-2xl font-serif text-[#C5A03F] font-bold leading-none">75+</p>
+          <div className="absolute bottom-6 left-6 bg-agri-green-800/90 backdrop-blur-sm text-white rounded-2xl px-6 py-4 shadow-2xl border border-white/10">
+            <p className="text-2xl font-serif text-agri-gold-500 font-bold leading-none">75+</p>
             <p className="text-white/70 text-[10px] font-bold uppercase tracking-wider mt-1">Awards Won</p>
           </div>
 
@@ -220,8 +224,8 @@ const About = () => (
               "Government subsidy guidance (NHM, PMMSY, PM-KUSUM)",
               "75+ awards & industry recognitions",
             ].map((pt) => (
-              <div key={pt} className="flex items-start gap-3 p-4 rounded-2xl bg-[#F4F8F4] border border-[#1A4231]/8">
-                <CheckCircle className="w-4 h-4 text-[#1A4231] shrink-0 mt-0.5" />
+              <div key={pt} className="flex items-start gap-3 p-4 rounded-2xl bg-agri-earth-50 border border-agri-green-800/8">
+                <CheckCircle className="w-4 h-4 text-agri-green-800 shrink-0 mt-0.5" />
                 <span className="text-sm text-black/70 font-medium leading-relaxed">{pt}</span>
               </div>
             ))}
@@ -232,7 +236,7 @@ const About = () => (
     </section>
 
     {/* ── Mission & Vision ── */}
-    <section className="py-28 bg-[#F4F8F4] border-y border-[#1A4231]/8">
+    <section className="py-28 bg-agri-earth-50 border-y border-agri-green-800/8 content-defer">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -240,8 +244,8 @@ const About = () => (
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Our Direction</p>
-          <h2 className="text-4xl md:text-5xl font-serif text-[#1A1A1A]">What Drives Us</h2>
+          <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Our Direction</p>
+          <h2 className="text-4xl md:text-5xl font-serif text-agri-earth-900">What Drives Us</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -251,16 +255,16 @@ const About = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative bg-[#0D1F15] rounded-[2rem] p-10 overflow-hidden"
+            className="relative bg-agri-green-900 rounded-[2rem] p-10 overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-48 h-48 bg-[#C5A03F]/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#1A4231] rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-48 h-48 bg-agri-gold-500/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-agri-green-800 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 mb-6">
-                <div className="w-8 h-8 rounded-full bg-[#C5A03F]/20 border border-[#C5A03F]/30 flex items-center justify-center">
-                  <span className="text-[#C5A03F] text-[10px] font-black">M</span>
+                <div className="w-8 h-8 rounded-full bg-agri-gold-500/20 border border-agri-gold-500/30 flex items-center justify-center">
+                  <span className="text-agri-gold-500 text-[10px] font-black">M</span>
                 </div>
-                <span className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.3em]">Mission</span>
+                <span className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.3em]">Mission</span>
               </div>
               <h3 className="text-2xl font-serif text-white mb-5 leading-snug">Our Mission</h3>
               <p className="text-white/60 text-base leading-relaxed font-light">{companyInfo.mission}</p>
@@ -273,17 +277,17 @@ const About = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="relative bg-white rounded-[2rem] p-10 border border-[#1A4231]/10 overflow-hidden shadow-sm"
+            className="relative bg-white rounded-[2rem] p-10 border border-agri-green-800/10 overflow-hidden shadow-sm"
           >
-            <div className="absolute top-0 right-0 w-48 h-48 bg-[#1A4231]/3 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-48 h-48 bg-agri-green-800/3 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 mb-6">
-                <div className="w-8 h-8 rounded-full bg-[#1A4231]/10 border border-[#1A4231]/20 flex items-center justify-center">
-                  <span className="text-[#1A4231] text-[10px] font-black">V</span>
+                <div className="w-8 h-8 rounded-full bg-agri-green-800/10 border border-agri-green-800/20 flex items-center justify-center">
+                  <span className="text-agri-green-800 text-[10px] font-black">V</span>
                 </div>
-                <span className="text-[#1A4231] font-bold text-[10px] uppercase tracking-[0.3em]">Vision</span>
+                <span className="text-agri-green-800 font-bold text-[10px] uppercase tracking-[0.3em]">Vision</span>
               </div>
-              <h3 className="text-2xl font-serif text-[#1A1A1A] mb-5 leading-snug">Our Vision</h3>
+              <h3 className="text-2xl font-serif text-agri-earth-900 mb-5 leading-snug">Our Vision</h3>
               <p className="text-black/55 text-base leading-relaxed font-light">{companyInfo.vision}</p>
             </div>
           </motion.div>
@@ -292,12 +296,12 @@ const About = () => (
     </section>
 
     {/* ── Founder Section ── */}
-    <section className="py-32 bg-[#0C1A14] relative overflow-hidden">
+    <section className="py-32 bg-agri-green-950 relative overflow-hidden">
       {/* Background texture */}
       <div className="absolute inset-0 opacity-50">
-        <img src="/assets/background page for agri starup and about .png" alt="" loading="lazy" className="w-full h-full object-cover" />
+        <OptimizedImage src="/assets/background page for agri starup and about .png" alt="" loading="lazy" decoding="async" className="w-full h-full object-cover" />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0C1A14] via-[#0C1A14]/95 to-[#0C1A14]/80" />
+      <div className="absolute inset-0 bg-gradient-to-r from-agri-green-950 via-agri-green-950/95 to-agri-green-950/80" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -307,23 +311,23 @@ const About = () => (
             viewport={{ once: true }}
             transition={{ duration: 1 }}
           >
-            <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em] mb-10">Founder's Voice</p>
+            <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em] mb-10">Founder's Voice</p>
 
             {/* Large quote mark */}
-            <div className="text-[#C5A03F]/20 font-serif text-[10rem] leading-none select-none mb-[-3rem]">"</div>
+            <div className="text-agri-gold-500/20 font-serif text-[10rem] leading-none select-none mb-[-3rem]">"</div>
 
             <blockquote className="text-2xl md:text-4xl font-serif italic leading-relaxed text-white/90 mb-10 relative z-10">
               We are not just cultivating land — we are building lasting legacies for every farmer and family we serve.
             </blockquote>
 
-            <div className="w-16 h-px bg-[#C5A03F]/40 mx-auto mb-8" />
+            <div className="w-16 h-px bg-agri-gold-500/40 mx-auto mb-8" />
 
             <div className="flex flex-col items-center gap-1">
               <p className="text-white font-bold text-lg">Dr. John Yesudhas</p>
               <p className="text-white/40 text-sm font-medium uppercase tracking-wider">Founder & CEO — IGO Agritech Farms</p>
               <div className="mt-4 flex flex-wrap justify-center gap-2">
                 {["Icon of India", "Tech Farming Expert", "MSME Award 2024"].map((badge) => (
-                  <span key={badge} className="px-3 py-1 rounded-full bg-[#C5A03F]/15 border border-[#C5A03F]/25 text-[#C5A03F] text-[9px] font-bold uppercase tracking-widest">
+                  <span key={badge} className="px-3 py-1 rounded-full bg-agri-gold-500/15 border border-agri-gold-500/25 text-agri-gold-500 text-[9px] font-bold uppercase tracking-widest">
                     {badge}
                   </span>
                 ))}
@@ -335,7 +339,7 @@ const About = () => (
     </section>
 
     {/* ── Core Values ── */}
-    <section className="py-28 bg-white">
+    <section className="py-28 bg-white content-defer">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -343,8 +347,8 @@ const About = () => (
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Core Principles</p>
-          <h2 className="text-4xl md:text-5xl font-serif text-[#1A1A1A]">The IGO Standard</h2>
+          <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Core Principles</p>
+          <h2 className="text-4xl md:text-5xl font-serif text-agri-earth-900">The IGO Standard</h2>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
@@ -355,14 +359,14 @@ const About = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: i * 0.1 }}
-              className="group relative bg-[#F7FAF7] rounded-[1.75rem] p-7 border border-[#1A4231]/8 hover:bg-[#1A4231] hover:border-[#1A4231] transition-all duration-500 cursor-default overflow-hidden"
+              className="group relative bg-agri-earth-50 rounded-[1.75rem] p-7 border border-agri-green-800/8 hover:bg-agri-green-800 hover:border-agri-green-800 transition-all duration-500 cursor-default overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[#C5A03F]/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-[#C5A03F]/10 transition-colors pointer-events-none" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-agri-gold-500/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-agri-gold-500/10 transition-colors pointer-events-none" />
               <div className="relative z-10">
-                <div className="w-12 h-12 rounded-2xl bg-[#1A4231]/10 group-hover:bg-[#C5A03F]/20 text-[#1A4231] group-hover:text-[#C5A03F] flex items-center justify-center mb-5 transition-all duration-500">
+                <div className="w-12 h-12 rounded-2xl bg-agri-green-800/10 group-hover:bg-agri-gold-500/20 text-agri-green-800 group-hover:text-agri-gold-500 flex items-center justify-center mb-5 transition-all duration-500">
                   {v.icon}
                 </div>
-                <h4 className="text-lg font-bold text-[#1A1A1A] group-hover:text-white mb-3 transition-colors duration-500">{v.title}</h4>
+                <h4 className="text-lg font-bold text-agri-earth-900 group-hover:text-white mb-3 transition-colors duration-500">{v.title}</h4>
                 <p className="text-sm text-black/50 group-hover:text-white/65 leading-relaxed transition-colors duration-500">{v.desc}</p>
               </div>
             </motion.div>
@@ -372,7 +376,7 @@ const About = () => (
     </section>
 
     {/* ── Awards & Recognition ── */}
-    <section className="py-28 bg-[#0C1A14] overflow-hidden">
+    <section className="py-28 bg-agri-green-950 overflow-hidden content-defer">
       <div className="container mx-auto px-6">
 
         {/* Heading */}
@@ -382,7 +386,7 @@ const About = () => (
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Recognition</p>
+          <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Recognition</p>
           <h2 className="text-4xl md:text-5xl font-serif text-white">Awards & Honours</h2>
           <p className="text-white/40 text-lg font-light mt-4 max-w-xl mx-auto">
             75+ national and industry awards affirm our commitment to excellence in agri-engineering.
@@ -400,9 +404,11 @@ const About = () => (
           <div className="grid grid-cols-3 gap-3 rounded-[2rem] overflow-hidden">
             {AWARD_BANNER.map((src, i) => (
               <div key={i} className="relative aspect-[4/3] overflow-hidden">
-                <img
+                <OptimizedImage
                   src={src}
                   alt="IGO Award Ceremony"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-[1.2s]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
@@ -411,7 +417,7 @@ const About = () => (
           </div>
           {/* Gold label — centred below photos */}
           <div className="flex justify-center mt-5">
-            <span className="px-6 py-2 bg-[#C5A03F] text-white text-[10px] font-black uppercase tracking-[0.4em] rounded-full shadow-2xl shadow-[#C5A03F]/40">
+            <span className="px-6 py-2 bg-agri-gold-500 text-white text-[10px] font-black uppercase tracking-[0.4em] rounded-full shadow-2xl shadow-agri-gold-500/40">
               Dr. John Yesudhas — Award Ceremonies
             </span>
           </div>
@@ -426,13 +432,15 @@ const About = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: i * 0.1 }}
-              className="group relative rounded-[1.75rem] overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C5A03F]/20 transition-all duration-700"
+              className="group relative rounded-[1.75rem] overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-agri-gold-500/20 transition-all duration-700"
             >
               {/* Photo */}
               <div className="relative aspect-[3/4] overflow-hidden">
-                <img
+                <OptimizedImage
                   src={award.img}
                   alt={award.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-[1.2s]"
                 />
                 {/* Dark gradient */}
@@ -440,7 +448,7 @@ const About = () => (
 
                 {/* Top row — award icon left, year right */}
                 <div className="absolute top-4 inset-x-4 flex items-center justify-between">
-                  <div className="flex items-center gap-1.5 bg-[#C5A03F] px-3 py-1 rounded-full shadow-lg">
+                  <div className="flex items-center gap-1.5 bg-agri-gold-500 px-3 py-1 rounded-full shadow-lg">
                     <Award className="w-3 h-3 text-white" />
                     <span className="text-white text-[8px] font-black uppercase tracking-widest">Award</span>
                   </div>
@@ -453,7 +461,7 @@ const About = () => (
 
                 {/* Text overlay at bottom */}
                 <div className="absolute inset-x-5 bottom-5 group-hover:-translate-y-1 transition-transform duration-500">
-                  <p className="text-[#C5A03F] text-[9px] font-black uppercase tracking-[0.3em] mb-1">IGO Agritech</p>
+                  <p className="text-agri-gold-500 text-[9px] font-black uppercase tracking-[0.3em] mb-1">IGO Agritech</p>
                   <h4 className="text-white font-bold text-base leading-snug mb-0.5">{award.name}</h4>
                   <p className="text-white/55 text-xs font-medium group-hover:text-white/80 transition-colors duration-500">{award.sub}</p>
                 </div>
@@ -466,7 +474,7 @@ const About = () => (
     </section>
 
     {/* ── Associated Brands ── */}
-    <section className="py-20 bg-[#0C1A14] relative overflow-hidden">
+    <section className="py-20 bg-agri-green-950 relative overflow-hidden">
       {/* Glow blobs */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
 
@@ -478,9 +486,9 @@ const About = () => (
           className="text-center mb-14"
         >
           <div className="flex items-center justify-center gap-4 mb-5">
-            <div className="h-px w-12 bg-[#C5A03F]/60" />
-            <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.4em]">IGO Group of Companies</p>
-            <div className="h-px w-12 bg-[#C5A03F]/60" />
+            <div className="h-px w-12 bg-agri-gold-500/60" />
+            <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.4em]">IGO Group of Companies</p>
+            <div className="h-px w-12 bg-agri-gold-500/60" />
           </div>
           <h2 className="text-4xl md:text-5xl font-serif text-white mb-4">Our Associated Brands</h2>
           <p className="text-white/65 text-base font-light mt-3 max-w-xl mx-auto leading-relaxed">
@@ -513,7 +521,7 @@ const About = () => (
                   onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                 />
               </div>
-              <p className="text-white group-hover:text-[#1A1A1A] font-bold text-sm mb-1.5 leading-snug transition-colors">{brand.name}</p>
+              <p className="text-white group-hover:text-agri-earth-900 font-bold text-sm mb-1.5 leading-snug transition-colors">{brand.name}</p>
               <p className="text-white/60 group-hover:text-black/50 text-[10px] font-semibold uppercase tracking-wider transition-colors">{brand.desc}</p>
             </motion.div>
           ))}
@@ -522,7 +530,7 @@ const About = () => (
     </section>
 
     {/* ── Learn About IGO Groups ── */}
-    <section className="py-20 bg-[#F4F8F4] border-y border-[#1A4231]/8">
+    <section className="py-20 bg-agri-earth-50 border-y border-agri-green-800/8">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -532,10 +540,10 @@ const About = () => (
           className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10"
         >
           <div>
-            <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em] mb-3">IGO Group</p>
-            <h2 className="text-3xl md:text-4xl font-serif text-[#1A1A1A] leading-tight mb-4">
+            <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em] mb-3">IGO Group</p>
+            <h2 className="text-3xl md:text-4xl font-serif text-agri-earth-900 leading-tight mb-4">
               Learn About<br />
-              <span className="italic text-[#1A4231]">IGO Groups</span>
+              <span className="italic text-agri-green-800">IGO Groups</span>
             </h2>
             <p className="text-black/55 text-base font-light leading-relaxed max-w-lg">
               IGO is more than a farm consultancy. It's a growing ecosystem of 16+ brands spanning agri retail, fintech, F&B, real estate, exports, and more — all built on one farming foundation.
@@ -544,7 +552,7 @@ const About = () => (
           <div className="shrink-0">
             <Link
               to="/igo-groups"
-              className="inline-flex items-center gap-3 px-10 py-4 bg-[#1A4231] text-white text-[10px] font-bold rounded-full uppercase tracking-widest hover:bg-black transition-all shadow-xl shadow-[#1A4231]/20 group whitespace-nowrap"
+              className="inline-flex items-center gap-3 px-10 py-4 bg-agri-green-800 text-white text-[10px] font-bold rounded-full uppercase tracking-widest hover:bg-black transition-all shadow-xl shadow-agri-green-800/20 group whitespace-nowrap"
             >
               Explore Our Brands <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -554,11 +562,11 @@ const About = () => (
     </section>
 
     {/* ── Final CTA ── */}
-    <section className="relative py-28 overflow-hidden bg-[#0C1A14]">
+    <section className="relative py-28 overflow-hidden bg-agri-green-950">
       {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/15 blur-[140px] rounded-full" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#C5A03F]/8 blur-[120px] rounded-full" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-agri-gold-500/8 blur-[120px] rounded-full" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -571,15 +579,15 @@ const About = () => (
         >
           {/* Label */}
           <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="h-px w-12 bg-[#C5A03F]/50" />
-            <span className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.4em]">Ready to Work With Us?</span>
-            <div className="h-px w-12 bg-[#C5A03F]/50" />
+            <div className="h-px w-12 bg-agri-gold-500/50" />
+            <span className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.4em]">Ready to Work With Us?</span>
+            <div className="h-px w-12 bg-agri-gold-500/50" />
           </div>
 
           {/* Heading */}
           <h2 className="text-5xl md:text-7xl font-serif text-white mb-6 leading-[1.05] tracking-tight">
             Let's build something<br />
-            <span className="italic text-[#C5A03F]">extraordinary.</span>
+            <span className="italic text-agri-gold-500">extraordinary.</span>
           </h2>
 
           {/* Description */}
@@ -591,13 +599,13 @@ const About = () => (
           <div className="flex flex-wrap justify-center gap-5">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-3 px-10 py-5 bg-[#C5A03F] text-white text-xs font-bold rounded-full hover:bg-white hover:text-[#1A4231] transition-all uppercase tracking-widest shadow-2xl shadow-[#C5A03F]/25 group"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-agri-gold-500 text-white text-xs font-bold rounded-full hover:bg-white hover:text-agri-green-800 transition-all uppercase tracking-widest shadow-2xl shadow-agri-gold-500/25 group"
             >
               Get in Touch <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               to="/projects"
-              className="inline-flex items-center gap-3 px-10 py-5 bg-white/10 text-white text-xs font-bold rounded-full hover:bg-white hover:text-[#1A4231] transition-all uppercase tracking-widest border border-white/25"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-white/10 text-white text-xs font-bold rounded-full hover:bg-white hover:text-agri-green-800 transition-all uppercase tracking-widest border border-white/25"
             >
               Browse Projects
             </Link>
@@ -612,7 +620,7 @@ const About = () => (
               { value: "10+", label: "Years of Excellence" },
             ].map((s) => (
               <div key={s.label} className="text-center">
-                <p className="text-2xl font-bold text-[#C5A03F]">{s.value}</p>
+                <p className="text-2xl font-bold text-agri-gold-500">{s.value}</p>
                 <p className="text-white/50 text-[10px] font-bold uppercase tracking-[0.2em] mt-0.5">{s.label}</p>
               </div>
             ))}

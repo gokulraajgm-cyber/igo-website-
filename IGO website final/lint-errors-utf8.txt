@@ -1,0 +1,43 @@
+src/components\AnimatedCounter.tsx:20 'start' is never reassigned. Use 'const' instead.
+src/components\Navbar.tsx:23 Unexpected any. Specify a different type.
+src/components\Navbar.tsx:25 Unexpected any. Specify a different type.
+src/components\Navbar.tsx:39 Unexpected any. Specify a different type.
+src/components\Navbar.tsx:109 Unexpected any. Specify a different type.
+src/components\Navbar.tsx:136 Unexpected any. Specify a different type.
+src/components\Navbar.tsx:187 Unexpected any. Specify a different type.
+src/components\Navbar.tsx:241 Unexpected any. Specify a different type.
+src/components\Navbar.tsx:323 Unexpected any. Specify a different type.
+src/components\OffersBanner.tsx:72 Expected an assignment or function call and instead saw an expression.
+src/components\ui\command.tsx:24 An interface declaring no members is equivalent to its supertype.
+src/components\ui\textarea.tsx:5 An interface declaring no members is equivalent to its supertype.
+src/hooks\useAuth.tsx:10 Unexpected any. Specify a different type.
+src/hooks\useAuth.tsx:11 Unexpected any. Specify a different type.
+src/pages\AdminDashboard.tsx:12 Unexpected any. Specify a different type.
+src/pages\AdminDashboard.tsx:13 Unexpected any. Specify a different type.
+src/pages\Courses.tsx:218 Unexpected any. Specify a different type.
+src/pages\Index.tsx:572 Unexpected any. Specify a different type.
+src/pages\Index.tsx:600 Unexpected any. Specify a different type.
+src/pages\Index.tsx:669 Unexpected any. Specify a different type.
+src/pages\Products.tsx:80 Unexpected any. Specify a different type.
+src/pages\ProjectRouter.tsx:316 Unexpected any. Specify a different type.
+src/pages\ProjectRouter.tsx:316 Unexpected any. Specify a different type.
+src/pages\ProjectRouter.tsx:317 Unexpected any. Specify a different type.
+src/pages\ProjectRouter.tsx:317 Unexpected any. Specify a different type.
+src/pages\ProjectRouter.tsx:318 Unexpected any. Specify a different type.
+src/pages\ProjectRouter.tsx:318 Unexpected any. Specify a different type.
+src/pages\ProjectRouter.tsx:382 Unexpected any. Specify a different type.
+src/pages\ProjectRouter.tsx:404 Unexpected any. Specify a different type.
+src/pages\ProjectRouter.tsx:532 Unexpected any. Specify a different type.
+src/pages\ProjectRouter.tsx:606 Unexpected any. Specify a different type.
+src/pages\ProjectRouter.tsx:607 Unexpected any. Specify a different type.
+src/pages\ProjectRouter.tsx:847 Unexpected any. Specify a different type.
+src/pages\Projects.tsx:106 Unexpected any. Specify a different type.
+src/pages\ServiceRouter.tsx:17 Unexpected any. Specify a different type.
+src/pages\ServiceRouter.tsx:17 Unexpected any. Specify a different type.
+src/pages\ServiceRouter.tsx:23 Unexpected any. Specify a different type.
+src/pages\ServiceRouter.tsx:23 Unexpected any. Specify a different type.
+src/pages\ServiceRouter.tsx:103 Unexpected any. Specify a different type.
+src/pages\Services.tsx:63 Unexpected any. Specify a different type.
+src/pages\Services.tsx:79 Unexpected any. Specify a different type.
+D:\IGO WEBSITE\igo-website-\IGO website final\tailwind.config.ts:65 A `require()` style import is forbidden.
+Total errors: 42

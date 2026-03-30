@@ -65,7 +65,7 @@ const AdsDashboard = () => {
       <SEO title="Ads Dashboard" description="IGO Agritech Farms ads management dashboard." noIndex />
 
       {/* ── Top header ── */}
-      <header className="border-b border-white/8 bg-[#0A1510]/80 backdrop-blur-md sticky top-0 z-30">
+      <header className="border-b border-white/8 bg-agri-green-950/80 backdrop-blur-md sticky top-0 z-30">
         <div className="flex items-center justify-between px-6 h-14">
           <div className="flex items-center gap-3">
             <img
@@ -75,7 +75,7 @@ const AdsDashboard = () => {
             />
             <div className="w-px h-5 bg-white/15" />
             <div className="flex items-center gap-2">
-              <BarChart3 className="w-3.5 h-3.5 text-[#6FD898]" />
+              <BarChart3 className="w-3.5 h-3.5 text-agri-mint-400" />
               <span className="text-white/80 text-xs font-black uppercase tracking-[0.2em]">
                 Advertising Dashboard
               </span>
@@ -103,7 +103,7 @@ const AdsDashboard = () => {
       <div className="flex flex-1 overflow-hidden">
 
         {/* Sidebar */}
-        <aside className="w-56 border-r border-white/8 bg-[#0A1510]/50 p-5 flex flex-col shrink-0">
+        <aside className="w-56 border-r border-white/8 bg-agri-green-950/50 p-5 flex flex-col shrink-0">
 
           {/* Nav tabs */}
           <nav className="space-y-1.5 mb-6">
@@ -113,7 +113,7 @@ const AdsDashboard = () => {
                 onClick={() => { setActiveTab(id); if (id !== "upload") setEditingPoster(null); }}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold transition-all ${
                   activeTab === id
-                    ? "bg-primary/20 text-[#6FD898] border border-primary/25"
+                    ? "bg-primary/20 text-agri-mint-400 border border-primary/25"
                     : "text-white/40 hover:text-white/70 hover:bg-white/[0.04]"
                 }`}
               >
@@ -129,7 +129,7 @@ const AdsDashboard = () => {
           {/* Stats */}
           <div className="space-y-3 mb-6">
             <div className="bg-white/[0.04] border border-white/8 rounded-xl p-3">
-              <p className="text-[#6FD898] text-2xl font-black">{stats.active}</p>
+              <p className="text-agri-mint-400 text-2xl font-black">{stats.active}</p>
               <p className="text-white/40 text-[10px] font-bold uppercase tracking-wider mt-0.5">Active Posters</p>
             </div>
             <div className="bg-white/[0.04] border border-white/8 rounded-xl p-3">
@@ -145,7 +145,7 @@ const AdsDashboard = () => {
           <Link
             to="/offers"
             target="_blank"
-            className="flex items-center gap-2 px-4 py-2.5 bg-white/[0.04] border border-white/8 text-white/40 hover:text-[#6FD898] hover:border-primary/25 text-xs font-bold uppercase tracking-wider rounded-xl transition-all"
+            className="flex items-center gap-2 px-4 py-2.5 bg-white/[0.04] border border-white/8 text-white/40 hover:text-agri-mint-400 hover:border-primary/25 text-xs font-bold uppercase tracking-wider rounded-xl transition-all"
           >
             <Globe className="w-3.5 h-3.5" />
             Preview Offers Page

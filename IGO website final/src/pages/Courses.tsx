@@ -110,7 +110,7 @@ const Academy = () => {
       />
 
       {/* ── HERO ──────────────────────────────────────────────────────── */}
-      <section className="relative pt-20 overflow-hidden bg-[#0C1A14]">
+      <section className="relative pt-20 overflow-hidden bg-agri-green-950">
         {/* Decorative blobs */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/10 blur-[140px] -translate-y-1/3 translate-x-1/4 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[100px] translate-y-1/2 -translate-x-1/4 pointer-events-none" />
@@ -125,11 +125,11 @@ const Academy = () => {
               transition={{ duration: 0.7 }}
               className="max-w-2xl"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-[#6FD898] text-[10px] font-black uppercase tracking-[0.35em] mb-6 border border-white/20">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-agri-mint-400 text-[10px] font-black uppercase tracking-[0.35em] mb-6 border border-white/20">
                 <GraduationCap className="w-3.5 h-3.5" /> India's Premier Agri Training Hub
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-white mb-5">
-                IGO <span className="text-[#6FD898] italic font-serif">Academy</span>
+                IGO <span className="text-agri-mint-400 italic font-serif">Academy</span>
               </h1>
               <p className="text-white/80 text-lg font-light leading-relaxed mb-8 max-w-lg">
                 Empowering the next generation of Agri-Entrepreneurs with scientific training, practical internship programs, and MSME certified technical courses.
@@ -160,7 +160,7 @@ const Academy = () => {
             >
               {streams.map((s, i) => (
                 <div key={i} className="bg-white/10 border border-white/20 rounded-2xl px-5 py-4 flex items-center gap-4 hover:bg-white/15 transition-colors">
-                  <div className="w-10 h-10 rounded-xl bg-[#6FD898]/20 text-[#6FD898] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-agri-mint-400/20 text-agri-mint-400 flex items-center justify-center shrink-0">
                     {s.icon}
                   </div>
                   <div>
@@ -171,7 +171,7 @@ const Academy = () => {
               ))}
               <a
                 href="#enquiry"
-                className="mt-2 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#6FD898] text-[#0C1A14] font-bold text-sm hover:bg-[#4ade80] transition-all group"
+                className="mt-2 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-agri-mint-400 text-agri-green-950 font-bold text-sm hover:bg-[#4ade80] transition-all group"
               >
                 Enroll Now <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
@@ -180,11 +180,11 @@ const Academy = () => {
         </div>
 
         {/* Wave divider */}
-        <div className="h-10 bg-[#F9F9F7]" style={{ clipPath: "ellipse(55% 100% at 50% 100%)" }} />
+        <div className="h-10 bg-agri-earth-25" style={{ clipPath: "ellipse(55% 100% at 50% 100%)" }} />
       </section>
 
       {/* ── COURSES GRID ──────────────────────────────────────────────── */}
-      <section className="py-16 bg-[#F9F9F7]">
+      <section className="py-16 bg-agri-earth-25">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
             <div>
@@ -260,7 +260,7 @@ const Academy = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="relative bg-[#F9F9F7] rounded-2xl border border-border p-6 flex flex-col gap-4"
+                className="relative bg-agri-earth-25 rounded-2xl border border-border p-6 flex flex-col gap-4"
               >
                 <div className="absolute top-4 right-4 text-[40px] font-black text-primary/8 leading-none select-none">{item.step}</div>
                 <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
@@ -277,7 +277,7 @@ const Academy = () => {
       </section>
 
       {/* ── INDUSTRIAL VISITS ─────────────────────────────────────────── */}
-      <section className="py-16 bg-[#0C1A14] relative overflow-hidden">
+      <section className="py-16 bg-agri-green-950 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-primary/8 blur-[120px] pointer-events-none" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -288,11 +288,11 @@ const Academy = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-[#6FD898] text-[10px] font-black uppercase tracking-[0.35em] mb-6 border border-white/20">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-agri-mint-400 text-[10px] font-black uppercase tracking-[0.35em] mb-6 border border-white/20">
                 <Bus className="w-3.5 h-3.5" /> Campus & Industrial Visits
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-white leading-snug mb-5">
-                Bringing Agri-Tech <span className="text-[#6FD898] italic font-serif">to Your Campus</span>
+                Bringing Agri-Tech <span className="text-agri-mint-400 italic font-serif">to Your Campus</span>
               </h2>
               <p className="text-white/70 text-base leading-relaxed mb-8">
                 IGO Agritech Farms partners with agricultural colleges, engineering institutions, and vocational training centres to deliver immersive industrial visits and guest lecture programs. Students gain first-hand exposure to polyhouse farming, hydroponics, aquaculture, and smart farm technologies at our live operational facilities.
@@ -305,7 +305,7 @@ const Academy = () => {
                   { icon: <Award className="w-4 h-4" />, label: "Participation certificates for all students" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-[#6FD898]/20 text-[#6FD898] flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-agri-mint-400/20 text-agri-mint-400 flex items-center justify-center shrink-0">
                       {item.icon}
                     </div>
                     <span className="text-white/80 text-sm font-medium">{item.label}</span>
@@ -314,7 +314,7 @@ const Academy = () => {
               </div>
               <a
                 href="#enquiry"
-                className="inline-flex items-center gap-2 mt-8 px-7 py-3.5 rounded-full bg-[#6FD898] text-[#0C1A14] font-bold text-sm hover:bg-[#4ade80] transition-all group"
+                className="inline-flex items-center gap-2 mt-8 px-7 py-3.5 rounded-full bg-agri-mint-400 text-agri-green-950 font-bold text-sm hover:bg-[#4ade80] transition-all group"
               >
                 Request a Campus Visit <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
@@ -335,7 +335,7 @@ const Academy = () => {
                 { title: "Smart Farm Tech", desc: "IoT sensors, automated irrigation, and real-time farm monitoring dashboards." },
               ].map((item, i) => (
                 <div key={i} className="bg-white/8 border border-white/15 rounded-2xl p-5 hover:bg-white/12 transition-colors">
-                  <div className="w-2 h-2 rounded-full bg-[#6FD898] mb-3" />
+                  <div className="w-2 h-2 rounded-full bg-agri-mint-400 mb-3" />
                   <h4 className="font-bold text-white text-sm mb-2 leading-snug">{item.title}</h4>
                   <p className="text-white/60 text-xs leading-relaxed">{item.desc}</p>
                 </div>
@@ -366,7 +366,7 @@ const Academy = () => {
             {/* ── Left info panel ── */}
             <div className="space-y-5">
               {/* Dark card */}
-              <div className="bg-[#0C1A14] rounded-3xl p-8 text-white relative overflow-hidden">
+              <div className="bg-agri-green-950 rounded-3xl p-8 text-white relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-40 h-40 bg-primary/15 rounded-full -translate-y-1/2 translate-x-1/4 blur-2xl pointer-events-none" />
                 <div className="text-[10px] font-black uppercase tracking-[0.35em] text-primary mb-4">Why Train with IGO?</div>
                 <h3 className="text-xl font-bold mb-5 text-white leading-snug">India's Most Trusted Agri Training Brand</h3>
@@ -383,7 +383,7 @@ const Academy = () => {
               </div>
 
               {/* Contact card */}
-              <div className="bg-[#F9F9F7] rounded-3xl p-6 border border-border">
+              <div className="bg-agri-earth-25 rounded-3xl p-6 border border-border">
                 <div className="text-[10px] font-black uppercase tracking-[0.35em] text-primary mb-4">Reach Us Directly</div>
                 <div className="space-y-3">
                   <a href="tel:+917397789803" className="flex items-center gap-3 text-sm font-semibold hover:text-primary transition-colors">
@@ -420,7 +420,7 @@ const Academy = () => {
                   { value: "10+", label: "Courses Offered" },
                   { value: "24h", label: "Response Time" },
                 ].map((s) => (
-                  <div key={s.label} className="bg-[#F9F9F7] rounded-2xl p-4 border border-border text-center">
+                  <div key={s.label} className="bg-agri-earth-25 rounded-2xl p-4 border border-border text-center">
                     <div className="text-xl font-bold text-primary">{s.value}</div>
                     <div className="text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground mt-0.5">{s.label}</div>
                   </div>
@@ -436,7 +436,7 @@ const Academy = () => {
                     key="success"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="flex flex-col items-center justify-center py-24 bg-[#F9F9F7] rounded-3xl border border-border text-center h-full"
+                    className="flex flex-col items-center justify-center py-24 bg-agri-earth-25 rounded-3xl border border-border text-center h-full"
                   >
                     <div className="w-20 h-20 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-6">
                       <CheckCircle2 className="w-10 h-10" />
@@ -463,7 +463,7 @@ const Academy = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     onSubmit={handleSubmit}
-                    className="bg-[#F9F9F7] rounded-3xl border border-border p-8 md:p-10 space-y-6"
+                    className="bg-agri-earth-25 rounded-3xl border border-border p-8 md:p-10 space-y-6"
                   >
                     {/* Name + Phone */}
                     <div className="grid sm:grid-cols-2 gap-5">
@@ -545,7 +545,7 @@ const Academy = () => {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-full py-4 bg-primary text-white text-xs font-black uppercase tracking-[0.2em] rounded-2xl hover:bg-[#0C1A14] transition-all flex items-center justify-center gap-3 group disabled:opacity-60 shadow-lg shadow-primary/20"
+                      className="w-full py-4 bg-primary text-white text-xs font-black uppercase tracking-[0.2em] rounded-2xl hover:bg-agri-green-950 transition-all flex items-center justify-center gap-3 group disabled:opacity-60 shadow-lg shadow-primary/20"
                     >
                       {loading ? (
                         <span className="flex items-center gap-3">
@@ -580,7 +580,7 @@ const Academy = () => {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────── */}
-      <section className="py-16 bg-[#0C1A14] relative overflow-hidden">
+      <section className="py-16 bg-agri-green-950 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[100px]" />
         </div>

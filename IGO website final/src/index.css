@@ -36,6 +36,22 @@
     
     --font-display: 'Inter', sans-serif;
     --font-body: 'Inter', sans-serif;
+
+    /* ── Theme System Colors (also injected via JS, CSS fallbacks) ── */
+    --color-green-800: #1A4231;
+    --color-green-700: #1F4529;
+    --color-green-900: #0D1F15;
+    --color-green-950: #0A1510;
+    --color-green-50:  #E8F5E9;
+    --color-green-25:  #F0FDF4;
+
+    --color-gold-500: #C5A03F;
+    --color-mint-400: #6FD898;
+
+    --color-earth-50:  #F4F8F4;
+    --color-earth-100: #F5F5F7;
+    --color-earth-200: #e0ede0;
+    --color-earth-900: #1A1A1A;
   }
 }
 
@@ -76,12 +92,44 @@
   .premium-btn {
     @apply rounded-full px-10 py-5 font-medium tracking-tight text-sm 
            transition-all duration-500 hover:scale-[1.02] active:scale-95 
-           bg-primary text-white hover:opacity-90
+           bg-primary text-white hover:opacity-100 hover:shadow-[0_8px_30px_rgba(26,66,49,0.25)]
            flex items-center justify-center gap-2;
   }
 
   .text-luxury {
     @apply tracking-widest uppercase text-[10px] font-semibold text-muted-foreground opacity-60;
+  }
+
+  /* ── Theme-aware utility classes ── */
+  .theme-card {
+    @apply bg-agri-earth-50 border border-agri-earth-200 rounded-[2rem] 
+           transition-all duration-500 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .theme-btn-primary {
+    @apply inline-flex items-center justify-center gap-3 px-10 py-4 
+           bg-agri-green-800 text-white text-[10px] font-bold rounded-full 
+           hover:bg-black transition-all uppercase tracking-[0.2em] 
+           shadow-lg shadow-agri-green-800/20;
+  }
+
+  .theme-btn-gold {
+    @apply inline-flex items-center justify-center gap-3 px-10 py-4 
+           bg-agri-gold-500 text-white text-[10px] font-bold rounded-full 
+           hover:bg-white hover:text-agri-green-800 transition-all uppercase tracking-widest 
+           shadow-xl shadow-agri-gold-500/30;
+  }
+
+  .theme-section-label {
+    @apply text-agri-gold-500 font-bold text-[10px] sm:text-xs uppercase tracking-[0.3em];
+  }
+
+  .theme-heading {
+    @apply text-4xl md:text-5xl font-black text-agri-earth-900 tracking-tight;
+  }
+
+  .theme-gold-line {
+    @apply h-[1px] bg-agri-gold-500;
   }
 }
 
@@ -112,4 +160,24 @@ html { scroll-behavior: smooth; }
 }
 .animate-ticker {
   animation: ticker 28s linear infinite;
+}
+
+/* Hide scrollbar for brands track */
+.brands-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Performance Optimization Utilities */
+.content-defer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
+.img-fade-in {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.img-fade-in.loaded {
+  opacity: 1;
 }

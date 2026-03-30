@@ -318,7 +318,7 @@ const Chatbot = () => {
       {/* ── Floating Toggle Button ── */}
       <motion.button
         onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#1A4231] shadow-2xl shadow-[#1A4231]/40 flex items-center justify-center text-white"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-agri-green-800 shadow-2xl shadow-agri-green-800/40 flex items-center justify-center text-white"
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.93 }}
         aria-label="Toggle chat"
@@ -349,11 +349,11 @@ const Chatbot = () => {
 
         {/* Pulse ring when closed */}
         {!open && (
-          <span className="absolute inset-0 rounded-full bg-[#1A4231] animate-ping opacity-20 pointer-events-none" />
+          <span className="absolute inset-0 rounded-full bg-agri-green-800 animate-ping opacity-20 pointer-events-none" />
         )}
         {/* Unread dot */}
         {!open && (
-          <span className="absolute top-0.5 right-0.5 w-3 h-3 bg-[#C5A03F] rounded-full border-2 border-white" />
+          <span className="absolute top-0.5 right-0.5 w-3 h-3 bg-agri-gold-500 rounded-full border-2 border-white" />
         )}
       </motion.button>
 
@@ -369,9 +369,9 @@ const Chatbot = () => {
             style={{ maxHeight: "calc(100vh - 140px)" }}
           >
             {/* ── Header ── */}
-            <div className="bg-[#1A4231] px-5 py-4 flex items-center gap-3 shrink-0">
-              <div className="w-10 h-10 rounded-full bg-[#C5A03F]/20 border border-[#C5A03F]/40 flex items-center justify-center shrink-0">
-                <span className="text-[#C5A03F] font-serif font-bold text-sm">I</span>
+            <div className="bg-agri-green-800 px-5 py-4 flex items-center gap-3 shrink-0">
+              <div className="w-10 h-10 rounded-full bg-agri-gold-500/20 border border-agri-gold-500/40 flex items-center justify-center shrink-0">
+                <span className="text-agri-gold-500 font-serif font-bold text-sm">I</span>
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-white font-bold text-sm leading-tight">IGO Agritech Assistant</p>
@@ -400,15 +400,15 @@ const Chatbot = () => {
                 >
                   {/* Bot avatar */}
                   {msg.role === "bot" && (
-                    <div className="w-7 h-7 rounded-full bg-[#1A4231] flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-7 h-7 rounded-full bg-agri-green-800 flex items-center justify-center shrink-0 mt-0.5">
                       <span className="text-white font-serif font-bold text-[10px]">I</span>
                     </div>
                   )}
                   <div
                     className={`max-w-[82%] px-4 py-3 rounded-2xl text-sm ${
                       msg.role === "user"
-                        ? "bg-[#C5A03F] text-white rounded-br-md shadow-md shadow-[#C5A03F]/20"
-                        : "bg-white text-[#1A1A1A] rounded-bl-md shadow-sm border border-black/5"
+                        ? "bg-agri-gold-500 text-white rounded-br-md shadow-md shadow-agri-gold-500/20"
+                        : "bg-white text-agri-earth-900 rounded-bl-md shadow-sm border border-black/5"
                     }`}
                   >
                     <RichText text={msg.text} />
@@ -425,14 +425,14 @@ const Chatbot = () => {
                     exit={{ opacity: 0 }}
                     className="flex items-center gap-2"
                   >
-                    <div className="w-7 h-7 rounded-full bg-[#1A4231] flex items-center justify-center shrink-0">
+                    <div className="w-7 h-7 rounded-full bg-agri-green-800 flex items-center justify-center shrink-0">
                       <span className="text-white font-serif font-bold text-[10px]">I</span>
                     </div>
                     <div className="bg-white border border-black/5 rounded-2xl rounded-bl-md px-4 py-3 flex gap-1 shadow-sm">
                       {[0, 1, 2].map((d) => (
                         <motion.span
                           key={d}
-                          className="w-1.5 h-1.5 bg-[#1A4231]/40 rounded-full"
+                          className="w-1.5 h-1.5 bg-agri-green-800/40 rounded-full"
                           animate={{ y: [0, -4, 0] }}
                           transition={{ repeat: Infinity, duration: 0.8, delay: d * 0.15 }}
                         />
@@ -454,7 +454,7 @@ const Chatbot = () => {
                     <button
                       key={qr}
                       onClick={() => sendMessage(qr)}
-                      className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-white border border-[#1A4231]/20 text-[#1A4231] text-[11px] font-semibold hover:bg-[#1A4231] hover:text-white hover:border-[#1A4231] transition-all shadow-sm"
+                      className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-white border border-agri-green-800/20 text-agri-green-800 text-[11px] font-semibold hover:bg-agri-green-800 hover:text-white hover:border-agri-green-800 transition-all shadow-sm"
                     >
                       {qr} <ChevronRight className="w-2.5 h-2.5 opacity-50" />
                     </button>
@@ -474,12 +474,12 @@ const Chatbot = () => {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="Ask about projects, services…"
-                  className="flex-1 px-4 py-2.5 rounded-full bg-[#F7F9F8] border border-black/8 text-sm text-[#1A1A1A] placeholder:text-black/30 outline-none focus:border-[#1A4231]/40 focus:ring-2 focus:ring-[#1A4231]/10 transition-all"
+                  className="flex-1 px-4 py-2.5 rounded-full bg-agri-earth-75 border border-black/8 text-sm text-agri-earth-900 placeholder:text-black/30 outline-none focus:border-agri-green-800/40 focus:ring-2 focus:ring-agri-green-800/10 transition-all"
                 />
                 <button
                   onClick={() => sendMessage(input)}
                   disabled={!input.trim()}
-                  className="w-10 h-10 rounded-full bg-[#1A4231] disabled:opacity-40 flex items-center justify-center text-white hover:bg-[#C5A03F] transition-colors shrink-0"
+                  className="w-10 h-10 rounded-full bg-agri-green-800 disabled:opacity-40 flex items-center justify-center text-white hover:bg-agri-gold-500 transition-colors shrink-0"
                 >
                   <Send className="w-4 h-4" />
                 </button>

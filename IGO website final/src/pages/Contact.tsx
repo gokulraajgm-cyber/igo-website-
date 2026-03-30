@@ -10,9 +10,10 @@ import {
   ChevronDown, CheckCircle2, Clock, Award, Building2, ExternalLink
 } from "lucide-react";
 import { toast } from "sonner";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
-const fader = {
+const fader: Variants = {
   hidden: { opacity: 0, y: 28 },
   show:   { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
 };
@@ -135,7 +136,7 @@ const Contact = () => {
   const waLink = `${companyInfo.whatsapp}?text=Hi%20IGO%20Agritech%20Farms%2C%20I%20have%20a%20${encodeURIComponent(enquiryType)}%20enquiry.%20Please%20get%20in%20touch.`;
 
   return (
-    <div className="bg-white min-h-screen selection:bg-[#E8F5E9] selection:text-[#1A4231]">
+    <div className="bg-white min-h-screen selection:bg-agri-green-50 selection:text-agri-green-800">
       <SEO
         title="Contact Us | Get in Touch — IGO Agritech Farms"
         description="Contact IGO Agritech Farms for project enquiries, agri consulting, product purchases, or partnership opportunities. Call +91 73977 89803 or email us. Based in Chennai, India."
@@ -153,9 +154,11 @@ const Contact = () => {
           transition={{ duration: 2, ease: "easeOut" }}
           className="absolute inset-0"
         >
-          <img
+          <OptimizedImage
             src="/assets/projects/main page/agri farming project .jpg"
             alt="IGO Contact"
+            loading="eager"
+            decoding="async"
             className="w-full h-full object-cover"
           />
         </motion.div>
@@ -169,14 +172,14 @@ const Contact = () => {
             className="max-w-4xl mx-auto"
           >
             <motion.div variants={fader} className="flex items-center justify-center gap-4 mb-8">
-              <div className="h-px w-12 bg-[#C5A03F]/60" />
-              <span className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em]">Contact & Enquiries</span>
-              <div className="h-px w-12 bg-[#C5A03F]/60" />
+              <div className="h-px w-12 bg-agri-gold-500/60" />
+              <span className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em]">Contact & Enquiries</span>
+              <div className="h-px w-12 bg-agri-gold-500/60" />
             </motion.div>
 
             <motion.h1 variants={fader} className="text-6xl md:text-8xl font-serif text-white mb-8 tracking-tight leading-[0.92]">
               Start Your Project. <br />
-              <span className="italic text-[#C5A03F]">Talk to IGO.</span>
+              <span className="italic text-agri-gold-500">Talk to IGO.</span>
             </motion.h1>
 
             <motion.p variants={fader} className="text-white/60 text-xl font-light leading-relaxed mb-14 max-w-2xl mx-auto">
@@ -187,7 +190,7 @@ const Contact = () => {
             <motion.div variants={fader} className="flex flex-wrap justify-center gap-4">
               <a
                 href="tel:+917397789803"
-                className="inline-flex items-center gap-3 px-8 py-3.5 bg-white text-[#1A1A1A] text-xs font-bold rounded-full uppercase tracking-widest hover:bg-[#C5A03F] hover:text-white transition-all shadow-xl"
+                className="inline-flex items-center gap-3 px-8 py-3.5 bg-white text-agri-earth-900 text-xs font-bold rounded-full uppercase tracking-widest hover:bg-agri-gold-500 hover:text-white transition-all shadow-xl"
               >
                 <Phone className="w-4 h-4" /> Call Now
               </a>
@@ -226,7 +229,7 @@ const Contact = () => {
       {/* ═══════════════════════════════════════════════════
           SECTION 2 — Contact Info Strip
       ═══════════════════════════════════════════════════ */}
-      <section className="bg-[#0D1F15] py-0">
+      <section className="bg-agri-green-900 py-0">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
             {[
@@ -263,14 +266,14 @@ const Contact = () => {
                 transition={{ duration: 0.6, delay: i * 0.08 }}
                 className="px-8 py-10 group"
               >
-                <div className="w-10 h-10 rounded-full bg-[#C5A03F]/15 flex items-center justify-center text-[#C5A03F] mb-5">
+                <div className="w-10 h-10 rounded-full bg-agri-gold-500/15 flex items-center justify-center text-agri-gold-500 mb-5">
                   {card.icon}
                 </div>
                 <p className="text-[9px] text-white/30 font-bold uppercase tracking-[0.3em] mb-3">{card.label}</p>
                 {card.lines.map((line, li) => (
                   card.href && li === 0 ? (
                     <a key={li} href={card.href} target={card.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer"
-                      className="block text-sm text-white font-medium hover:text-[#C5A03F] transition-colors leading-relaxed break-all">
+                      className="block text-sm text-white font-medium hover:text-agri-gold-500 transition-colors leading-relaxed break-all">
                       {line}
                     </a>
                   ) : (
@@ -286,15 +289,15 @@ const Contact = () => {
       {/* ═══════════════════════════════════════════════════
           SECTION 3 — Form + Sidebar
       ═══════════════════════════════════════════════════ */}
-      <section className="py-32 bg-[#F8F9F6]">
+      <section className="py-32 bg-agri-earth-50 content-defer">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-[1fr_380px] gap-12 xl:gap-20 items-start">
 
             {/* ── Enquiry Form ── */}
             <div>
               <div className="mb-10">
-                <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Send an Enquiry</p>
-                <h2 className="text-4xl md:text-5xl font-serif text-[#1A1A1A] leading-tight">
+                <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Send an Enquiry</p>
+                <h2 className="text-4xl md:text-5xl font-serif text-agri-earth-900 leading-tight">
                   Tell us about <br />your project.
                 </h2>
               </div>
@@ -310,8 +313,8 @@ const Contact = () => {
                       onClick={() => setEnquiryType(type)}
                       className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest border transition-all duration-300 ${
                         enquiryType === type
-                          ? "bg-[#1A4231] text-white border-[#1A4231] shadow-md shadow-[#1A4231]/20"
-                          : "bg-white text-black/50 border-black/10 hover:border-[#1A4231] hover:text-[#1A4231]"
+                          ? "bg-agri-green-800 text-white border-agri-green-800 shadow-md shadow-agri-green-800/20"
+                          : "bg-white text-black/50 border-black/10 hover:border-agri-green-800 hover:text-agri-green-800"
                       }`}
                     >
                       {type}
@@ -326,10 +329,10 @@ const Contact = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex flex-col items-center justify-center py-24 bg-white rounded-[2.5rem] text-center border border-black/5 shadow-sm"
                 >
-                  <div className="w-20 h-20 rounded-full bg-[#E8F5E9] text-[#1A4231] flex items-center justify-center mb-8">
+                  <div className="w-20 h-20 rounded-full bg-agri-green-50 text-agri-green-800 flex items-center justify-center mb-8">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
-                  <h3 className="text-3xl font-serif text-[#1A1A1A] mb-4">Enquiry Received!</h3>
+                  <h3 className="text-3xl font-serif text-agri-earth-900 mb-4">Enquiry Received!</h3>
                   <p className="text-black/50 text-lg font-light mb-10 max-w-xs leading-relaxed">
                     A specialist will contact you within 24 hours to discuss your project.
                   </p>
@@ -338,7 +341,7 @@ const Contact = () => {
                       setSubmitted(false);
                       setFormData({ name: "", email: "", phone: "", location: "", subject: "", message: "" });
                     }}
-                    className="px-10 py-4 border-2 border-[#1A4231] text-[#1A4231] text-xs font-bold rounded-full hover:bg-[#1A4231] hover:text-white transition-all uppercase tracking-widest"
+                    className="px-10 py-4 border-2 border-agri-green-800 text-agri-green-800 text-xs font-bold rounded-full hover:bg-agri-green-800 hover:text-white transition-all uppercase tracking-widest"
                   >
                     Send Another Enquiry
                   </button>
@@ -354,7 +357,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="Your full name"
-                        className="w-full bg-[#F8F9F6] border border-black/8 rounded-2xl px-5 py-4 text-sm text-black placeholder:text-black/25 focus:ring-2 focus:ring-[#1A4231]/15 focus:border-[#1A4231]/30 outline-none transition-all"
+                        className="w-full bg-agri-earth-50 border border-black/8 rounded-2xl px-5 py-4 text-sm text-black placeholder:text-black/25 focus:ring-2 focus:ring-agri-green-800/15 focus:border-agri-green-800/30 outline-none transition-all"
                       />
                     </div>
                     <div className="space-y-2">
@@ -364,7 +367,7 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+91 98765 43210"
-                        className="w-full bg-[#F8F9F6] border border-black/8 rounded-2xl px-5 py-4 text-sm text-black placeholder:text-black/25 focus:ring-2 focus:ring-[#1A4231]/15 focus:border-[#1A4231]/30 outline-none transition-all"
+                        className="w-full bg-agri-earth-50 border border-black/8 rounded-2xl px-5 py-4 text-sm text-black placeholder:text-black/25 focus:ring-2 focus:ring-agri-green-800/15 focus:border-agri-green-800/30 outline-none transition-all"
                       />
                     </div>
                   </div>
@@ -378,7 +381,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="your@email.com"
-                        className="w-full bg-[#F8F9F6] border border-black/8 rounded-2xl px-5 py-4 text-sm text-black placeholder:text-black/25 focus:ring-2 focus:ring-[#1A4231]/15 focus:border-[#1A4231]/30 outline-none transition-all"
+                        className="w-full bg-agri-earth-50 border border-black/8 rounded-2xl px-5 py-4 text-sm text-black placeholder:text-black/25 focus:ring-2 focus:ring-agri-green-800/15 focus:border-agri-green-800/30 outline-none transition-all"
                       />
                     </div>
                     <div className="space-y-2">
@@ -388,7 +391,7 @@ const Contact = () => {
                         value={formData.location}
                         onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                         placeholder="e.g. Bangalore, Karnataka"
-                        className="w-full bg-[#F8F9F6] border border-black/8 rounded-2xl px-5 py-4 text-sm text-black placeholder:text-black/25 focus:ring-2 focus:ring-[#1A4231]/15 focus:border-[#1A4231]/30 outline-none transition-all"
+                        className="w-full bg-agri-earth-50 border border-black/8 rounded-2xl px-5 py-4 text-sm text-black placeholder:text-black/25 focus:ring-2 focus:ring-agri-green-800/15 focus:border-agri-green-800/30 outline-none transition-all"
                       />
                     </div>
                   </div>
@@ -400,7 +403,7 @@ const Contact = () => {
                       <select
                         value={formData.subject}
                         onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        className="w-full bg-[#F8F9F6] border border-black/8 rounded-2xl px-5 py-4 text-sm text-black focus:ring-2 focus:ring-[#1A4231]/15 focus:border-[#1A4231]/30 outline-none transition-all appearance-none cursor-pointer"
+                        className="w-full bg-agri-earth-50 border border-black/8 rounded-2xl px-5 py-4 text-sm text-black focus:ring-2 focus:ring-agri-green-800/15 focus:border-agri-green-800/30 outline-none transition-all appearance-none cursor-pointer"
                       >
                         <option value="">Select a project or interest area</option>
                         {PROJECT_OPTIONS.map((opt) => (
@@ -419,7 +422,7 @@ const Contact = () => {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Describe your land size, location, budget, or any specific requirements..."
-                      className="w-full bg-[#F8F9F6] border border-black/8 rounded-2xl px-5 py-4 text-sm text-black placeholder:text-black/25 focus:ring-2 focus:ring-[#1A4231]/15 focus:border-[#1A4231]/30 outline-none transition-all resize-none"
+                      className="w-full bg-agri-earth-50 border border-black/8 rounded-2xl px-5 py-4 text-sm text-black placeholder:text-black/25 focus:ring-2 focus:ring-agri-green-800/15 focus:border-agri-green-800/30 outline-none transition-all resize-none"
                     />
                   </div>
 
@@ -428,7 +431,7 @@ const Contact = () => {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-full py-5 bg-[#1A4231] text-white text-xs font-bold rounded-2xl hover:bg-black transition-all flex items-center justify-center gap-3 group disabled:opacity-60 uppercase tracking-widest shadow-xl shadow-[#1A4231]/20"
+                      className="w-full py-5 bg-agri-green-800 text-white text-xs font-bold rounded-2xl hover:bg-black transition-all flex items-center justify-center gap-3 group disabled:opacity-60 uppercase tracking-widest shadow-xl shadow-agri-green-800/20"
                     >
                       {loading ? (
                         <span className="flex items-center gap-3">
@@ -453,7 +456,7 @@ const Contact = () => {
                         "1,000+ Projects Delivered",
                       ].map((t) => (
                         <div key={t} className="flex items-center gap-2 text-[10px] text-black/40 font-bold uppercase tracking-widest">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#1A4231]" /> {t}
+                          <CheckCircle2 className="w-3.5 h-3.5 text-agri-green-800" /> {t}
                         </div>
                       ))}
                     </div>
@@ -486,15 +489,15 @@ const Contact = () => {
               </div>
 
               {/* Call card */}
-              <div className="rounded-[2rem] bg-[#0D1F15] p-8">
-                <div className="w-12 h-12 rounded-2xl bg-[#C5A03F]/15 flex items-center justify-center mb-5">
-                  <Phone className="w-6 h-6 text-[#C5A03F]" />
+              <div className="rounded-[2rem] bg-agri-green-900 p-8">
+                <div className="w-12 h-12 rounded-2xl bg-agri-gold-500/15 flex items-center justify-center mb-5">
+                  <Phone className="w-6 h-6 text-agri-gold-500" />
                 </div>
                 <h3 className="text-xl font-serif text-white mb-1">Call Directly</h3>
                 <p className="text-white/40 text-xs font-light mb-5">Mon – Sat, 9:00 AM – 6:00 PM IST</p>
                 <a
                   href="tel:+917397789803"
-                  className="text-2xl font-bold text-white hover:text-[#C5A03F] transition-colors block mb-2"
+                  className="text-2xl font-bold text-white hover:text-agri-gold-500 transition-colors block mb-2"
                 >
                   +91 73977 89803
                 </a>
@@ -516,7 +519,7 @@ const Contact = () => {
                     { icon: <Award className="w-4 h-4" />, text: "SISI Award for Industrial Development" },
                   ].map((a, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <div className="w-7 h-7 rounded-full bg-[#C5A03F]/10 flex items-center justify-center text-[#C5A03F] shrink-0 mt-0.5">
+                      <div className="w-7 h-7 rounded-full bg-agri-gold-500/10 flex items-center justify-center text-agri-gold-500 shrink-0 mt-0.5">
                         {a.icon}
                       </div>
                       <p className="text-xs text-black/60 leading-relaxed">{a.text}</p>
@@ -556,7 +559,27 @@ const Contact = () => {
       {/* ═══════════════════════════════════════════════════
           SECTION 5 — Map with overlay
       ═══════════════════════════════════════════════════ */}
-      <section className="relative h-[520px] border-t border-black/5">
+      {/* Get Directions bar above the map */}
+      <div className="flex items-center justify-between px-8 py-4 bg-white border-t border-black/5">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-full bg-agri-green-800 flex items-center justify-center">
+            <MapPin className="w-4 h-4 text-white" />
+          </div>
+          <span className="text-sm font-semibold text-agri-earth-900">
+            No 17, Kovalan Street, 2nd Main Road, Uthandi Kanathur, Chennai 600119
+          </span>
+        </div>
+        <a
+          href="https://maps.google.com/?q=Uthandi+Kanathur+Chennai+600119"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-agri-green-800 text-white text-xs font-bold uppercase tracking-widest rounded-full hover:bg-agri-green-900 transition-colors shrink-0"
+        >
+          Get Directions <ExternalLink className="w-3 h-3" />
+        </a>
+      </div>
+
+      <section className="relative h-[520px] content-defer">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3888.4850698844434!2d80.24999731482187!3d12.900529490893615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
           width="100%"
@@ -569,32 +592,24 @@ const Contact = () => {
         />
         {/* Floating info card */}
         <div className="absolute top-8 left-8 bg-white rounded-[1.5rem] shadow-2xl p-6 max-w-[280px] border border-black/5 z-10">
-          <div className="w-9 h-9 rounded-full bg-[#1A4231] flex items-center justify-center mb-4">
+          <div className="w-9 h-9 rounded-full bg-agri-green-800 flex items-center justify-center mb-4">
             <MapPin className="w-4 h-4 text-white" />
           </div>
-          <h4 className="text-base font-bold text-[#1A1A1A] mb-1">IGO Agritech Farms</h4>
-          <p className="text-xs text-black/50 leading-relaxed mb-4">
+          <h4 className="text-base font-bold text-agri-earth-900 mb-1">IGO Agritech Farms</h4>
+          <p className="text-xs text-black/50 leading-relaxed">
             No 17, Kovalan Street, 2nd Main Road,<br />Uthandi Kanathur, Chennai 600119
           </p>
-          <a
-            href="https://maps.google.com/?q=Uthandi+Kanathur+Chennai+600119"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[10px] font-bold text-[#1A4231] uppercase tracking-widest hover:text-[#C5A03F] transition-colors"
-          >
-            Get Directions <ExternalLink className="w-3 h-3" />
-          </a>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════
           SECTION 6 — FAQ
       ═══════════════════════════════════════════════════ */}
-      <section className="py-32 bg-[#F8F9F6]">
+      <section className="py-32 bg-agri-earth-50 content-defer">
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="text-center mb-16">
-            <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Got Questions?</p>
-            <h2 className="text-4xl md:text-5xl font-serif text-[#1A1A1A]">Frequently Asked Questions</h2>
+            <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Got Questions?</p>
+            <h2 className="text-4xl md:text-5xl font-serif text-agri-earth-900">Frequently Asked Questions</h2>
           </div>
 
           <div className="space-y-3">
@@ -611,7 +626,7 @@ const Contact = () => {
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between px-8 py-6 text-left group"
                 >
-                  <span className="text-base font-bold text-[#1A1A1A] group-hover:text-[#1A4231] transition-colors pr-6 leading-snug">
+                  <span className="text-base font-bold text-agri-earth-900 group-hover:text-agri-green-800 transition-colors pr-6 leading-snug">
                     {faq.q}
                   </span>
                   <motion.div
@@ -647,11 +662,11 @@ const Contact = () => {
       {/* ═══════════════════════════════════════════════════
           SECTION 7 — Final Action Bar
       ═══════════════════════════════════════════════════ */}
-      <section className="py-24 bg-[#0D1F15] text-white">
+      <section className="py-24 bg-agri-green-900 text-white">
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
             <div>
-              <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Prefer to talk directly?</p>
+              <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Prefer to talk directly?</p>
               <h2 className="text-4xl md:text-5xl font-serif text-white leading-tight">We're one call away.</h2>
               <div className="flex items-center gap-3 mt-4">
                 <div className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
@@ -661,7 +676,7 @@ const Contact = () => {
             <div className="flex flex-wrap gap-4 shrink-0">
               <a
                 href="tel:+917397789803"
-                className="inline-flex items-center gap-3 px-10 py-5 bg-white text-[#1A1A1A] text-xs font-bold rounded-full hover:bg-[#C5A03F] hover:text-white transition-all uppercase tracking-widest shadow-xl"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-white text-agri-earth-900 text-xs font-bold rounded-full hover:bg-agri-gold-500 hover:text-white transition-all uppercase tracking-widest shadow-xl"
               >
                 <Phone className="w-4 h-4" /> Call Now
               </a>

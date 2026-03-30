@@ -1,0 +1,303 @@
+﻿.claude/settings.local.json
+IGO website final/.claude/settings.local.json
+IGO website final/index.html
+IGO website final/netlify.toml
+IGO website final/package-lock.json
+IGO website final/package.json
+IGO website final/public/assets/about page image .png
+IGO website final/public/assets/award_ceremony_ceo.png
+IGO website final/public/assets/background page for agri starup and about .png
+IGO website final/public/assets/barley_hero_clean.png
+IGO website final/public/assets/brands/WhatsApp Image 2026-03-26 at 11.26.05 AM (2).jpeg
+IGO website final/public/assets/brands/WhatsApp Image 2026-03-26 at 11.26.06 AM (1).jpeg
+IGO website final/public/assets/brands/WhatsApp Image 2026-03-26 at 11.26.06 AM (2).jpeg
+IGO website final/public/assets/brands/WhatsApp Image 2026-03-26 at 11.26.06 AM.jpeg
+IGO website final/public/assets/brands/WhatsApp Image 2026-03-26 at 11.33.19 AM.jpeg
+IGO website final/public/assets/brands/brand-1.jpg.jpeg
+IGO website final/public/assets/brands/brand-2.jpg.jpeg
+IGO website final/public/assets/brands/brand-3.jpg.jpeg
+IGO website final/public/assets/brands/brand-4.jpg.jpeg
+IGO website final/public/assets/brands/brand-5.jpg.jpeg
+IGO website final/public/assets/brands/brand-6.jpg.jpeg
+IGO website final/public/assets/brands/igo-exports.jpeg
+IGO website final/public/assets/brands/igo-foundation.jpeg
+IGO website final/public/assets/brands/igo-group.jpeg
+IGO website final/public/assets/brands/palm-cafe.jpeg
+IGO website final/public/assets/career images/agrieng.jpg
+IGO website final/public/assets/career images/businessdev.webp
+IGO website final/public/assets/career images/civil.webp
+IGO website final/public/assets/career images/delivery.jpg
+IGO website final/public/assets/career images/digital.webp
+IGO website final/public/assets/career images/driver.webp
+IGO website final/public/assets/career images/farm.webp
+IGO website final/public/assets/career images/ffff.webp
+IGO website final/public/assets/career images/live.webp
+IGO website final/public/assets/career images/purchase.jpg
+IGO website final/public/assets/career images/ware.webp
+IGO website final/public/assets/ceo awrds  image/about - Copy.jpeg
+IGO website final/public/assets/ceo awrds  image/award.jpg.jpeg
+IGO website final/public/assets/ceo awrds  image/award1.jpg.jpeg
+IGO website final/public/assets/ceo awrds  image/award2.jpg.jpeg
+IGO website final/public/assets/ceo awrds  image/award3.jpg.jpeg
+IGO website final/public/assets/ceo awrds  image/award4.jpg.jpeg
+IGO website final/public/assets/ceo awrds  image/best farm engineering company i india -2025.jpeg
+IGO website final/public/assets/ceo awrds  image/most trustwd agri brand in india -2026.JPG
+IGO website final/public/assets/core bussiness picture/aquatic_plants.jpg
+IGO website final/public/assets/core bussiness picture/farm_engineering.jpg
+IGO website final/public/assets/core bussiness picture/livestock.jpg
+IGO website final/public/assets/demo poster/Copy of Website cover page (1).jpg.jpeg
+IGO website final/public/assets/demo poster/Copy of Website cover page.jpg.jpeg
+IGO website final/public/assets/demo poster/WhatsApp Image 2026-03-23 at 5.28.32 PM.jpeg
+IGO website final/public/assets/header/product dropdown icon/agri products icon.jpg
+IGO website final/public/assets/header/product dropdown icon/aquaculture prodcut icon .jpg
+IGO website final/public/assets/header/product dropdown icon/farm engineering icon .jpg
+IGO website final/public/assets/header/product dropdown icon/live stock product .jpg
+IGO website final/public/assets/header/project drop down icon/agri_farming.jpg
+IGO website final/public/assets/header/project drop down icon/aquaculture.jpg
+IGO website final/public/assets/header/project drop down icon/farm_engineering_new_icon.png
+IGO website final/public/assets/header/project drop down icon/livestock farming.jpg
+IGO website final/public/assets/header/service drop down icon/agri_farming_new_icon.png
+IGO website final/public/assets/header/service drop down icon/aquaculture_new_icon.png
+IGO website final/public/assets/header/service drop down icon/farm_engineering.jpg
+IGO website final/public/assets/header/service drop down icon/livestock.jpg
+IGO website final/public/assets/home page image .png
+IGO website final/public/assets/logo igo.jpg
+IGO website final/public/assets/product/main page image/Agri Essentials.jpg
+IGO website final/public/assets/product/main page image/Animal Solutions.jpg
+IGO website final/public/assets/product/main page image/Crop Solutions.jpg
+IGO website final/public/assets/product/main page image/farm equipment .jpg
+IGO website final/public/assets/product/types/Azospirillum .png
+IGO website final/public/assets/product/types/GI pipes .jpg
+IGO website final/public/assets/product/types/NFT channels .jpg
+IGO website final/public/assets/product/types/NPK fertilizers .jpg
+IGO website final/public/assets/product/types/aerators .jpg
+IGO website final/public/assets/product/types/amino acid .jpg
+IGO website final/public/assets/product/types/bio bestiscide .jpg
+IGO website final/public/assets/product/types/biofloc tank .jpg
+IGO website final/public/assets/product/types/cattle feeds .jpg
+IGO website final/public/assets/product/types/drip irrigation system .jpg
+IGO website final/public/assets/product/types/fish feed .jpg
+IGO website final/public/assets/product/types/fish medicins .jpg
+IGO website final/public/assets/product/types/flower seeds .jpg
+IGO website final/public/assets/product/types/fruit plants .jpg
+IGO website final/public/assets/product/types/fulvic acid .jpg
+IGO website final/public/assets/product/types/fungicides .jpg
+IGO website final/public/assets/product/types/goat feed s.jpg
+IGO website final/public/assets/product/types/grow lights.jpg
+IGO website final/public/assets/product/types/herbisides .jpg
+IGO website final/public/assets/product/types/humic acid .jpg
+IGO website final/public/assets/product/types/hydroponic nutrients .jpg
+IGO website final/public/assets/product/types/insect net .jpg
+IGO website final/public/assets/product/types/insecticide .jpg
+IGO website final/public/assets/product/types/irrigation pipes .jpg
+IGO website final/public/assets/product/types/live stock equipmemts .jpg
+IGO website final/public/assets/product/types/live stock medicines .jpg
+IGO website final/public/assets/product/types/luquide fertilizers .jpg
+IGO website final/public/assets/product/types/medicinal plants .jpg
+IGO website final/public/assets/product/types/micronutrines .jpg
+IGO website final/public/assets/product/types/mineral mixtures .jpg
+IGO website final/public/assets/product/types/mycoeehiza.jpg
+IGO website final/public/assets/product/types/net pots .jpg
+IGO website final/public/assets/product/types/organic fertilizer .jpg
+IGO website final/public/assets/product/types/phosphate solubilizing bacteria.jpg
+IGO website final/public/assets/product/types/polyhouse sheets.jpg
+IGO website final/public/assets/product/types/pond liner .jpg
+IGO website final/public/assets/product/types/shade nets .jpg
+IGO website final/public/assets/product/types/solar dryers .jpg
+IGO website final/public/assets/product/types/solar fencing system .jpg
+IGO website final/public/assets/product/types/solar pumps .jpg
+IGO website final/public/assets/product/types/sprinklers .jpg
+IGO website final/public/assets/product/types/vegetable seed .jpg
+IGO website final/public/assets/product/types/waterpumpn.jpg
+IGO website final/public/assets/product/types/wter testing kits .jpg
+IGO website final/public/assets/projects/floriculture_high_tech_1773750708446.png
+IGO website final/public/assets/projects/horticulture_enterprise_1773750728597.png
+IGO website final/public/assets/projects/hydroponic_nft_enterprise_1773750839362.png
+IGO website final/public/assets/projects/joint_venture_premium_1773750685382.png
+IGO website final/public/assets/projects/main page/agri farming project .jpg
+IGO website final/public/assets/projects/main page/aquaculture farming .jpg
+IGO website final/public/assets/projects/main page/farm engineering .jpg
+IGO website final/public/assets/projects/main page/livestock farming.jpg
+IGO website final/public/assets/projects/microgreens_lab_style_1773750748522.png
+IGO website final/public/assets/projects/minimalist_farm_engineering_1773740848836.png
+IGO website final/public/assets/projects/multi_tier_farming_sleek_1773750910232.png
+IGO website final/public/assets/projects/mushroom_industrial_premium_1773750798076.png
+IGO website final/public/assets/projects/nursery_modern_minimalist_1773750946194.png
+IGO website final/public/assets/projects/polyhouse_premium_wide_1773750820281.png
+IGO website final/public/assets/projects/pond_liner_engineering_1773750874112.png
+IGO website final/public/assets/projects/project subcategories/subcategories/Vertical  farming .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/biofloc farming .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/crab farming .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/dairy farming .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/farm devedlopment project .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/farm infrastructure .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/fish farming .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/flooriculture project .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/goat farming .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/hydroponic farming .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/integarated farming .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/intergarated live stock farming .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/medicinal crop .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/mushroom farming .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/nursery projcts .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/open field cultivation .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/poultry farming .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/protected farming .png
+IGO website final/public/assets/projects/project subcategories/subcategories/sheep farming .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/shrimp farming .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/solar agriculture project .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/urban farming .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/vegetable cultivations .jpg
+IGO website final/public/assets/projects/project subcategories/subcategories/water management .jpg
+IGO website final/public/assets/projects/project subcategories/types/Deep Water Culture (DWC)_ What Is It And How To Get Started.jpg
+IGO website final/public/assets/projects/project subcategories/types/Goat Farm.jpg
+IGO website final/public/assets/projects/project subcategories/types/Microgreens productions.jpg
+IGO website final/public/assets/projects/project subcategories/types/NFT hydroponic system .jpg
+IGO website final/public/assets/projects/project subcategories/types/Oyster Mushroom Cultivation.jpg
+IGO website final/public/assets/projects/project subcategories/types/Rainwater Harvesting.jpg
+IGO website final/public/assets/projects/project subcategories/types/Tissue Culture Plant Propagation Modern Agricultural Education.jpg
+IGO website final/public/assets/projects/project subcategories/types/aloe vera farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/aquaponics system .jpg
+IGO website final/public/assets/projects/project subcategories/types/biofloc fish farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/bioflock shrimp farming.jpg
+IGO website final/public/assets/projects/project subcategories/types/blueberry plantation.jpg
+IGO website final/public/assets/projects/project subcategories/types/borewell .jpg
+IGO website final/public/assets/projects/project subcategories/types/button mushroom farming.jpg
+IGO website final/public/assets/projects/project subcategories/types/cage fish farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/capsicum poject .jpg
+IGO website final/public/assets/projects/project subcategories/types/chilli farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/climate controlled polyhouse .jpg
+IGO website final/public/assets/projects/project subcategories/types/cold storage .jpg
+IGO website final/public/assets/projects/project subcategories/types/commercial farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/commercial goat farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/commercial hydroponic farms .jpg
+IGO website final/public/assets/projects/project subcategories/types/commercial plant nursery.jpg
+IGO website final/public/assets/projects/project subcategories/types/commercial sheep farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/contour mapping .jpg
+IGO website final/public/assets/projects/project subcategories/types/cucumber farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/dairy farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/dragon fruit plantation .jpg
+IGO website final/public/assets/projects/project subcategories/types/exotic farming.jpg
+IGO website final/public/assets/projects/project subcategories/types/farm buildings .jpg
+IGO website final/public/assets/projects/project subcategories/types/farm irrigation system .jpg
+IGO website final/public/assets/projects/project subcategories/types/fig plantation .jpg
+IGO website final/public/assets/projects/project subcategories/types/freshwater prawn farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/ginger farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/guva plantation .jpg
+IGO website final/public/assets/projects/project subcategories/types/indoor hydroponic farm .jpg
+IGO website final/public/assets/projects/project subcategories/types/indoor vertical farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/intensive fish farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/intergarted live stock farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/intergrated farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/intergrated goat farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/jasmine farmig .jpg
+IGO website final/public/assets/projects/project subcategories/types/jasmine farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/kitchen gardening projects .jpg
+IGO website final/public/assets/projects/project subcategories/types/land surveing .jpg
+IGO website final/public/assets/projects/project subcategories/types/landleveling .jpg
+IGO website final/public/assets/projects/project subcategories/types/mango plantantion .jpg
+IGO website final/public/assets/projects/project subcategories/types/mist chamber .jpg
+IGO website final/public/assets/projects/project subcategories/types/moringa plantantnion .jpg
+IGO website final/public/assets/projects/project subcategories/types/mud crab farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/muskmelon farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/naturally ventilated polyhouse .jpg
+IGO website final/public/assets/projects/project subcategories/types/ooftopnfarming.jpg
+IGO website final/public/assets/projects/project subcategories/types/packn=house .jpg
+IGO website final/public/assets/projects/project subcategories/types/papaya plantantion .jpg
+IGO website final/public/assets/projects/project subcategories/types/polycarbonate green house .png
+IGO website final/public/assets/projects/project subcategories/types/pond liner installation.jpg
+IGO website final/public/assets/projects/project subcategories/types/poultry farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/rose famring .jpg
+IGO website final/public/assets/projects/project subcategories/types/seedling productu .jpg
+IGO website final/public/assets/projects/project subcategories/types/shade net house .jpg
+IGO website final/public/assets/projects/project subcategories/types/sheep farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/solar crop dryer .jpg
+IGO website final/public/assets/projects/project subcategories/types/solar fencing.jpg
+IGO website final/public/assets/projects/project subcategories/types/solar lighting '.jpg
+IGO website final/public/assets/projects/project subcategories/types/solary heater .jpg
+IGO website final/public/assets/projects/project subcategories/types/tamato farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/tapacio cultivation .jpg
+IGO website final/public/assets/projects/project subcategories/types/terrece farminng.jpg
+IGO website final/public/assets/projects/project subcategories/types/topographis mappin g.jpg
+IGO website final/public/assets/projects/project subcategories/types/traditional fish farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/turmeric farming .jpg
+IGO website final/public/assets/projects/project subcategories/types/vertical hydroponic towers .jpg
+IGO website final/public/assets/projects/project subcategories/types/watermelon farming .jpg
+IGO website final/public/assets/projects/rooftop_farming_corporate_1773750857107.png
+IGO website final/public/assets/projects/scientific_aquaculture_lab_1773740830933.png
+IGO website final/public/assets/projects/solar_agri_premium_1773750927133.png
+IGO website final/public/assets/projects/tesla_agri_hero_1773740814701.png
+IGO website final/public/assets/projects/vertical_farming_futuristic_1773750768705.png
+IGO website final/public/assets/service/main page service image/Farm Infrastructure & Irrigation.jpg
+IGO website final/public/assets/service/main page service image/Farm Planning & Consulting.jpg
+IGO website final/public/assets/service/main page service image/Farming Project Setup.jpg
+IGO website final/public/assets/service/main page service image/Maintenance & Support.jpg
+IGO website final/public/assets/service/types/Land Surveyors.jpg
+IGO website final/public/assets/service/types/agri investment consulting .jpg
+IGO website final/public/assets/service/types/aquaponics_setup.png
+IGO website final/public/assets/service/types/auqculture consulting .jpg
+IGO website final/public/assets/service/types/bioflock insatllation .jpg
+IGO website final/public/assets/service/types/cold storage consturation.jpg
+IGO website final/public/assets/service/types/cold_storage.png
+IGO website final/public/assets/service/types/crop selection consulting .jpg
+IGO website final/public/assets/service/types/dairy farm setup .jpg
+IGO website final/public/assets/service/types/drip irrigation installation .jpg
+IGO website final/public/assets/service/types/farm building desigin .jpg
+IGO website final/public/assets/service/types/farm bussiness planning .jpg
+IGO website final/public/assets/service/types/farm equipament  maintance .jpg
+IGO website final/public/assets/service/types/farm layout design.jpg
+IGO website final/public/assets/service/types/fish farming setup .jpg
+IGO website final/public/assets/service/types/gis mapping.jpg
+IGO website final/public/assets/service/types/goat_farm_setup.png
+IGO website final/public/assets/service/types/hydroponic setup .jpg
+IGO website final/public/assets/service/types/hydroponic system AMC .jpg
+IGO website final/public/assets/service/types/land leveling .jpg
+IGO website final/public/assets/service/types/livestock shed construction .jpg
+IGO website final/public/assets/service/types/pack house construction .jpg
+IGO website final/public/assets/service/types/polyhouse AMC .jpg
+IGO website final/public/assets/service/types/polyhouse installations .jpg
+IGO website final/public/assets/service/types/pon construction .jpg
+IGO website final/public/assets/service/types/poultry farm set up .jpg
+IGO website final/public/assets/service/types/sheep farm setup.jpg
+IGO website final/public/assets/service/types/sprinkeler irrigation installations .jpg
+IGO website final/public/assets/service/types/verticall farming setup .jpg
+IGO website final/public/assets/service/types/water pump system .jpg
+IGO website final/public/assets/stat_bg_4.jpg
+IGO website final/public/robots.txt
+IGO website final/public/sitemap.xml
+IGO website final/scripts/compress-images.js
+IGO website final/src/App.tsx
+IGO website final/src/components/Chatbot.tsx
+IGO website final/src/components/Footer.tsx
+IGO website final/src/components/Navbar.tsx
+IGO website final/src/components/SEO.tsx
+IGO website final/src/components/ads/UpdateTab.tsx
+IGO website final/src/components/ads/UploadTab.tsx
+IGO website final/src/data/siteData.ts
+IGO website final/src/index.css
+IGO website final/src/lib/sendFormEmail.ts
+IGO website final/src/pages/About.tsx
+IGO website final/src/pages/AdminDashboard.tsx
+IGO website final/src/pages/AdminLogin.tsx
+IGO website final/src/pages/AdsDashboard.tsx
+IGO website final/src/pages/AdsLogin.tsx
+IGO website final/src/pages/AgriStartupEnquiry.tsx
+IGO website final/src/pages/AgriStartupPlatform.tsx
+IGO website final/src/pages/Blog.tsx
+IGO website final/src/pages/BlogPost.tsx
+IGO website final/src/pages/Careers.tsx
+IGO website final/src/pages/Contact.tsx
+IGO website final/src/pages/Courses.tsx
+IGO website final/src/pages/FAQ.tsx
+IGO website final/src/pages/IgoGroupBrands.tsx
+IGO website final/src/pages/Index.tsx
+IGO website final/src/pages/NotFound.tsx
+IGO website final/src/pages/OffersPage.tsx
+IGO website final/src/pages/ProductRouter.tsx
+IGO website final/src/pages/Products.tsx
+IGO website final/src/pages/ProjectRouter.tsx
+IGO website final/src/pages/Projects.tsx
+IGO website final/src/pages/ServiceRouter.tsx
+IGO website final/src/pages/Services.tsx
+IGO website final/vite.config.ts
+package-lock.json

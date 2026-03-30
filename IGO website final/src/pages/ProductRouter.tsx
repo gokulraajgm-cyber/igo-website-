@@ -17,6 +17,7 @@ import {
   Zap,
   Package
 } from 'lucide-react';
+import OptimizedImage from '@/components/ui/OptimizedImage';
 import { productDetailData, ProductDetail } from '@/data/productDetailData';
 import { navLinks } from '@/data/siteData';
 
@@ -129,7 +130,7 @@ const CategoryView: React.FC<{ category: string }> = ({ category }) => {
   };
 
   return (
-    <div className="bg-white min-h-screen selection:bg-[#E8F5E9] selection:text-[#1A4231]">
+    <div className="bg-white min-h-screen selection:bg-agri-green-50 selection:text-agri-green-800">
       <SEO
         title={`${meta.label} Products`}
         description={`${meta.desc} Buy ${meta.label.toLowerCase()} from IGO Agritech Farms — premium quality, pan-India delivery, bulk pricing available.`}
@@ -147,7 +148,13 @@ const CategoryView: React.FC<{ category: string }> = ({ category }) => {
           transition={{ duration: 1.6, ease: 'easeOut' }}
           className="absolute inset-0"
         >
-          <img src={meta.cardImage} alt={meta.label} loading="eager" className="w-full h-full object-cover" />
+          <OptimizedImage
+            src={meta.cardImage}
+            alt={meta.label}
+            loading="eager"
+            decoding="async"
+            className="w-full h-full object-cover"
+          />
         </motion.div>
         <div className="container mx-auto px-6 relative z-10">
           {/* Breadcrumb */}
@@ -163,8 +170,8 @@ const CategoryView: React.FC<{ category: string }> = ({ category }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="flex items-center gap-4 text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.3em] mb-5">
-              <div className="w-8 h-[1px] bg-[#C5A03F]" />
+            <div className="flex items-center gap-4 text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.3em] mb-5">
+              <div className="w-8 h-[1px] bg-agri-gold-500" />
               {products.length} Products
             </div>
             <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight leading-[0.95] mb-6">
@@ -178,7 +185,7 @@ const CategoryView: React.FC<{ category: string }> = ({ category }) => {
       </section>
 
       {/* Product grid */}
-      <section className="py-20 container mx-auto px-6">
+      <section className="py-20 container mx-auto px-6 content-defer">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {products.map((product, i) => (
             <motion.div
@@ -193,21 +200,21 @@ const CategoryView: React.FC<{ category: string }> = ({ category }) => {
                 className="group flex flex-col bg-white rounded-[1.75rem] overflow-hidden border border-black/[0.06] shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 h-full"
               >
                 {/* Image */}
-                <div className="relative aspect-[4/3] overflow-hidden bg-[#F4F8F4]">
-                  <img
+                <div className="relative aspect-[4/3] overflow-hidden bg-agri-earth-50">
+                  <OptimizedImage
                     src={PRODUCT_IMAGES[product.id] || meta.cardImage}
                     alt={product.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    onError={e => { (e.currentTarget as HTMLImageElement).src = meta.cardImage; }}
+                    fallbackSrc={meta.cardImage}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest text-[#1A4231]">
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest text-agri-green-800">
                     {meta.label}
                   </div>
                 </div>
                 {/* Info */}
                 <div className="p-6 flex flex-col flex-1">
-                  <h3 className="text-base font-black text-[#1A4231] mb-2 leading-snug group-hover:text-[#C5A03F] transition-colors line-clamp-2">
+                  <h3 className="text-base font-black text-agri-green-800 mb-2 leading-snug group-hover:text-agri-gold-500 transition-colors line-clamp-2">
                     {product.name}
                   </h3>
                   <p className="text-xs text-black/50 leading-relaxed line-clamp-2 mb-4 flex-1">
@@ -216,10 +223,10 @@ const CategoryView: React.FC<{ category: string }> = ({ category }) => {
                   <div className="flex items-center justify-between mt-auto pt-4 border-t border-black/[0.06]">
                     <div>
                       <span className="text-[9px] font-bold text-black/30 uppercase tracking-widest block">Starting from</span>
-                      <span className="text-lg font-black text-[#1A4231]">₹{product.pricing.retail.toLocaleString()}</span>
+                      <span className="text-lg font-black text-agri-green-800">₹{product.pricing.retail.toLocaleString()}</span>
                     </div>
-                    <div className="w-9 h-9 rounded-full bg-[#F4F8F4] group-hover:bg-[#1A4231] flex items-center justify-center transition-colors">
-                      <ArrowRight className="w-4 h-4 text-[#1A4231] group-hover:text-white transition-colors" />
+                    <div className="w-9 h-9 rounded-full bg-agri-earth-50 group-hover:bg-agri-green-800 flex items-center justify-center transition-colors">
+                      <ArrowRight className="w-4 h-4 text-agri-green-800 group-hover:text-white transition-colors" />
                     </div>
                   </div>
                 </div>
@@ -230,13 +237,13 @@ const CategoryView: React.FC<{ category: string }> = ({ category }) => {
       </section>
 
       {/* CTA strip */}
-      <section className="py-20 bg-[#F4F8F4]">
+      <section className="py-20 bg-agri-earth-50">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-black text-[#1A4231] mb-4">Need Bulk Pricing or a Custom Order?</h2>
+          <h2 className="text-3xl font-black text-agri-green-800 mb-4">Need Bulk Pricing or a Custom Order?</h2>
           <p className="text-black/50 mb-8 max-w-xl mx-auto">Contact our sales team for volume discounts, technical specifications, and pan-India delivery.</p>
           <Link
             to="/contact?subject=Bulk%20Enquiry"
-            className="inline-flex items-center gap-2 px-10 py-4 bg-[#1A4231] text-white text-xs font-bold rounded-full hover:bg-[#2a5a45] transition-all uppercase tracking-widest shadow-xl shadow-[#1A4231]/20"
+            className="inline-flex items-center gap-2 px-10 py-4 bg-agri-green-800 text-white text-xs font-bold rounded-full hover:bg-[#2a5a45] transition-all uppercase tracking-widest shadow-xl shadow-agri-green-800/20"
           >
             Contact Sales Team <ArrowRight className="w-4 h-4" />
           </Link>
@@ -315,7 +322,7 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
   };
 
   return (
-    <div className="bg-white min-h-screen pt-24 pb-20 selection:bg-[#E8F5E9] selection:text-[#1A4231]">
+    <div className="bg-white min-h-screen pt-24 pb-20 selection:bg-agri-green-50 selection:text-agri-green-800">
       <SEO
         title={product.name}
         description={`Buy ${product.name} from IGO Agritech Farms. ${product.description.slice(0, 100)} Starting from ₹${product.pricing.retail.toLocaleString()}. Pan-India delivery.`}
@@ -344,14 +351,16 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
           {/* LEFT — Image + Trust Badges */}
           <div className="lg:w-[40%]">
             <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden bg-slate-100 shadow-2xl border border-black/5 group">
-              <img
+              <OptimizedImage
                 src={imgUrl}
                 alt={product.name}
-                onError={onImageError}
+                loading="eager"
+                decoding="async"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                fallbackSrc={meta?.cardImage || LOCAL_FALLBACK}
               />
               <div className="absolute top-6 left-6 flex flex-col gap-2">
-                <div className="bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-[#1A4231] shadow-sm border border-black/5">
+                <div className="bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-agri-green-800 shadow-sm border border-black/5">
                   Premium Grade
                 </div>
               </div>
@@ -365,7 +374,7 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
                 { icon: Truck, label: 'Pan India Delivery' }
               ].map((badge, idx) => (
                 <div key={idx} className="flex flex-col items-center text-center p-4 rounded-2xl bg-slate-50 border border-black/[0.03]">
-                  <badge.icon className="w-6 h-6 text-[#C5A03F] mb-2" />
+                  <badge.icon className="w-6 h-6 text-agri-gold-500 mb-2" />
                   <span className="text-[10px] font-bold uppercase tracking-wider text-black/60">{badge.label}</span>
                 </div>
               ))}
@@ -376,12 +385,12 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
           <div className="lg:w-[60%] flex flex-col justify-center">
 
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-sm font-bold text-[#C5A03F] tracking-widest uppercase bg-[#C5A03F]/10 px-4 py-1.5 rounded-full">
+              <span className="text-sm font-bold text-agri-gold-500 tracking-widest uppercase bg-agri-gold-500/10 px-4 py-1.5 rounded-full">
                 {product.categoryName}
               </span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-black text-[#1A4231] mb-6 leading-[1.1]">
+            <h1 className="text-4xl md:text-5xl font-black text-agri-green-800 mb-6 leading-[1.1]">
               {product.name}
             </h1>
 
@@ -393,8 +402,8 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
             <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 mb-10">
               {product.features.map((feature, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <div className="mt-1 bg-[#E8F5E9] p-1 rounded-full shrink-0">
-                    <CheckCircle2 className="w-4 h-4 text-[#1A4231]" />
+                  <div className="mt-1 bg-agri-green-50 p-1 rounded-full shrink-0">
+                    <CheckCircle2 className="w-4 h-4 text-agri-green-800" />
                   </div>
                   <span className="text-sm font-medium text-gray-700">{feature}</span>
                 </div>
@@ -413,8 +422,8 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
                     onClick={() => setSelectedPackSize(size)}
                     className={`px-5 py-2.5 rounded-xl text-sm font-bold transition-all border ${
                       selectedPackSize === size
-                        ? 'bg-[#1A4231] text-white border-[#1A4231] shadow-lg shadow-[#1A4231]/10'
-                        : 'bg-white text-gray-600 border-gray-200 hover:border-[#1A4231] hover:text-[#1A4231]'
+                        ? 'bg-agri-green-800 text-white border-agri-green-800 shadow-lg shadow-agri-green-800/10'
+                        : 'bg-white text-gray-600 border-gray-200 hover:border-agri-green-800 hover:text-agri-green-800'
                     }`}
                   >
                     {size}
@@ -435,18 +444,18 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
                     onClick={() => setSelectedPriceTier(tier.id)}
                     className={`p-4 rounded-2xl text-left transition-all border-2 ${
                       selectedPriceTier === tier.id
-                        ? 'border-[#C5A03F] bg-[#C5A03F]/5'
-                        : 'border-gray-100 hover:border-[#C5A03F]/30 bg-gray-50/50'
+                        ? 'border-agri-gold-500 bg-agri-gold-500/5'
+                        : 'border-gray-100 hover:border-agri-gold-500/30 bg-gray-50/50'
                     }`}
                   >
                     <span className={`text-[10px] font-black uppercase tracking-widest mb-1 block transition-colors ${
-                      selectedPriceTier === tier.id ? 'text-[#C5A03F]' : 'text-gray-400'
+                      selectedPriceTier === tier.id ? 'text-agri-gold-500' : 'text-gray-400'
                     }`}>
                       {tier.label}
                     </span>
                     <div className="flex items-baseline gap-1">
-                      <span className="text-sm font-bold text-[#1A4231]">₹</span>
-                      <span className="text-2xl font-black text-[#1A4231]">{tier.value.toLocaleString()}</span>
+                      <span className="text-sm font-bold text-agri-green-800">₹</span>
+                      <span className="text-2xl font-black text-agri-green-800">{tier.value.toLocaleString()}</span>
                     </div>
                   </button>
                 ))}
@@ -465,7 +474,7 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
                 >
                   <Minus className="w-4 h-4" />
                 </button>
-                <div className="w-12 text-center font-black text-[#1A4231]">{quantity}</div>
+                <div className="w-12 text-center font-black text-agri-green-800">{quantity}</div>
                 <button
                   onClick={() => setQuantity(quantity + 1)}
                   className="w-12 h-12 flex items-center justify-center rounded-xl hover:bg-white transition-colors text-gray-500"
@@ -476,14 +485,14 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
 
               <button
                 onClick={() => handleEnquire(`Enquiry: ${product.name} — ${selectedPackSize} × ${quantity}`)}
-                className="flex-1 w-full bg-[#1A4231] text-white px-8 py-4 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-[#2a5a45] transition-all shadow-xl shadow-[#1A4231]/20 active:scale-[0.98]"
+                className="flex-1 w-full bg-agri-green-800 text-white px-8 py-4 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-[#2a5a45] transition-all shadow-xl shadow-agri-green-800/20 active:scale-[0.98]"
               >
                 <MessageSquare className="w-5 h-5" /> Enquire Now
               </button>
 
               <button
                 onClick={() => handleEnquire(`Bulk Quote Request: ${product.name}`)}
-                className="flex-1 w-full bg-white text-[#1A4231] border-2 border-[#1A4231] px-8 py-4 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-gray-50 transition-all active:scale-[0.98]"
+                className="flex-1 w-full bg-white text-agri-green-800 border-2 border-agri-green-800 px-8 py-4 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-gray-50 transition-all active:scale-[0.98]"
               >
                 <Package className="w-5 h-5" /> Get Quote
               </button>
@@ -492,7 +501,7 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
         </div>
 
         {/* Tabs — Description / How To Use / Specifications */}
-        <div className="mt-24 border-t border-gray-100 pt-16">
+        <div className="mt-24 border-t border-gray-100 pt-16 content-defer">
           <div className="flex flex-wrap gap-8 border-b border-gray-100 mb-10">
             {[
               { id: 'description', label: 'Description', icon: Info },
@@ -503,13 +512,13 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as typeof activeTab)}
                 className={`flex items-center gap-2 pb-4 text-sm font-black uppercase tracking-[0.2em] transition-all relative ${
-                  activeTab === tab.id ? 'text-[#C5A03F]' : 'text-gray-400 hover:text-gray-600'
+                  activeTab === tab.id ? 'text-agri-gold-500' : 'text-gray-400 hover:text-gray-600'
                 }`}
               >
                 <tab.icon className="w-4 h-4" />
                 {tab.label}
                 {activeTab === tab.id && (
-                  <motion.div layoutId="activeTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#C5A03F]" />
+                  <motion.div layoutId="activeTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-agri-gold-500" />
                 )}
               </button>
             ))}
@@ -535,7 +544,7 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {product.howToUse.map((step, idx) => (
                       <div key={idx} className="flex gap-4 p-6 rounded-3xl bg-slate-50 border border-black/[0.03]">
-                        <div className="w-10 h-10 rounded-2xl bg-white shadow-sm border border-black/5 flex items-center justify-center font-black text-[#C5A03F] shrink-0">
+                        <div className="w-10 h-10 rounded-2xl bg-white shadow-sm border border-black/5 flex items-center justify-center font-black text-agri-gold-500 shrink-0">
                           {idx + 1}
                         </div>
                         <p className="text-sm font-medium text-gray-700 leading-relaxed">{step}</p>
@@ -553,7 +562,7 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
                             <td className="px-8 py-5 text-sm font-black text-gray-400 uppercase tracking-widest w-1/3 border-r border-gray-100">
                               {key}
                             </td>
-                            <td className="px-8 py-5 text-sm font-bold text-[#1A4231]">{value}</td>
+                            <td className="px-8 py-5 text-sm font-bold text-agri-green-800">{value}</td>
                           </tr>
                         ))}
                       </tbody>
@@ -567,11 +576,11 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
 
         {/* Related Products */}
         {product.relatedProducts.length > 0 && (
-          <div className="mt-32">
+          <div className="mt-32 content-defer">
             <div className="flex items-end justify-between mb-12">
               <div>
-                <span className="text-xs font-black text-[#C5A03F] tracking-[0.3em] uppercase mb-3 block">Complementary</span>
-                <h2 className="text-3xl font-black text-[#1A4231]">Related Products</h2>
+                <span className="text-xs font-black text-agri-gold-500 tracking-[0.3em] uppercase mb-3 block">Complementary</span>
+                <h2 className="text-3xl font-black text-agri-green-800">Related Products</h2>
               </div>
             </div>
 
@@ -587,22 +596,23 @@ const DetailView: React.FC<{ product: ProductDetail; category: string }> = ({ pr
                     className="group flex flex-col bg-white rounded-3xl overflow-hidden border border-black/5 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
                   >
                     <div className="relative aspect-square overflow-hidden bg-slate-100">
-                      <img
+                      <OptimizedImage
                         src={PRODUCT_IMAGES[related.id] || relatedMeta?.cardImage || LOCAL_FALLBACK}
                         alt={related.name}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        fallbackSrc={relatedMeta?.cardImage || LOCAL_FALLBACK}
                       />
-                      <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest text-[#1A4231] shadow-sm">
+                      <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest text-agri-green-800 shadow-sm">
                         {related.categoryName}
                       </div>
                     </div>
                     <div className="p-6">
-                      <h3 className="text-sm font-black text-[#1A4231] mb-2 group-hover:text-[#C5A03F] transition-colors line-clamp-1">
+                      <h3 className="text-sm font-black text-agri-green-800 mb-2 group-hover:text-agri-gold-500 transition-colors line-clamp-1">
                         {related.name}
                       </h3>
                       <div className="flex items-center justify-between mt-4">
                         <span className="text-xs font-bold text-gray-400">From ₹{related.pricing.retail.toLocaleString()}</span>
-                        <div className="flex items-center text-[#C5A03F] text-xs font-black uppercase tracking-widest gap-1">
+                        <div className="flex items-center text-agri-gold-500 text-xs font-black uppercase tracking-widest gap-1">
                           View <ChevronRight className="w-3 h-3" />
                         </div>
                       </div>

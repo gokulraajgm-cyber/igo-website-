@@ -4,6 +4,7 @@ import { motion, Variants } from "framer-motion";
 import { ArrowLeft, ArrowRight, Shield, TrendingUp, CheckCircle2, MessageCircle, BadgeCheck } from "lucide-react";
 import { navLinks } from "@/data/siteData";
 import SEO from "@/components/SEO";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const fader: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -137,28 +138,15 @@ const LazyCardImage: React.FC<{
   fallbackSrc: string;
   priority?: boolean;
 }> = ({ src, alt, fallbackSrc, priority = false }) => {
-  const [loaded, setLoaded] = React.useState(false);
   return (
-    <>
-      <div className={`absolute inset-0 bg-[#E8F0EA] transition-opacity duration-300 ${loaded ? "opacity-0 pointer-events-none" : "opacity-100 animate-pulse"}`} />
-      <img
-        src={src}
-        alt={alt}
-        loading={priority ? "eager" : "lazy"}
-        onLoad={() => setLoaded(true)}
-        onError={e => {
-          const el = e.currentTarget as HTMLImageElement;
-          if (el.src !== fallbackSrc) el.src = fallbackSrc;
-        }}
-        className="absolute inset-0 w-full h-full object-cover group-hover:scale-110"
-        style={{
-          opacity: loaded ? 1 : 0,
-          transitionProperty: "opacity, transform",
-          transitionDuration: "0.5s, 1.2s",
-          transitionTimingFunction: "ease-in-out, cubic-bezier(0.16, 1, 0.3, 1)",
-        }}
-      />
-    </>
+    <OptimizedImage
+      src={src}
+      alt={alt}
+      fallbackSrc={fallbackSrc}
+      loading={priority ? "eager" : "lazy"}
+      decoding="async"
+      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+    />
   );
 };
 
@@ -335,7 +323,7 @@ const CategoryView: React.FC<{ category: string }> = ({ category }) => {
   };
 
   return (
-    <div className="bg-[#FDFDFD] min-h-screen selection:bg-[#E8F5E9] selection:text-[#1A4231]">
+    <div className="bg-agri-earth-15 min-h-screen selection:bg-agri-green-50 selection:text-agri-green-800">
       <SEO
         title={`${catItem.label} Projects`}
         description={`Explore ${catItem.label} projects by IGO Agritech Farms. Turnkey agricultural project setup with expert engineering, site survey, and operational training across India.`}
@@ -352,19 +340,19 @@ const CategoryView: React.FC<{ category: string }> = ({ category }) => {
           transition={{ duration: 1.8, ease: "easeOut" }}
           className="absolute inset-0"
         >
-          <img src={heroImg} alt={catItem.label} loading="eager" className="w-full h-full object-cover" />
+          <OptimizedImage src={heroImg} alt={catItem.label} loading="eager" decoding="async" className="w-full h-full object-cover" />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70" />
 
         <div className="container mx-auto px-6 relative z-10">
-          <Link to="/projects" className="inline-flex items-center gap-2 text-[#C5A03F] font-bold text-[10px] uppercase tracking-widest mb-14 hover:opacity-60 transition-opacity">
+          <Link to="/projects" className="inline-flex items-center gap-2 text-agri-gold-500 font-bold text-[10px] uppercase tracking-widest mb-14 hover:opacity-60 transition-opacity">
             <ArrowLeft className="w-4 h-4" /> All Projects
           </Link>
 
           <motion.div initial="hidden" animate="show" variants={{ show: { transition: { staggerChildren: 0.15 } } }} className="max-w-4xl">
             <motion.div variants={fader} className="flex items-center gap-4 mb-8">
-              <div className="h-px w-8 bg-[#C5A03F]/60" />
-              <span className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.3em]">{catItem.children?.length || 0} Project Types</span>
+              <div className="h-px w-8 bg-agri-gold-500/60" />
+              <span className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.3em]">{catItem.children?.length || 0} Project Types</span>
             </motion.div>
             <motion.h1 variants={fader} className="text-6xl md:text-8xl font-serif text-white mb-8 tracking-tight leading-[0.93]">
               {catItem.label}
@@ -387,8 +375,8 @@ const CategoryView: React.FC<{ category: string }> = ({ category }) => {
                 to={c.href}
                 className={`shrink-0 px-5 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest border transition-all ${
                   active
-                    ? "bg-[#1A4231] text-white border-[#1A4231]"
-                    : "bg-white text-black/50 border-black/10 hover:border-[#1A4231] hover:text-[#1A4231]"
+                    ? "bg-agri-green-800 text-white border-agri-green-800"
+                    : "bg-white text-black/50 border-black/10 hover:border-agri-green-800 hover:text-agri-green-800"
                 }`}
               >
                 {c.label}
@@ -399,7 +387,7 @@ const CategoryView: React.FC<{ category: string }> = ({ category }) => {
       </div>
 
       {/* Subcategory overlay cards grid */}
-      <section className="py-20 container mx-auto px-6">
+      <section className="py-20 container mx-auto px-6 content-defer">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {catItem.children?.map((sub: any, i: number) => {
             const img = SUBCATEGORY_IMG[sub.label] || CATEGORY_FALLBACK[category];
@@ -423,7 +411,7 @@ const CategoryView: React.FC<{ category: string }> = ({ category }) => {
                     </span>
                   </div>
                   {/* Arrow */}
-                  <div className="absolute top-5 right-5 w-10 h-10 bg-[#C5A03F] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-400 shadow-lg">
+                  <div className="absolute top-5 right-5 w-10 h-10 bg-agri-gold-500 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-400 shadow-lg">
                     <ArrowRight className="w-4 h-4 text-white" />
                   </div>
                   {/* Text */}
@@ -443,7 +431,7 @@ const CategoryView: React.FC<{ category: string }> = ({ category }) => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-[#1A4231] text-white">
+      <section className="py-24 bg-agri-green-800 text-white">
         <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <h2 className="text-3xl md:text-4xl font-serif mb-3">Plan your {catItem.label.replace(" Projects", "")} project</h2>
@@ -451,7 +439,7 @@ const CategoryView: React.FC<{ category: string }> = ({ category }) => {
           </div>
           <Link
             to="/contact"
-            className="shrink-0 inline-flex items-center gap-3 px-10 py-4 bg-[#C5A03F] text-white text-[10px] font-bold rounded-full hover:bg-white hover:text-[#1A4231] transition-all uppercase tracking-widest shadow-lg"
+            className="shrink-0 inline-flex items-center gap-3 px-10 py-4 bg-agri-gold-500 text-white text-[10px] font-bold rounded-full hover:bg-white hover:text-agri-green-800 transition-all uppercase tracking-widest shadow-lg"
           >
             Book Free Consultation <ArrowRight className="w-4 h-4" />
           </Link>
@@ -480,7 +468,7 @@ const SubcategoryView: React.FC<{ category: string; subcategory: string }> = ({ 
   };
 
   return (
-    <div className="bg-[#FDFDFD] min-h-screen selection:bg-[#E8F5E9] selection:text-[#1A4231]">
+    <div className="bg-agri-earth-15 min-h-screen selection:bg-agri-green-50 selection:text-agri-green-800">
       <SEO
         title={subItem.label}
         description={SUBCATEGORY_DESC[subItem.label] || `${subItem.label} projects by IGO Agritech Farms. Precision-engineered solutions with turnkey installation, training, and AMC support across India.`}
@@ -497,24 +485,24 @@ const SubcategoryView: React.FC<{ category: string; subcategory: string }> = ({ 
           transition={{ duration: 1.8, ease: "easeOut" }}
           className="absolute inset-0"
         >
-          <img src={heroImg} alt={subItem.label} loading="eager" className="w-full h-full object-cover" />
+          <OptimizedImage src={heroImg} alt={subItem.label} loading="eager" decoding="async" className="w-full h-full object-cover" />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70" />
 
         <div className="container mx-auto px-6 relative z-10">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-[10px] text-white/40 font-bold uppercase tracking-widest mb-14 flex-wrap">
-            <Link to="/projects" className="hover:text-[#C5A03F] transition-colors">Projects</Link>
+            <Link to="/projects" className="hover:text-agri-gold-500 transition-colors">Projects</Link>
             <span>/</span>
-            <Link to={`/projects/${category}`} className="hover:text-[#C5A03F] transition-colors">{catItem.label}</Link>
+            <Link to={`/projects/${category}`} className="hover:text-agri-gold-500 transition-colors">{catItem.label}</Link>
             <span>/</span>
-            <span className="text-[#C5A03F]">{subItem.label}</span>
+            <span className="text-agri-gold-500">{subItem.label}</span>
           </div>
 
           <motion.div initial="hidden" animate="show" variants={{ show: { transition: { staggerChildren: 0.15 } } }} className="max-w-4xl">
             <motion.div variants={fader} className="flex items-center gap-4 mb-8">
-              <div className="h-px w-8 bg-[#C5A03F]/60" />
-              <span className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.3em]">{subItem.children?.length || 0} Specialisations</span>
+              <div className="h-px w-8 bg-agri-gold-500/60" />
+              <span className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.3em]">{subItem.children?.length || 0} Specialisations</span>
             </motion.div>
             <motion.h1 variants={fader} className="text-6xl md:text-8xl font-serif text-white mb-8 tracking-tight leading-[0.93]">
               {subItem.label}
@@ -527,7 +515,7 @@ const SubcategoryView: React.FC<{ category: string; subcategory: string }> = ({ 
       </section>
 
       {/* Types grid — wider cards with name on image */}
-      <section className="py-20 container mx-auto px-6">
+      <section className="py-20 container mx-auto px-6 content-defer">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {subItem.children?.map((feat: any, i: number) => {
             const img = getImage(feat.label, category);
@@ -544,13 +532,13 @@ const SubcategoryView: React.FC<{ category: string; subcategory: string }> = ({ 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent group-hover:from-black/65 transition-all duration-500" />
                   {SUBSIDY_ELIGIBLE.has(feat.label) && (
                     <div className="absolute top-5 left-5">
-                      <span className="px-3 py-1.5 rounded-full bg-[#C5A03F]/90 backdrop-blur-sm text-[9px] text-white font-bold uppercase tracking-widest flex items-center gap-1">
+                      <span className="px-3 py-1.5 rounded-full bg-agri-gold-500/90 backdrop-blur-sm text-[9px] text-white font-bold uppercase tracking-widest flex items-center gap-1">
                         <BadgeCheck className="w-3 h-3" /> Subsidy Eligible
                       </span>
                     </div>
                   )}
                   <div className="absolute top-5 right-5 w-10 h-10 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-400 shadow-lg">
-                    <ArrowRight className="w-4 h-4 text-[#1A4231]" />
+                    <ArrowRight className="w-4 h-4 text-agri-green-800" />
                   </div>
                   <div className="absolute inset-x-5 bottom-5">
                     <h3 className="text-xl font-serif text-white group-hover:-translate-y-1 transition-transform duration-400 leading-tight">
@@ -565,7 +553,7 @@ const SubcategoryView: React.FC<{ category: string; subcategory: string }> = ({ 
       </section>
 
       {/* CTA strip */}
-      <section className="py-20 bg-[#1A4231] text-white">
+      <section className="py-20 bg-agri-green-800 text-white">
         <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <h2 className="text-3xl font-serif mb-3">Interested in {subItem.label}?</h2>
@@ -573,7 +561,7 @@ const SubcategoryView: React.FC<{ category: string; subcategory: string }> = ({ 
           </div>
           <Link
             to="/contact"
-            className="shrink-0 inline-flex items-center gap-3 px-10 py-4 bg-[#C5A03F] text-white text-[10px] font-bold rounded-full hover:bg-white hover:text-[#1A4231] transition-all uppercase tracking-widest shadow-lg"
+            className="shrink-0 inline-flex items-center gap-3 px-10 py-4 bg-agri-gold-500 text-white text-[10px] font-bold rounded-full hover:bg-white hover:text-agri-green-800 transition-all uppercase tracking-widest shadow-lg"
           >
             Enquire Now <ArrowRight className="w-4 h-4" />
           </Link>
@@ -627,7 +615,7 @@ const DetailView: React.FC<{ category: string; subcategory: string; feature: str
   };
 
   return (
-    <div className="bg-white min-h-screen selection:bg-[#E8F5E9] selection:text-[#1A4231] pt-28">
+    <div className="bg-white min-h-screen selection:bg-agri-green-50 selection:text-agri-green-800 pt-28">
       <SEO
         title={featItem.label}
         description={`${featItem.label} projects by IGO Agritech Farms. ${contextDesc.slice(0, 120)} Get a free site assessment and project report.`}
@@ -641,13 +629,13 @@ const DetailView: React.FC<{ category: string; subcategory: string; feature: str
       <section className="pb-0 container mx-auto px-6">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-[10px] text-black/35 font-bold uppercase tracking-widest mb-12 flex-wrap">
-          <Link to="/projects" className="hover:text-[#C5A03F] transition-colors">Projects</Link>
+          <Link to="/projects" className="hover:text-agri-gold-500 transition-colors">Projects</Link>
           <span className="text-black/20">/</span>
-          <Link to={`/projects/${category}`} className="hover:text-[#C5A03F] transition-colors">{catItem.label}</Link>
+          <Link to={`/projects/${category}`} className="hover:text-agri-gold-500 transition-colors">{catItem.label}</Link>
           <span className="text-black/20">/</span>
-          <Link to={`/projects/${category}/${subcategory}`} className="hover:text-[#C5A03F] transition-colors">{subItem.label}</Link>
+          <Link to={`/projects/${category}/${subcategory}`} className="hover:text-agri-gold-500 transition-colors">{subItem.label}</Link>
           <span className="text-black/20">/</span>
-          <span className="text-[#C5A03F]">{featItem.label}</span>
+          <span className="text-agri-gold-500">{featItem.label}</span>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
@@ -660,15 +648,15 @@ const DetailView: React.FC<{ category: string; subcategory: string; feature: str
           >
             <div className="space-y-4">
               <motion.div variants={fader} className="flex items-center gap-3">
-                <div className="w-8 h-[1px] bg-[#C5A03F]" />
-                <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.4em]">{subItem.label}</p>
+                <div className="w-8 h-[1px] bg-agri-gold-500" />
+                <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.4em]">{subItem.label}</p>
               </motion.div>
-              <motion.h1 variants={fader} className="text-5xl md:text-7xl leading-[0.9] font-serif tracking-tight text-[#1A1A1A]">
+              <motion.h1 variants={fader} className="text-5xl md:text-7xl leading-[0.9] font-serif tracking-tight text-agri-earth-900">
                 {featItem.label}
               </motion.h1>
               {isSubsidy && (
                 <motion.div variants={fader}>
-                  <span className="inline-flex items-center gap-2 px-5 py-2 bg-[#E8F5E9] text-[#1A4231] text-[10px] font-bold uppercase tracking-widest rounded-full border border-[#1A4231]/20">
+                  <span className="inline-flex items-center gap-2 px-5 py-2 bg-agri-green-50 text-agri-green-800 text-[10px] font-bold uppercase tracking-widest rounded-full border border-agri-green-800/20">
                     <BadgeCheck className="w-4 h-4" /> Government Subsidy Eligible
                   </span>
                 </motion.div>
@@ -683,7 +671,7 @@ const DetailView: React.FC<{ category: string; subcategory: string; feature: str
             <motion.ul variants={fader} className="space-y-3">
               {highlights.map((h, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#1A4231] shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-agri-green-800 shrink-0 mt-0.5" />
                   <span className="text-black/70 text-sm leading-relaxed">{h}</span>
                 </li>
               ))}
@@ -693,7 +681,7 @@ const DetailView: React.FC<{ category: string; subcategory: string; feature: str
             <motion.div variants={fader} className="flex flex-col sm:flex-row gap-4 pt-2">
               <Link
                 to="/contact"
-                className="px-8 py-4 bg-[#1A4231] text-white text-[10px] font-bold rounded-full hover:bg-black transition-all uppercase tracking-[0.2em] inline-flex items-center justify-center gap-3 shadow-lg shadow-[#1A4231]/20"
+                className="px-8 py-4 bg-agri-green-800 text-white text-[10px] font-bold rounded-full hover:bg-black transition-all uppercase tracking-[0.2em] inline-flex items-center justify-center gap-3 shadow-lg shadow-agri-green-800/20"
               >
                 Enquire Project <ArrowRight className="w-4 h-4" />
               </Link>
@@ -715,17 +703,14 @@ const DetailView: React.FC<{ category: string; subcategory: string; feature: str
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="group relative"
           >
-            <div className="absolute -inset-3 bg-[#C5A03F]/8 rounded-[36px] blur-2xl group-hover:bg-[#C5A03F]/14 transition-colors duration-700" />
+            <div className="absolute -inset-3 bg-agri-gold-500/8 rounded-[36px] blur-2xl group-hover:bg-agri-gold-500/14 transition-colors duration-700" />
             <div className="relative rounded-[28px] overflow-hidden aspect-[3/2] shadow-2xl border border-black/5">
-              <img
+              <OptimizedImage
                 src={heroImg}
                 alt={featItem.label}
                 loading="eager"
-                onError={e => {
-                  const el = e.currentTarget as HTMLImageElement;
-                  const fb = CATEGORY_FALLBACK[category] ?? "/assets/projects/main page/agri farming project .jpg";
-                  if (el.src !== fb) el.src = fb;
-                }}
+                decoding="async"
+                fallbackSrc={CATEGORY_FALLBACK[category] ?? "/assets/projects/main page/agri farming project .jpg"}
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent pointer-events-none" />
@@ -735,15 +720,15 @@ const DetailView: React.FC<{ category: string; subcategory: string; feature: str
       </section>
 
       {/* ── Deliverables ── */}
-      <section className="py-32 container mx-auto px-6">
+      <section className="py-32 container mx-auto px-6 content-defer">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="border-t border-black/5 pt-20"
         >
-          <div className="flex items-center gap-4 text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.4em] mb-14">
-            <div className="w-12 h-[1px] bg-[#C5A03F]" />
+          <div className="flex items-center gap-4 text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.4em] mb-14">
+            <div className="w-12 h-[1px] bg-agri-gold-500" />
             What We Deliver
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -754,9 +739,9 @@ const DetailView: React.FC<{ category: string; subcategory: string; feature: str
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="p-8 bg-[#F8F8F8] rounded-[2rem] border border-black/[0.04] hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
+                className="p-8 bg-agri-earth-75 rounded-[2rem] border border-black/[0.04] hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
               >
-                <div className="w-10 h-10 rounded-full bg-[#1A4231]/10 flex items-center justify-center text-[#1A4231] mb-7">
+                <div className="w-10 h-10 rounded-full bg-agri-green-800/10 flex items-center justify-center text-agri-green-800 mb-7">
                   <CheckCircle2 className="w-5 h-5" />
                 </div>
                 <h5 className="text-xl font-serif text-black mb-2">{item.title}</h5>
@@ -768,12 +753,12 @@ const DetailView: React.FC<{ category: string; subcategory: string; feature: str
       </section>
 
       {/* ── Process section ── */}
-      <section className="py-40 bg-[#0A0A0A] text-white overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-[50%] h-full bg-[#1A4231]/10 blur-[120px] rounded-full translate-x-1/2 pointer-events-none" />
+      <section className="py-40 bg-agri-earth-950 text-white overflow-hidden relative content-defer">
+        <div className="absolute top-0 right-0 w-[50%] h-full bg-agri-green-800/10 blur-[120px] rounded-full translate-x-1/2 pointer-events-none" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-24 items-center">
             <div>
-              <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.4em] mb-8">Our Workflow</p>
+              <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.4em] mb-8">Our Workflow</p>
               <h2 className="text-5xl md:text-6xl font-serif mb-14 leading-tight">Professional<br />Turnkey Workflow</h2>
               <div className="space-y-12">
                 {[
@@ -782,7 +767,7 @@ const DetailView: React.FC<{ category: string; subcategory: string; feature: str
                   { title: "Handover & Training",   desc: "Comprehensive handover documentation, operational training, and long-term AMC support for sustained performance." },
                 ].map((step, i) => (
                   <div key={i} className="flex gap-8 group">
-                    <div className="text-6xl font-serif text-white/5 group-hover:text-[#C5A03F]/25 transition-colors duration-500 leading-none pt-1">{i + 1}</div>
+                    <div className="text-6xl font-serif text-white/5 group-hover:text-agri-gold-500/25 transition-colors duration-500 leading-none pt-1">{i + 1}</div>
                     <div>
                       <h4 className="text-2xl font-serif text-white mb-3">{step.title}</h4>
                       <p className="text-white/40 leading-relaxed font-light">{step.desc}</p>
@@ -795,21 +780,21 @@ const DetailView: React.FC<{ category: string; subcategory: string; feature: str
             <div className="grid grid-cols-2 gap-5">
               <div className="space-y-5 pt-10">
                 <div className="aspect-square rounded-3xl bg-white/5 border border-white/10 p-8 flex flex-col justify-between hover:bg-white/8 transition-colors duration-500">
-                  <div className="w-10 h-10 rounded-full bg-[#C5A03F]/20 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-[#C5A03F]" />
+                  <div className="w-10 h-10 rounded-full bg-agri-gold-500/20 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-agri-gold-500" />
                   </div>
                   <p className="text-sm font-light text-white/60 leading-relaxed">Guaranteed structural integrity — institutional grade, 10+ years lifespan</p>
                 </div>
-                <div className="aspect-[3/4] rounded-3xl bg-gradient-to-br from-[#1A4231] to-[#0D2118] p-8 flex flex-col justify-between">
+                <div className="aspect-[3/4] rounded-3xl bg-gradient-to-br from-agri-green-800 to-agri-green-900 p-8 flex flex-col justify-between">
                   <p className="text-[10px] text-white/40 uppercase tracking-widest font-bold">IGO Advantage</p>
                   <div>
                     <p className="text-3xl font-serif text-white mb-1">1,000+</p>
-                    <p className="text-xs text-[#C5A03F] uppercase tracking-widest font-bold">Projects Delivered</p>
+                    <p className="text-xs text-agri-gold-500 uppercase tracking-widest font-bold">Projects Delivered</p>
                   </div>
                 </div>
               </div>
               <div className="space-y-5">
-                <div className="aspect-[3/4] rounded-3xl bg-gradient-to-br from-[#C5A03F]/20 to-[#C5A03F]/5 border border-[#C5A03F]/20 p-8 flex flex-col justify-between">
+                <div className="aspect-[3/4] rounded-3xl bg-gradient-to-br from-agri-gold-500/20 to-agri-gold-500/5 border border-agri-gold-500/20 p-8 flex flex-col justify-between">
                   <p className="text-[10px] text-white/40 uppercase tracking-widest font-bold">Market Focus</p>
                   <div>
                     <p className="text-3xl font-serif text-white mb-1">ROI First</p>
@@ -817,8 +802,8 @@ const DetailView: React.FC<{ category: string; subcategory: string; feature: str
                   </div>
                 </div>
                 <div className="aspect-square rounded-3xl bg-white/5 border border-white/10 p-8 flex flex-col justify-between hover:bg-white/8 transition-colors duration-500">
-                  <div className="w-10 h-10 rounded-full bg-[#C5A03F]/20 flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 text-[#C5A03F]" />
+                  <div className="w-10 h-10 rounded-full bg-agri-gold-500/20 flex items-center justify-center">
+                    <TrendingUp className="w-5 h-5 text-agri-gold-500" />
                   </div>
                   <p className="text-sm font-light text-white/60 leading-relaxed">Scalable from pilot units to full commercial enterprise</p>
                 </div>
@@ -833,12 +818,12 @@ const DetailView: React.FC<{ category: string; subcategory: string; feature: str
         <section className="py-32 container mx-auto px-6">
           <div className="flex items-center justify-between mb-14">
             <div>
-              <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em] mb-3">More from {subItem.label}</p>
-              <h2 className="text-3xl md:text-4xl font-serif text-[#1A1A1A]">Related Projects</h2>
+              <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em] mb-3">More from {subItem.label}</p>
+              <h2 className="text-3xl md:text-4xl font-serif text-agri-earth-900">Related Projects</h2>
             </div>
             <Link
               to={`/projects/${category}/${subcategory}`}
-              className="hidden md:flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[#1A4231] hover:text-[#C5A03F] transition-colors"
+              className="hidden md:flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-agri-green-800 hover:text-agri-gold-500 transition-colors"
             >
               View All <ArrowRight className="w-4 h-4" />
             </Link>
@@ -859,7 +844,7 @@ const DetailView: React.FC<{ category: string; subcategory: string; feature: str
                     <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
                     {SUBSIDY_ELIGIBLE.has(rel.label) && (
                       <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 rounded-full bg-[#C5A03F]/90 text-[8px] text-white font-bold uppercase tracking-widest flex items-center gap-1">
+                        <span className="px-3 py-1 rounded-full bg-agri-gold-500/90 text-[8px] text-white font-bold uppercase tracking-widest flex items-center gap-1">
                           <BadgeCheck className="w-3 h-3" /> Subsidy
                         </span>
                       </div>
@@ -868,7 +853,7 @@ const DetailView: React.FC<{ category: string; subcategory: string; feature: str
                       <h3 className="text-lg font-serif text-white group-hover:-translate-y-1 transition-transform duration-400 leading-tight">{rel.label}</h3>
                     </div>
                     <div className="absolute top-4 right-4 w-9 h-9 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-400 shadow-lg">
-                      <ArrowRight className="w-3.5 h-3.5 text-[#1A4231]" />
+                      <ArrowRight className="w-3.5 h-3.5 text-agri-green-800" />
                     </div>
                   </Link>
                 </motion.div>
@@ -879,10 +864,10 @@ const DetailView: React.FC<{ category: string; subcategory: string; feature: str
       )}
 
       {/* ── Final CTA ── */}
-      <section className="py-32 bg-[#F4F8F4] border-t border-[#1A4231]/10">
+      <section className="py-32 bg-agri-earth-50 border-t border-agri-green-800/10">
         <div className="container mx-auto px-6 text-center max-w-3xl">
-          <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em] mb-6">Next Step</p>
-          <h2 className="text-4xl md:text-5xl font-serif text-[#1A1A1A] mb-8 leading-tight">
+          <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em] mb-6">Next Step</p>
+          <h2 className="text-4xl md:text-5xl font-serif text-agri-earth-900 mb-8 leading-tight">
             Ready to start your<br />{featItem.label} project?
           </h2>
           <p className="text-black/50 text-lg leading-relaxed mb-12 font-light">
@@ -891,7 +876,7 @@ const DetailView: React.FC<{ category: string; subcategory: string; feature: str
           <div className="flex flex-wrap justify-center gap-5">
             <Link
               to="/contact"
-              className="px-12 py-5 bg-[#1A4231] text-white text-[10px] font-bold rounded-full hover:bg-black transition-all uppercase tracking-widest shadow-xl shadow-[#1A4231]/20 inline-flex items-center gap-3"
+              className="px-12 py-5 bg-agri-green-800 text-white text-[10px] font-bold rounded-full hover:bg-black transition-all uppercase tracking-widest shadow-xl shadow-agri-green-800/20 inline-flex items-center gap-3"
             >
               Get Free Report <ArrowRight className="w-4 h-4" />
             </Link>

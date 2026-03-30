@@ -20,7 +20,7 @@ const Projects = () => {
   const categoryLinks = navLinks.find(n => n.label === "Projects")?.children || [];
 
   return (
-    <div className="bg-white min-h-screen selection:bg-[#E8F5E9] selection:text-[#1A4231]">
+    <div className="bg-white min-h-screen selection:bg-agri-green-50 selection:text-agri-green-800">
       <SEO
         title="Our Projects | Agri Engineering Projects — IGO Agritech Farms"
         description="Explore 1000+ completed agri engineering projects by IGO Agritech Farms — polyhouse, hydroponics, vertical farming, biofloc, rooftop farming, solar agriculture, and more across India."
@@ -53,12 +53,12 @@ const Projects = () => {
             className="max-w-5xl mx-auto"
           >
             <motion.div variants={fader} className="flex items-center justify-center gap-4 mb-8">
-              <div className="h-px w-12 bg-[#C5A03F]/70" />
-              <span className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em]">Portfolio of Excellence</span>
-              <div className="h-px w-12 bg-[#C5A03F]/70" />
+              <div className="h-px w-12 bg-agri-gold-500/70" />
+              <span className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em]">Portfolio of Excellence</span>
+              <div className="h-px w-12 bg-agri-gold-500/70" />
             </motion.div>
             <motion.h1 variants={fader} className="text-6xl md:text-9xl font-serif text-white mb-8 tracking-tight leading-[0.9]">
-              The Gallery of <br /><span className="italic text-[#C5A03F]">Sustenance.</span>
+              The Gallery of <br /><span className="italic text-agri-gold-500">Sustenance.</span>
             </motion.h1>
             <motion.p variants={fader} className="text-white/60 text-xl md:text-2xl font-light leading-relaxed mb-14 max-w-3xl mx-auto">
               1,000+ institutional implementations executed across India — from precision polyhouses to integrated aquaculture ecosystems.
@@ -66,7 +66,7 @@ const Projects = () => {
             <motion.div variants={fader}>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-3 px-10 py-4 bg-[#C5A03F] text-white text-[10px] font-bold rounded-full uppercase tracking-widest hover:bg-white hover:text-[#1A4231] transition-all shadow-2xl shadow-[#C5A03F]/30"
+                className="inline-flex items-center gap-3 px-10 py-4 bg-agri-gold-500 text-white text-[10px] font-bold rounded-full uppercase tracking-widest hover:bg-white hover:text-agri-green-800 transition-all shadow-2xl shadow-agri-gold-500/30"
               >
                 Start Your Project <ArrowRight className="w-4 h-4" />
               </Link>
@@ -98,8 +98,8 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Core Disciplines</p>
-          <h2 className="text-4xl md:text-6xl font-serif text-[#1A1A1A]">Select a Project Category</h2>
+          <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em] mb-4">Core Disciplines</p>
+          <h2 className="text-4xl md:text-6xl font-serif text-agri-earth-900">Select a Project Category</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
@@ -134,7 +134,7 @@ const Projects = () => {
                   </div>
 
                   {/* Corner arrow */}
-                  <div className="absolute top-8 right-8 w-12 h-12 bg-[#C5A03F] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-500 shadow-lg">
+                  <div className="absolute top-8 right-8 w-12 h-12 bg-agri-gold-500 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-500 shadow-lg">
                     <ArrowRight className="w-5 h-5 text-white" />
                   </div>
 
@@ -148,7 +148,7 @@ const Projects = () => {
                         {desc}
                       </p>
                     )}
-                    <div className="flex items-center gap-2 text-[#C5A03F] text-[10px] font-bold uppercase tracking-widest mt-5 opacity-0 group-hover:opacity-100 transition-all duration-500 -translate-y-2 group-hover:translate-y-0">
+                    <div className="flex items-center gap-2 text-agri-gold-500 text-[10px] font-bold uppercase tracking-widest mt-5 opacity-0 group-hover:opacity-100 transition-all duration-500 -translate-y-2 group-hover:translate-y-0">
                       Explore Projects <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   </div>
@@ -160,7 +160,7 @@ const Projects = () => {
       </section>
 
       {/* ── Stats Banner ── */}
-      <section className="py-28 bg-[#0D1F15]">
+      <section className="py-28 bg-agri-green-900">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-0 divide-x divide-white/10">
             {[
@@ -177,7 +177,7 @@ const Projects = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
               >
-                <p className="text-4xl md:text-5xl font-serif text-[#C5A03F] mb-2">{stat.value}</p>
+                <p className="text-4xl md:text-5xl font-serif text-agri-gold-500 mb-2">{stat.value}</p>
                 <p className="text-white font-bold text-sm mb-1">{stat.label}</p>
                 <p className="text-white/30 text-[11px] font-medium">{stat.sub}</p>
               </motion.div>
@@ -187,7 +187,7 @@ const Projects = () => {
       </section>
 
       {/* ── IGO Promise Strip ── */}
-      <section className="py-20 bg-[#F4F8F4] border-y border-[#1A4231]/10">
+      <section className="py-20 bg-agri-earth-50 border-y border-agri-green-800/10">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-10">
             {[
@@ -203,9 +203,9 @@ const Projects = () => {
                 transition={{ duration: 0.7, delay: i * 0.1 }}
                 className="flex gap-5"
               >
-                <div className="w-1 bg-[#C5A03F] rounded-full shrink-0 self-stretch" />
+                <div className="w-1 bg-agri-gold-500 rounded-full shrink-0 self-stretch" />
                 <div>
-                  <h4 className="text-lg font-bold text-[#1A1A1A] mb-2">{p.title}</h4>
+                  <h4 className="text-lg font-bold text-agri-earth-900 mb-2">{p.title}</h4>
                   <p className="text-black/50 text-sm leading-relaxed">{p.desc}</p>
                 </div>
               </motion.div>
@@ -222,8 +222,8 @@ const Projects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="text-[#C5A03F] font-bold text-[10px] uppercase tracking-[0.35em] mb-6">Ready to Build?</p>
-            <h2 className="text-4xl md:text-6xl font-serif text-[#1A1A1A] mb-8 leading-tight">
+            <p className="text-agri-gold-500 font-bold text-[10px] uppercase tracking-[0.35em] mb-6">Ready to Build?</p>
+            <h2 className="text-4xl md:text-6xl font-serif text-agri-earth-900 mb-8 leading-tight">
               Ready to build your <br />enterprise farm?
             </h2>
             <p className="text-black/50 text-lg leading-relaxed mb-12 font-light">
@@ -232,7 +232,7 @@ const Projects = () => {
             <div className="flex flex-wrap justify-center gap-5">
               <Link
                 to="/contact"
-                className="px-12 py-5 bg-[#1A4231] text-white text-[10px] font-bold rounded-full hover:bg-black transition-all uppercase tracking-widest shadow-xl shadow-[#1A4231]/25 inline-flex items-center gap-3"
+                className="px-12 py-5 bg-agri-green-800 text-white text-[10px] font-bold rounded-full hover:bg-black transition-all uppercase tracking-widest shadow-xl shadow-agri-green-800/25 inline-flex items-center gap-3"
               >
                 Get Started <ArrowRight className="w-4 h-4" />
               </Link>

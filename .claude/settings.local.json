@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(file public/assets/projects/main page/*.jpg)"
+      "Bash(file public/assets/projects/main page/*.jpg)",
+      "Bash(npx tsc:*)"
     ]
   }
 }

@@ -50,7 +50,7 @@ const AdsLogin = () => {
             className="h-11 object-contain mx-auto mb-5 invert brightness-0 invert opacity-80"
           />
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/15 border border-primary/25 mb-4">
-            <Lock className="w-6 h-6 text-[#6FD898]" />
+            <Lock className="w-6 h-6 text-agri-mint-400" />
           </div>
           <h1 className="text-white text-2xl font-black tracking-tight">Advertising Portal</h1>
           <p className="text-white/35 text-sm mt-1.5 font-medium">IGO Agritech Farms — Internal Access Only</p>
@@ -111,7 +111,7 @@ const AdsLogin = () => {
               <button
                 type="button"
                 onClick={() => setShowForgot(true)}
-                className="text-[#6FD898]/60 hover:text-[#6FD898] text-xs font-semibold transition-colors"
+                className="text-agri-mint-400/60 hover:text-agri-mint-400 text-xs font-semibold transition-colors"
               >
                 Forgot Password?
               </button>
@@ -186,7 +186,7 @@ const AdsLogin = () => {
                 <X className="w-4 h-4" />
               </button>
               <div className="w-12 h-12 rounded-xl bg-primary/15 border border-primary/25 flex items-center justify-center mx-auto mb-4">
-                <Phone className="w-5 h-5 text-[#6FD898]" />
+                <Phone className="w-5 h-5 text-agri-mint-400" />
               </div>
               <h3 className="text-white font-black text-lg mb-2">Reset Password</h3>
               <p className="text-white/50 text-sm leading-relaxed mb-5">
@@ -194,7 +194,7 @@ const AdsLogin = () => {
               </p>
               <a
                 href="tel:+917397789803"
-                className="inline-flex items-center gap-2 px-5 py-3 bg-primary/15 border border-primary/25 text-[#6FD898] font-bold text-sm rounded-xl hover:bg-primary/25 transition-all"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-primary/15 border border-primary/25 text-agri-mint-400 font-bold text-sm rounded-xl hover:bg-primary/25 transition-all"
               >
                 <Phone className="w-4 h-4" />
                 +91 73977 89803

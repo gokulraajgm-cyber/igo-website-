@@ -12,7 +12,8 @@ import {
 export const companyInfo = {
   name: "IGO Agritech Farms",
   tagline: "India's Leading Agri Engineering & Agri Consulting Brand",
-  logo: "https://www.igoagritechfarms.com/images/logo.png",
+  logo: "/assets/logo igo.jpg",
+  msmeAward: "MSME 2024 Award - Best Agri-Consulting Brand",
   vision: "To be the leading pan-India brand in precision agriculture, empowering farmers with innovative, sustainable engineering that maximizes ROI while nurturing the earth.",
   mission: "To win lifetime loyal customers across pan-India by farming every square meter of land/space using high-tech engineering, professional consulting, and smart livestock ecosystems.",
   description: "IGO Agritech Farms is a leading agricultural solutions provider that has made a significant impact in the industry. Over the years, the company has received numerous awards and recognition for its excellence in the field of agriculture.",
@@ -39,9 +40,9 @@ export const companyInfo = {
 };
 
 export const stats = [
-  { label: "Years of Experience", value: "10+" },
-  { label: "Successful Projects", value: "1,000+" },
-  { label: "Team Members", value: "2,000+" },
+  { label: "Years of Experience", value: "15+" },
+  { label: "Successful Projects", value: "10,000+" },
+  { label: "Team Members", value: "6,000+" },
   { label: "Winning Awards", value: "75+" },
 ];
 
@@ -582,7 +583,7 @@ export const navLinks = [
       {
         label: "Agri Farming Projects",
         href: "/projects/agri",
-        icon: "/assets/header/project drop down icon/agri_farming.jpg",
+        icon: "/assets/header/project drop down icon/agri farm projects .jpg",
         cardImage: "/assets/projects/main page/agri farming project .jpg",
         children: [
           {
@@ -704,7 +705,7 @@ export const navLinks = [
       {
         label: "Aquaculture Farming Projects",
         href: "/projects/aquaculture",
-        icon: "/assets/header/project drop down icon/aquaculture.jpg",
+        icon: "/assets/header/project drop down icon/aquaculture farming projects .jpg",
         cardImage: "/assets/projects/main page/aquaculture farming .jpg",
         children: [
           {
@@ -757,7 +758,7 @@ export const navLinks = [
       {
         label: "Livestock Farming Projects",
         href: "/projects/livestock",
-        icon: "/assets/header/project drop down icon/livestock farming.jpg",
+        icon: "/assets/header/project drop down icon/livestock farming projecs .jpg",
         cardImage: "/assets/projects/main page/livestock farming.jpg",
         children: [
           {
@@ -809,7 +810,7 @@ export const navLinks = [
       {
         label: "Farm Engineering Projects",
         href: "/projects/engineering",
-        icon: "/assets/header/project drop down icon/farm_engineering_new_icon.png",
+        icon: "/assets/header/project drop down icon/farm engineering projects.jpg",
         cardImage: "/assets/projects/main page/farm engineering .jpg",
         children: [
           {
@@ -1015,3 +1016,84 @@ export const navLinks = [
   { label: "About", href: "/about", icon: "🏢" },
   { label: "IGO Academy", href: "/courses", icon: "🎓" },
 ];
+
+export const igoBrands = [
+  { id: "igo-agritech-farms", name: "IGO Agritech Farms", logo: "/assets/brands/brand-1.jpg.jpeg", tag: "Core Business", desc: "India's leading Agri Engineering & Consulting brand — polyhouse, hydroponics, vertical farming, precision farming and livestock projects. Pan-India. MSME Award 2024." },
+  { id: "farmers-factory", name: "Farmers Factory", logo: "/assets/brands/brand-2.jpg.jpeg", tag: "Processing & Mfg", desc: "Farm to shop distribution brand. Bringing fresh farm produce directly to retail stores and consumers across India." },
+  { id: "valluvam", name: "Valluvam", logo: "/assets/brands/brand-3.jpg.jpeg", tag: "Agri Consultancy", desc: "Branded grocery staples celebrating Tamil heritage. Quality everyday essentials — As Pure As Nature." },
+  { id: "protein-cuts", name: "Protein Cuts", logo: "/assets/brands/brand-4.jpg.jpeg", tag: "Farm-to-Table", desc: "Premium meat, fish, and eggs retail brand. Fresh protein products straight from IGO's own livestock farms." },
+  { id: "igo-agrimart", name: "IGO Agri Mart", logo: "/assets/brands/brand-5.jpg.jpeg", tag: "Distribution", desc: "Farm inputs and distribution network connecting quality agricultural inputs directly to farmers across India." },
+  { id: "igo-nursery", name: "IGO Nursery", logo: "/assets/brands/brand-6.jpg.jpeg", tag: "Plant Propagation", desc: "Premium nursery and landscaping solutions — supplying quality plants, seeds and horticultural products pan-India." },
+  { id: "palm-cafe", name: "Palm Cafe", logo: "/assets/brands/palm-cafe.jpeg", tag: "F&B", desc: "The Healthy Food Joint — farm-to-table F&B brand creating 5,000 jobs for youth using IGO's own farm produce." },
+  { id: "igo-exports-imports", name: "IGO Exports & Imports", logo: "/assets/brands/igo-exports.jpeg", tag: "Trade", desc: "International trade division connecting Indian agri products to global markets and bringing world-class inputs to India." },
+  { id: "igo-tech-farming-scientists", name: "IGO Tech Farming Scientist Foundation", logo: "/assets/brands/igo-foundation.jpeg", tag: "Foundation", desc: "Research and education foundation advancing agri-science and technology for the next generation of tech farming scientists." },
+  { id: "igo-mart", name: "IGO Mart", logo: "", tag: "Retail", desc: "Supermarket chain offering quality products at accessible prices — part of IGO Group's consumer retail vision." },
+  { id: "igo-fintech", name: "IGO Fintech", logo: "", tag: "Fintech", desc: "Micro finance unit providing financial access and support to farmers and agricultural entrepreneurs across India." },
+  { id: "igo-farm-land-estates", name: "IGO Farm Land Estates", logo: "", tag: "Real Estate", desc: "Agricultural land and property development — creating investment opportunities in farmland across India." },
+  { id: "igo-wealth-management", name: "IGO Wealth Management Services", logo: "", tag: "Investment", desc: "JV investment project providing wealth management and financial planning services to IGO Group stakeholders." },
+  { id: "igo-franchise", name: "IGO Franchise", logo: "", tag: "Franchise", desc: "Franchise operations division expanding IGO Group brands across India through a structured franchise model." },
+  { id: "igo-farmgate-mandi", name: "IGO Farmgate Mandi", logo: "", tag: "Programme", desc: "Guaranteed buy-back programme for farmers — empowering agricultural entrepreneurs with assured market access." },
+  { id: "igo-crop-care", name: "IGO Crop Care", logo: "", tag: "Agri Input", desc: "Quality crop care solutions for optimum yield and sustainable farming practices across all crop types." },
+  { id: "igo-organic-pharmacy", name: "IGO Organic Pharmacy", logo: "", tag: "Healthcare", desc: "Future division developing organic pharmaceutical products from IGO's farm network — bridging agriculture and health." },
+  { id: "igo-natural-cosmetics", name: "IGO Natural Cosmetics", logo: "", tag: "Lifestyle", desc: "Future personal care brand using natural farm-sourced ingredients. Farm to skin — the next frontier for IGO Group." },
+  { id: "igo-farm-factories", name: "IGO Farm Factories", logo: "", tag: "Infrastructure", desc: "Industrial-scale farm facilities integrating processing, storage, and logistics for high-efficiency agri-chains." },
+  { id: "igo-agrimart-sub", name: "IGO AgriMart", logo: "", tag: "Distribution", desc: "Specialized input supply centers for advanced farming technologies and sustainable inputs." },
+  { id: "india-green", name: "India Green", logo: "", tag: "Sustainability", desc: "Environmental conservation and green initiative division focused on carbon neutrality and sustainable agri-ecosystems." },
+  { id: "india-green-organics", name: "India Green Organics", desc: "Certified organic production and distribution arm ensuring chemical-free food for a healthier India.", logo: "", tag: "Organic" },
+  { id: "igo-farm-loans-subsidy", name: "IGO Farm Loans, Subsidy & Grants", logo: "", tag: "Finance", desc: "Expert guidance and financial facilitation for farmers to access government agricultural subsidies and low-interest loans." },
+  { id: "igo-farm-automation", name: "IGO Farm Automation", logo: "", tag: "Technology", desc: "Smart farm hardware and software solutions—IoT, sensors, and automated climate control for precision agriculture." },
+  { id: "igo-training-courses", name: "IGO Training Courses", logo: "", tag: "Education", desc: "Skill development and masterclasses for modern farming techniques, certified by industry experts." },
+  { id: "igo-green-energy", name: "IGO Green Energy", logo: "", tag: "Energy", desc: "Renewable energy solutions for farms, including solar water pumps and solar agri-grid integration." },
+];
+
+export const indiaPresence = {
+  stats: [
+    { label: "Happy Clients", value: "15,000+", sublabel: "Verified Metric" },
+    { label: "Projects Done", value: "15,000+", sublabel: "Verified Metric" },
+    { label: "Experience", value: "15+ Years", sublabel: "Verified Metric" },
+    { label: "Employees", value: "2,000+", sublabel: "Verified Metric" },
+    { label: "Awards Won", value: "75+", sublabel: "Verified Metric" },
+    { label: "States Covered", value: "28+", sublabel: "Verified Metric" },
+  ],
+  states: [
+    { name: "Andhra Pradesh", isHub: true },
+    { name: "Arunachal Pradesh", isHub: false },
+    { name: "Assam", isHub: false },
+    { name: "Bihar", isHub: false },
+    { name: "Chhattisgarh", isHub: false },
+    { name: "Goa", isHub: false },
+    { name: "Gujarat", isHub: false },
+    { name: "Haryana", isHub: false },
+    { name: "Himachal Pradesh", isHub: false },
+    { name: "Jharkhand", isHub: false },
+    { name: "Karnataka", isHub: true },
+    { name: "Kerala", isHub: false },
+    { name: "Madhya Pradesh", isHub: false },
+    { name: "Maharashtra", isHub: true },
+    { name: "Manipur", isHub: false },
+    { name: "Meghalaya", isHub: false },
+    { name: "Mizoram", isHub: false },
+    { name: "Nagaland", isHub: false },
+    { name: "Odisha", isHub: false },
+    { name: "Punjab", isHub: false },
+    { name: "Rajasthan", isHub: false },
+    { name: "Sikkim", isHub: false },
+    { name: "Tamil Nadu", isHub: true },
+    { name: "Telangana", isHub: false },
+    { name: "Tripura", isHub: false },
+    { name: "Uttar Pradesh", isHub: true },
+    { name: "Uttarakhand", isHub: false },
+    { name: "West Bengal", isHub: false },
+  ],
+  unionTerritories: [
+    { name: "Andaman & Nicobar", isHub: false },
+    { name: "Chandigarh", isHub: false },
+    { name: "Dadra & Nagar Haveli", isHub: false },
+    { name: "Daman & Diu", isHub: false },
+    { name: "Delhi / NCR", isHub: true },
+    { name: "Jammu & Kashmir", isHub: false },
+    { name: "Ladakh", isHub: false },
+    { name: "Lakshadweep", isHub: false },
+    { name: "Puducherry", isHub: false },
+  ]
+};

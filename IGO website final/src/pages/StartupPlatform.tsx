@@ -30,7 +30,7 @@ const StartupPlatform = () => (
       </motion.div>
     </section>
 
-    <section className="py-40 bg-[#F5F5F7]">
+    <section className="py-40 bg-agri-earth-100">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {[

@@ -9,8 +9,8 @@ import { getActiveOffers, initDefaultOffers, OfferPoster } from "@/data/offersDa
    background AND the poster image, so they dissolve together.
 ───────────────────────────────────────────────────────────── */
 const fadeIn  = { opacity: 0 };
-const fadeOut = { opacity: 0, transition: { duration: 0.55, ease: "easeInOut" } };
-const visible = { opacity: 1, transition: { duration: 0.65, ease: "easeInOut" } };
+const fadeOut = { opacity: 0, transition: { duration: 0.55, ease: "easeInOut" as const } };
+const visible = { opacity: 1, transition: { duration: 0.65, ease: "easeInOut" as const } };
 
 /* ─── Badge colours ──────────────────────────────────────────── */
 const BADGE_COLOR: Record<string, string> = {
@@ -63,7 +63,8 @@ const Slide = ({
       initial={fadeIn}
       animate={visible}
       exit={fadeOut}
-      className="absolute inset-0 flex flex-col"
+      className="absolute inset-0 flex flex-col pt-[max(env(safe-area-inset-top),_0px)]"
+      style={{ willChange: "opacity", WebkitTransform: "translateZ(0)" }}
       onMouseEnter={onPause}
       onMouseLeave={onResume}
       onTouchStart={e => { touchX.current = e.touches[0].clientX; }}
@@ -89,9 +90,10 @@ const Slide = ({
             draggable={false}
             className="absolute inset-0 w-full h-full object-cover"
             style={{
-              transform:  "scale(1.55)",   // overshoot edges so blur has no gaps
-              filter:     "blur(90px)",    // heavy blur — only colour, no detail
+              transform:  "scale(1.55) translateZ(0)",
+              filter:     "blur(90px)",
               opacity:    0.72,
+              willChange: "opacity, transform, filter",
             }}
           />
         ) : (

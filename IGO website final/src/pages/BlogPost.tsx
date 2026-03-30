@@ -44,7 +44,7 @@ const BlogPost = () => {
 
       <article className="pb-16">
         {/* Article Header — Horizontal Layout */}
-        <header className="py-12 md:py-16 bg-[#FDFDFB] border-b border-black/[0.05] relative overflow-hidden">
+        <header className="py-12 md:py-16 bg-agri-earth-15 border-b border-black/[0.05] relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(26,66,49,0.04),transparent_55%)]" />
 
           <div className="container mx-auto px-6 max-w-7xl relative z-10">
@@ -170,7 +170,7 @@ const BlogPost = () => {
       </article>
 
       {/* Suggested Reading */}
-      <section className="py-14 bg-[#F9F9F7] border-t border-black/[0.05]">
+      <section className="py-14 bg-agri-earth-25 border-t border-black/[0.05]">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-10">
             <div>

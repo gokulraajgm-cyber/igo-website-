@@ -16,7 +16,7 @@ const FAQ = () => {
   );
 
   return (
-    <div className="pt-20 bg-[#FDFDFB]">
+    <div className="pt-20 bg-agri-earth-15">
       <SEO
         title="FAQ | Frequently Asked Questions — IGO Agritech Farms"
         description="Find answers to common questions about IGO Agritech Farms' services, polyhouse construction, hydroponics setup, agri consulting, pricing, and project timelines."
@@ -135,7 +135,7 @@ const FAQ = () => {
                 </a>
               </div>
 
-              <div className="p-10 rounded-[3rem] border border-black/[0.03] bg-[#F9F9F7]">
+              <div className="p-10 rounded-[3rem] border border-black/[0.03] bg-agri-earth-25">
                 <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-black/30 mb-8 border-b border-black/5 pb-4">Social Support</h4>
                 <div className="grid grid-cols-2 gap-4">
                   <a href="#" className="flex flex-col items-center justify-center p-6 bg-white border border-black/5 rounded-3xl hover:border-primary/20 transition-all group">

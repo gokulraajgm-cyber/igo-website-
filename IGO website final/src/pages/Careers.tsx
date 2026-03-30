@@ -15,7 +15,7 @@ const departments = [
     emoji: "🌿",
     color: "bg-green-50 border-green-200 text-green-700",
     iconBg: "bg-green-100",
-    image: "/assets/career images/farm.webp",
+    image: "/assets/careers/farm-manager.png",
     vacancies: 20,
     roles: ["Farm Manager", "Assistant Farm Manager", "Crop Production Specialist", "Farm Operations Executive", "Agri Supervisor"],
     qualification: "B.Sc. Agriculture / B.Tech Agriculture Engineering",
@@ -29,7 +29,7 @@ const departments = [
     emoji: "🍄",
     color: "bg-purple-50 border-purple-200 text-purple-700",
     iconBg: "bg-purple-100",
-    image: null,
+    image: "/assets/careers/mushroom.png",
     vacancies: 5,
     roles: ["Mushroom Farm Technician", "Substrate Preparation Staff", "Harvest & Packaging Executive", "Spawn Production Technician", "Quality Control – Mushroom"],
     qualification: "Any Degree / Diploma in Mushroom Cultivation",
@@ -42,7 +42,7 @@ const departments = [
     emoji: "💧",
     color: "bg-cyan-50 border-cyan-200 text-cyan-700",
     iconBg: "bg-cyan-100",
-    image: null,
+    image: "/assets/careers/hydroponics.png",
     vacancies: 3,
     roles: ["Hydroponics Technician", "NFT System Operator", "Nutrient Management Specialist"],
     qualification: "B.Sc. Agriculture / Diploma in Horticulture",
@@ -56,7 +56,7 @@ const departments = [
     emoji: "📈",
     color: "bg-blue-50 border-blue-200 text-blue-700",
     iconBg: "bg-blue-100",
-    image: "/assets/career images/businessdev.webp",
+    image: "/assets/careers/business-dev.png",
     vacancies: 5,
     roles: ["Business Development Executive", "Business Development Manager", "Sales Executive", "Area Sales Manager", "Client Relationship Executive"],
     qualification: "Any Degree",
@@ -69,7 +69,7 @@ const departments = [
     emoji: "📣",
     color: "bg-violet-50 border-violet-200 text-violet-700",
     iconBg: "bg-violet-100",
-    image: "/assets/career images/digital.webp",
+    image: "/assets/careers/digital-marketing.png",
     vacancies: 6,
     roles: ["Digital Marketing Manager", "SEO Analyst", "Content Creator", "Video Editor", "Social Media Executive", "Accounts Executive"],
     qualification: "Any Degree",
@@ -82,7 +82,7 @@ const departments = [
     emoji: "🌱",
     color: "bg-emerald-50 border-emerald-200 text-emerald-700",
     iconBg: "bg-emerald-100",
-    image: "/assets/career images/agrieng.jpg",
+    image: "/assets/careers/agri-engineering.png",
     vacancies: 5,
     roles: ["Agri Project Engineer", "Agronomist", "Horticulturist", "Irrigation Specialist", "Soil Scientist"],
     qualification: "B.Sc. / B.Tech – Agriculture, Agronomy, Horticulture, Soil Science, Forestry",
@@ -95,7 +95,7 @@ const departments = [
     emoji: "🏗️",
     color: "bg-orange-50 border-orange-200 text-orange-700",
     iconBg: "bg-orange-100",
-    image: "/assets/career images/civil.webp",
+    image: "/assets/careers/civil-engineering.png",
     vacancies: 4,
     roles: ["Civil Engineer", "Site Supervisor", "Structural Engineer", "Project Coordinator"],
     qualification: "B.E. Civil Engineering",
@@ -108,7 +108,7 @@ const departments = [
     emoji: "🏭",
     color: "bg-yellow-50 border-yellow-200 text-yellow-700",
     iconBg: "bg-yellow-100",
-    image: "/assets/career images/ffff.webp",
+    image: "/assets/careers/factory-ops.png",
     vacancies: 4,
     roles: ["Operations Executive", "Production Staff", "Packing Executive", "Unskilled Labour"],
     qualification: "Any Degree",
@@ -121,7 +121,7 @@ const departments = [
     emoji: "🚚",
     color: "bg-sky-50 border-sky-200 text-sky-700",
     iconBg: "bg-sky-100",
-    image: "/assets/career images/driver.webp",
+    image: "/assets/careers/logistics.png",
     vacancies: 3,
     roles: ["Logistics Manager", "Supply Chain Executive", "Driver"],
     qualification: "Any Degree",
@@ -134,7 +134,7 @@ const departments = [
     emoji: "✅",
     color: "bg-teal-50 border-teal-200 text-teal-700",
     iconBg: "bg-teal-100",
-    image: "/assets/career images/purchase.jpg",
+    image: "/assets/careers/quality-control.png",
     vacancies: 3,
     roles: ["QC Manager", "Quality Inspector", "Lab Technician"],
     qualification: "Any Degree / Science Background",
@@ -147,7 +147,7 @@ const departments = [
     emoji: "🌾",
     color: "bg-lime-50 border-lime-200 text-lime-700",
     iconBg: "bg-lime-100",
-    image: "/assets/career images/delivery.jpg",
+    image: "/assets/careers/field-exec.png",
     vacancies: 3,
     roles: ["Field Executive", "Field Coordinator", "Ground-Level Supervisor"],
     qualification: "Any Degree",
@@ -160,7 +160,7 @@ const departments = [
     emoji: "📦",
     color: "bg-amber-50 border-amber-200 text-amber-700",
     iconBg: "bg-amber-100",
-    image: "/assets/career images/ware.webp",
+    image: "/assets/careers/warehouse.png",
     vacancies: 3,
     roles: ["Warehouse Incharge", "Inventory Executive", "Store Keeper"],
     qualification: "Any Degree",
@@ -173,7 +173,7 @@ const departments = [
     emoji: "🐄",
     color: "bg-rose-50 border-rose-200 text-rose-700",
     iconBg: "bg-rose-100",
-    image: "/assets/career images/live.webp",
+    image: "/assets/careers/livestock.png",
     vacancies: 3,
     roles: ["Livestock Manager", "Veterinary Assistant", "Animal Husbandry Specialist"],
     qualification: "Animal Husbandry / Bachelor of Veterinary Science",
@@ -259,7 +259,7 @@ const Careers = () => {
       />
 
       {/* ── HERO ── */}
-      <section className="relative bg-[#0C1A14] overflow-hidden pt-20">
+      <section className="relative bg-agri-green-950 overflow-hidden pt-20">
         {/* Decorative circles */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-primary/5 blur-[80px] translate-y-1/2 -translate-x-1/4 pointer-events-none" />
@@ -274,12 +274,12 @@ const Careers = () => {
               transition={{ duration: 0.7 }}
               className="max-w-xl"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-[#6FD898] text-[10px] font-black uppercase tracking-[0.3em] mb-6 border border-white/20">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-agri-mint-400 text-[10px] font-black uppercase tracking-[0.3em] mb-6 border border-white/20">
                 We're Hiring · {departments.length} Departments Open
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-white mb-5">
                 Build Your Career in <br />
-                <span className="text-[#6FD898] italic font-serif">India's #1 Agritech</span> Brand
+                <span className="text-agri-mint-400 italic font-serif">India's #1 Agritech</span> Brand
               </h1>
               <p className="text-white/70 text-base font-medium leading-relaxed mb-8">
                 Join 2000+ passionate professionals working across polyhouse engineering, hydroponics, livestock, marketing, and more — shaping the future of Indian agriculture.
@@ -287,7 +287,7 @@ const Careers = () => {
               <div className="flex flex-wrap gap-4">
                 <a
                   href="#openings"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#6FD898] text-[#0C1A14] font-bold text-sm hover:bg-[#4ade80] transition-all group"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-agri-mint-400 text-agri-green-950 font-bold text-sm hover:bg-[#4ade80] transition-all group"
                 >
                   Browse Openings <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
@@ -314,7 +314,7 @@ const Careers = () => {
                 { value: "75+", label: "Awards Won", icon: <CheckCircle className="w-5 h-5" /> },
               ].map((s) => (
                 <div key={s.label} className="bg-white/10 border border-white/20 rounded-2xl p-5 hover:bg-white/15 transition-colors">
-                  <div className="text-[#6FD898] mb-2">{s.icon}</div>
+                  <div className="text-agri-mint-400 mb-2">{s.icon}</div>
                   <div className="text-2xl font-bold text-white mb-1">{s.value}</div>
                   <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/55">{s.label}</div>
                 </div>
@@ -345,7 +345,7 @@ const Careers = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative bg-[#FDFDFB] rounded-2xl p-7 border border-border hover:border-primary/30 hover:shadow-lg transition-all group overflow-hidden"
+                className="relative bg-agri-earth-15 rounded-2xl p-7 border border-border hover:border-primary/30 hover:shadow-lg transition-all group overflow-hidden"
               >
                 {/* Accent corner */}
                 <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-primary/10 transition-colors" />
@@ -366,7 +366,7 @@ const Careers = () => {
       </section>
 
       {/* ── OPEN POSITIONS ── */}
-      <section id="openings" className="py-16 bg-[#F9F9F7]">
+      <section id="openings" className="py-16 bg-agri-earth-25">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
             <div>
@@ -386,16 +386,16 @@ const Careers = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.04 }}
-                className={`bg-white rounded-2xl border overflow-hidden shadow-sm hover:shadow-md transition-shadow ${dept.featured ? "border-[#1A4231]/40 ring-1 ring-[#1A4231]/20" : "border-border"}`}
+                className={`bg-white rounded-2xl border overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col h-full group ${dept.featured ? "border-agri-green-800/40 ring-1 ring-agri-green-800/20" : "border-border"}`}
               >
                 {/* Photo hero — full bleed at top */}
-                <div className="relative h-56 overflow-hidden bg-[#F0F4F0]">
+                <div className="relative aspect-[4/3] sm:aspect-video shrink-0 w-full overflow-hidden bg-[#F0F4F0]">
                   {dept.image ? (
                     <img
                       src={dept.image}
                       alt={dept.name}
                       loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover object-top"
+                      className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     />
                   ) : (
                     <div className={`absolute inset-0 ${dept.iconBg} flex items-center justify-center text-5xl opacity-30`}>
@@ -407,8 +407,8 @@ const Careers = () => {
 
                   {/* Featured banner on top-left */}
                   {dept.featured && (
-                    <div className="absolute top-0 left-0 right-0 bg-[#1A4231] text-white text-[9px] font-black uppercase tracking-widest px-5 py-2 flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#6FD898] animate-pulse shrink-0" />
+                    <div className="absolute top-0 left-0 right-0 bg-agri-green-800 text-white text-[9px] font-black uppercase tracking-widest px-5 py-2 flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-agri-mint-400 animate-pulse shrink-0" />
                       Featured Opening · High Demand
                     </div>
                   )}
@@ -428,14 +428,14 @@ const Careers = () => {
                 </div>
 
                 {/* Roles + Qualification + Languages */}
-                <div className="px-6 pb-5">
+                <div className="px-6 pb-5 flex-1 flex flex-col">
                   <div className="pt-4 mb-4">
                     <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground mb-3">Roles</p>
                     <div className="flex flex-wrap gap-2">
                       {dept.roles.map((role) => (
                         <span
                           key={role}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F9F9F7] border border-border text-sm font-medium"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-agri-earth-25 border border-border text-sm font-medium"
                         >
                           <CheckCircle className="w-3 h-3 text-primary" />
                           {role}
@@ -443,7 +443,7 @@ const Careers = () => {
                       ))}
                     </div>
                   </div>
-                  <div className="flex flex-col gap-4 pt-3 border-t border-border/60">
+                  <div className="flex flex-col gap-4 pt-3 border-t border-border/60 mt-auto">
                     <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                       <div>
                         <p className="text-[10px] font-black uppercase tracking-[0.25em] text-muted-foreground mb-1">Qualification</p>
@@ -453,7 +453,7 @@ const Careers = () => {
                         <p className="text-[10px] font-black uppercase tracking-[0.25em] text-muted-foreground mb-1.5">Languages Required</p>
                         <div className="flex flex-wrap gap-1.5">
                           {dept.languages.map((lang: string) => (
-                            <span key={lang} className="px-2 py-0.5 rounded-full bg-[#E8F5E9] text-[#1A4231] text-[10px] font-bold">{lang}</span>
+                            <span key={lang} className="px-2 py-0.5 rounded-full bg-agri-green-50 text-agri-green-800 text-[10px] font-bold">{lang}</span>
                           ))}
                         </div>
                       </div>
@@ -524,7 +524,7 @@ const Careers = () => {
       </section>
 
       {/* ── CAREER APPLICATION FORM ── */}
-      <section id="careers-apply-form" className="py-20 bg-[#0C1A14] relative overflow-hidden">
+      <section id="careers-apply-form" className="py-20 bg-agri-green-950 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-primary/10 blur-[120px]" />
         </div>
@@ -608,9 +608,9 @@ const Careers = () => {
                       value={applyForm.department} onChange={handleApplyChange}
                       className="w-full bg-white/8 border border-white/15 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition"
                     >
-                      <option value="" className="bg-[#0C1A14]">Select department</option>
+                      <option value="" className="bg-agri-green-950">Select department</option>
                       {departments.map(d => (
-                        <option key={d.name} value={d.name} className="bg-[#0C1A14]">{d.name}</option>
+                        <option key={d.name} value={d.name} className="bg-agri-green-950">{d.name}</option>
                       ))}
                     </select>
                   </div>
